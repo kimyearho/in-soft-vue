@@ -3,40 +3,63 @@
     app
     clipped
     :mini-variant="!isHide"
-    :mini-variant-width="80"
   >
     <v-list>
+      <!-- //* 권한 라우트 목록을 반복한다. -->
       <template v-for="item in permissionRouters">
-        <!-- //? 하위 메뉴가 포함된 대메뉴 -->
+        <!-- //* 조건에 부합하는 리스트 그룹을 생성한다. (1 depts) -->
         <v-list-group
           v-if="!item.hidden && item.children"
           :key="item.path"
           :prepend-icon="item.meta ? item.meta.icon : ''"
         >
+          <!-- //* 그룹 제목 -->
           <template v-slot:activator>
             <v-list-item-title>
               {{ item.meta.title }}
             </v-list-item-title>
           </template>
-          <!-- //? 대메뉴에 포함된 하위메뉴 목록 그리기 -->
-          <v-list-item
-            v-for="(child, i) in item.children"
-            :key="i"
-            :style="{marginLeft: '56px'}"
-            link
-          >
-            <!-- //? 하위 메뉴에도 아이콘을 사용하려면 이것을 사용 -->
-            <!-- <v-list-item-action v-if="child.meta.icon">
-              <v-icon>{{ child.meta.icon }}</v-icon>
-            </v-list-item-action> -->
-            <!-- //? -->
-            <v-list-item-title @click="routerLink(item, child)">
-              <!-- //? 라우터 링크는 실제 a태그로 변환된다. -->
-              <router-link :to="item.path === '/' ? '/' + child.path : item.path +'/' + child.path">
-                {{ child.meta.title }}
-              </router-link>
-            </v-list-item-title>
-          </v-list-item>
+
+          <!-- //? 그룹에 자식이 있을경우 반복한다. -->
+          <template v-for="child in item.children">
+            <!-- //? 자식내에 또다른 자식 객체가 없으면 (2 depts) -->
+            <div
+              v-if="!child.children"
+              :key="child.path"
+            >
+              <v-list-item
+                :style="{marginLeft: '56px'}"
+                link
+                @click="routerLink('', item, child)"
+              >
+                <v-list-item-title> {{ child.meta.title }}</v-list-item-title>
+              </v-list-item>
+            </div>
+            <!-- //? 자식내에 또다른 자식 객체가 있을경우 그룹을 생성한다. -->
+            <v-list-group
+              v-else
+              :key="child.path"
+              sub-group
+            >
+              <template v-slot:activator>
+                <v-list-item-title>
+                  {{ child.meta.title }}
+                </v-list-item-title>
+              </template>
+
+              <!-- //? 그룹 하위 메뉴를 생성한다. (3 depts) -->
+              <v-list-item
+                v-for="(nestChild, i) in child.children"
+                :key="i"
+                :style="{marginLeft: '56px'}"
+                @click="routerLink(item, child, nestChild)"
+              >
+                <v-list-item-title>
+                  {{ nestChild.meta.title }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list-group>
+          </template>
         </v-list-group>
       </template>
     </v-list>
@@ -58,9 +81,14 @@ export default {
     ...mapGetters(['permissionRouters'])
   },
   methods: {
-    routerLink(item, child) {
-      const to = item.path === '/' ? '/' + child.path : item.path + '/' + child.path
-      this.$router.push(to)
+    routerLink(root, item, child) {
+      const to =
+        item.path === '/' ? '/' + child.path : item.path + '/' + child.path
+      if (root) {
+        this.$router.push(root.path + '/' + to)
+      } else {
+        this.$router.push(to)
+      }
     }
   }
 }
