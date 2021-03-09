@@ -12,6 +12,7 @@
           v-if="!item.hidden && item.children"
           :key="item.path"
           :prepend-icon="item.meta ? item.meta.icon : ''"
+          no-action
         >
           <!-- //* 그룹 제목 -->
           <template v-slot:activator>
@@ -79,6 +80,9 @@ export default {
   }),
   computed: {
     ...mapGetters(['permissionRouters'])
+  },
+  mounted() {
+    this.$log.info(this.$route)
   },
   methods: {
     routerLink(root, item, child) {
