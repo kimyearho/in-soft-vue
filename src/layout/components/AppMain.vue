@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-card>
       <!-- //? 브래드크럼 -->
-      <breadcrumb />
+      <!-- <breadcrumb /> -->
     </v-card>
     <v-row align="center">
       <v-col cols="12">
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import Breadcrumb from '@/components/Breadcrumb'
+// import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   name: 'AppMain',
   components: {
-    Breadcrumb
+    // Breadcrumb
   },
   computed: {
     key() {

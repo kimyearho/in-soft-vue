@@ -101,6 +101,17 @@ export default {
       }
     }
   },
+  watch: {
+    isExpand: {
+      handler(val) {
+        if (val) {
+          this.$vuetify.theme.dark = true
+        } else {
+          this.$vuetify.theme.dark = false
+        }
+      }
+    }
+  },
   methods: {
     expandFilter() {
       this.isExpand = !!this.isExpand

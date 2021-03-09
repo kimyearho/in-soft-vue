@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Vue Common Project',
+  title: 'inSoft Vue-Framework',
 
   /**
    * @type {boolean} true | false

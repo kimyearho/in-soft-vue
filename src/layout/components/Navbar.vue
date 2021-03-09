@@ -3,20 +3,13 @@
     app
     clipped-left
     dark
-    color="blue darken-3"
+    color="info darken-3"
   >
     <v-app-bar-nav-icon @click="$emit('is-side')" />
-    <span
-      class="title ml-3 mr-5"
-    >
-      <v-img :src="require('@/assets/images/admin_portal_logo_default_no_tag.png')" />
+    <span class="title ml-3 mr-5">
+      <h3>inSoft Vue-framework</h3>
+      <!-- <v-img :src="require('@/assets/images/admin_portal_logo_default_no_tag.png')" /> -->
     </span>
-    <v-text-field
-      solo-inverted
-      hide-details
-      label="Search"
-      prepend-inner-icon="mdi-magnify"
-    />
 
     <v-spacer />
     <profile />

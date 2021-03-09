@@ -28,41 +28,6 @@ const menuList = [
     menu_name: 'NestMenu2',
     menu_level: 3,
     role: 'admin'
-  },
-  {
-    menu_name: 'Ui-Components',
-    menu_level: 1,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Alert',
-    menu_level: 2,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Button',
-    menu_level: 2,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Grid',
-    menu_level: 2,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Modal',
-    menu_level: 2,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Selectbox',
-    menu_level: 2,
-    role: 'admin'
-  },
-  {
-    menu_name: 'Textfield',
-    menu_level: 2,
-    role: 'admin'
   }
 ]
 

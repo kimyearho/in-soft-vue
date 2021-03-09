@@ -40,7 +40,7 @@ const constantRoutes = [
   },
   {
     path: '/404',
-    component: () => import('@/views/404'),
+    component: () => import('@/layout/components/404'),
     hidden: true
   },
   {
@@ -53,7 +53,7 @@ const constantRoutes = [
       {
         path: 'dashboard',
         name: 'Dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/main/dashboard1'),
         meta: { title: 'Dashboard', icon: 'mdi-help-circle' }
       }
     ]
@@ -62,7 +62,7 @@ const constantRoutes = [
 
 // ? 동적 라우트 임포트
 import StaticRoutes from '@/router/modules/static'
-import UiComponentsRoutes from '@/router/modules/component'
+// import UiComponentsRoutes from '@/router/modules/component'
 
 //* 기본 정적 라우트
 export const defaultRoutes = constantRoutes
@@ -71,7 +71,7 @@ export const defaultRoutes = constantRoutes
 // ? 예시: src/permission.js 참고
 export const asyncRoutes = [
   StaticRoutes,
-  UiComponentsRoutes,
+  // UiComponentsRoutes,
   { path: '*', redirect: '/404', hidden: true }
 ]
 

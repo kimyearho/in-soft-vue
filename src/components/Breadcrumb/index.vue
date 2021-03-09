@@ -12,7 +12,7 @@
       <a
         v-else
         @click.prevent="handleLink(item)"
-      >{{ item.meta.title }}</a>
+      >{{ rootRoute.meta.title }}</a>
     </v-breadcrumbs-item>
   </v-breadcrumbs>
 </template>
@@ -23,7 +23,8 @@ import pathToRegexp from 'path-to-regexp'
 export default {
   data() {
     return {
-      levelList: null
+      levelList: null,
+      rootRoute: ''
     }
   },
   watch: {
@@ -39,8 +40,8 @@ export default {
       let matched = this.$route.matched.filter(
         (item) => item.meta && item.meta.title
       )
-      const first = matched[0]
-      if (!this.isDashboard(first)) {
+      this.rootRoute = matched[0]
+      if (!this.isDashboard(this.rootRoute)) {
         matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(
           matched
         )
