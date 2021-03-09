@@ -5,7 +5,7 @@
     dark
     color="blue darken-3"
   >
-    <v-app-bar-nav-icon @click="$emit('is-side')" />
+    <v-app-bar-nav-icon @click="toggleSideBar" />
     <span class="title ml-3 mr-5">
       <h3>inSoft Vue-framework</h3>
       <!-- <v-img :src="require('@/assets/images/admin_portal_logo_default_no_tag.png')" /> -->
@@ -26,7 +26,7 @@ export default {
     Profile
   },
   computed: {
-    ...mapGetters(['sidebar', 'avatar'])
+    ...mapGetters(['avatar'])
   },
   methods: {
     toggleSideBar() {
