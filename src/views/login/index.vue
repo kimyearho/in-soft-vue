@@ -7,9 +7,10 @@
       <v-row no-gutters>
         <v-col
           cols="12"
-          lg="8"
-          sm="6"
+          lg="5"
           md="8"
+          sm="6"
+          offset-lg="2"
         >
           <v-card
             class="v-content-card"
@@ -24,9 +25,9 @@
         </v-col>
         <v-col
           cols="6"
-          lg="4"
-          sm="4"
+          lg="3"
           md="4"
+          sm="4"
         >
           <v-card
             class="pa-2 grey lighten-4"
