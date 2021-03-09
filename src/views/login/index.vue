@@ -141,7 +141,7 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url('https://wallpaperaccess.com/full/1441195.jpg');
+  background-image: url('../../assets/login_background.jpg');
   background-size: cover;
 }
 .v-remember-me {

@@ -3,7 +3,7 @@
     app
     clipped-left
     dark
-    color="info darken-3"
+    color="blue darken-3"
   >
     <v-app-bar-nav-icon @click="$emit('is-side')" />
     <span class="title ml-3 mr-5">
