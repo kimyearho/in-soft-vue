@@ -7,6 +7,7 @@
       <v-row no-gutters>
         <v-col
           cols="12"
+          lg="8"
           sm="6"
           md="8"
         >
@@ -23,6 +24,8 @@
         </v-col>
         <v-col
           cols="6"
+          lg="4"
+          sm="4"
           md="4"
         >
           <v-card
@@ -68,6 +71,8 @@
                   color="info darken-3"
                   class="mr-4"
                   block
+                  :loading="loader"
+                  :disabled="loader"
                   @click="login"
                 >
                   Login
@@ -85,9 +90,10 @@
 </template>
 <script>
 export default {
-  name: 'LoginApp',
+  name: 'Login',
   data() {
     return {
+      loader: false,
       checkbox: false,
       model: {
         username: 'admin',
@@ -101,15 +107,16 @@ export default {
       if (!valid) {
         return
       }
-      this.loading = true
+      this.loader = true
       this.$store
         .dispatch('user/userLogin', this.model)
         .then(() => {
-          this.$router.push({ path: this.redirect || '/' })
-          this.loading = false
+          setTimeout(() => {
+            this.$router.push({ path: this.redirect || '/' })
+          }, 1000)
         })
         .catch(() => {
-          this.loading = false
+          this.loader = false
         })
     }
   }
@@ -143,9 +150,41 @@ export default {
 }
 .v-remember-me a {
   font-style: oblique;
-  color: #9E9E9E;
+  color: #9e9e9e;
 }
 .mt-40 {
   margin-top: 40px;
+}
+@-moz-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
