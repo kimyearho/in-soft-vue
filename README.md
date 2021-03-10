@@ -1,4 +1,6 @@
-### Vuetify 적용.
+<div align="center">
+  <img src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
+</div>
 
 > vue.confing.js, main.js 참조
 > 패키지 구조 설명은 제외
