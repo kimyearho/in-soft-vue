@@ -1,5 +1,5 @@
 ### Vuetify 적용.
-### 실제 API 연동시 Mock 서버는 제거하세요.
+
 > vue.confing.js, main.js 참조
 > 패키지 구조 설명은 제외
 
