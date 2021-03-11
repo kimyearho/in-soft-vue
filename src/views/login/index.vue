@@ -47,14 +47,16 @@
               <v-divider />
               <v-form
                 ref="form"
+                v-model="valid"
                 class="mt-40"
               >
                 <v-text-field
                   v-model="model.username"
-                  :counter="10"
                   label="ID"
                   clearable
                   required
+                  :counter="10"
+                  :rules="nameRules"
                 />
                 <v-text-field
                   v-model="model.password"
@@ -97,16 +99,25 @@ import {
   REMOVE_LOCAL_STORAGE
 } from '@/utils/local-storage'
 
+//! Helper는 Global Mixin으로 만들지 고민필요
+import StoreHelper from '@/utils/store-helper'
+
 export default {
   name: 'Login',
+  mixins: [StoreHelper],
   data() {
     return {
       loader: false,
       checkedRemember: false,
+      valid: true,
       model: {
         username: '',
         password: 'admin'
-      }
+      },
+      nameRules: [
+        (v) => !!v || 'Name is required',
+        (v) => (v && v.length <= 10) || 'Name must be less than 10 characters'
+      ]
     }
   },
   mounted() {
@@ -119,18 +130,20 @@ export default {
   methods: {
     async login() {
       const valid = await this.$refs.form.validate()
-      if (!valid) {
-        return
-      }
-      this.loader = true
+      if (!valid) return
 
       //* 아이디 저장체크 여부에 띠른 처리
       this.checkedRemember
         ? SET_LOCAL_STORAGE('user-id', this.model.username)
         : REMOVE_LOCAL_STORAGE('user-id')
 
-      this.$store
-        .dispatch('user/userLogin', this.model)
+      const actionData = {
+        action: 'user/userLogin',
+        params: this.model,
+        loaderName: 'loader'
+      }
+
+      this.dispatch(actionData)
         .then(() => {
           setTimeout(() => {
             this.$router.push({ path: this.redirect || '/' })
