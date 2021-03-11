@@ -63,7 +63,7 @@
                   clearable
                   required
                 />
-                <v-checkbox v-model="checkbox">
+                <v-checkbox v-model="checkedRemember">
                   <template v-slot:label>
                     <div>Remember me</div>
                   </template>
@@ -89,17 +89,31 @@
     </v-container>
   </v-app>
 </template>
+
 <script>
+import {
+  SET_LOCAL_STORAGE,
+  GET_LOCAL_STORAGE,
+  REMOVE_LOCAL_STORAGE
+} from '@/utils/local-storage'
+
 export default {
   name: 'Login',
   data() {
     return {
       loader: false,
-      checkbox: false,
+      checkedRemember: false,
       model: {
-        username: 'admin',
+        username: '',
         password: 'admin'
       }
+    }
+  },
+  mounted() {
+    const rememberId = GET_LOCAL_STORAGE('user-id')
+    if (rememberId) {
+      this.checkedRemember = !this.checkedRemember
+      this.model.username = rememberId
     }
   },
   methods: {
@@ -109,12 +123,18 @@ export default {
         return
       }
       this.loader = true
+
+      //* 아이디 저장체크 여부에 띠른 처리
+      this.checkedRemember
+        ? SET_LOCAL_STORAGE('user-id', this.model.username)
+        : REMOVE_LOCAL_STORAGE('user-id')
+
       this.$store
         .dispatch('user/userLogin', this.model)
         .then(() => {
           setTimeout(() => {
             this.$router.push({ path: this.redirect || '/' })
-          }, 1000)
+          }, 500)
         })
         .catch(() => {
           this.loader = false

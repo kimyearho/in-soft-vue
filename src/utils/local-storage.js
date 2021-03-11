@@ -17,3 +17,12 @@ export function SET_LOCAL_STORAGE(keyName, value) {
 export function GET_LOCAL_STORAGE(keyName) {
   return localStorage.getItem(keyName)
 }
+
+/**
+ * 일치하는 keyName을 삭제한다.
+ *
+ * @param {*} keyName - 로컬 스토리지 KEY 명
+ */
+export function REMOVE_LOCAL_STORAGE(keyName) {
+  localStorage.removeItem(keyName)
+}
