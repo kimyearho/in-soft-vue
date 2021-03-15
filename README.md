@@ -3,23 +3,26 @@
 </div>
 <br>
 
-> Insoft Vue framework v0.1 (별도 명칭없음) <br><br>
+> Insoft Vue framework v0.1 <br><br>
 > 이 프로젝트는 현재 개발 진행중이며, 상시 소스가 변경될 수 있습니다. <br>
 > 이 프로젝트는 신규 프로젝트 개발시 개발비용을 최대한 감축시키고, 전사적으로 프로젝트 표준으로 지정하여 어느곳에가든 일관성있는 서비스를 구축하기 위한 목적 입니다. 따라서 문서 가이드를 참고하시고 코드 스타일 규격을 통일화 해주시길 바랍니다.
 <br><br>
 > 이 프로젝트는 사내 오픈 프로젝트로써 누구나 참여가능하오니 기여해주실분은 서비스 사업본부 김연호 과장에게 연락주세요. <br><br> <yeonho@in-soft.co.kr>
+
 <br>
 
+##### 이 프로젝트는 Vuetify UI Component를 사용합니다. 자세한 사항은 아래 링크를 참고 하십시오.
+https://vuetifyjs.com/en/
 
 # Feature
 - [x] Mock Server
-- [x] Default Project
 - [x] Vuex
 - [x] Vue router
-- [x] Vuetify
-- [x] Vuetify wireframe
+- [x] Vuetify & Wireframe
+- [ ] Element UI & Wireframe
 - [x] Vertical menu (3depth nesting menu)
 - [ ] Horizon menu
+- [ ] Hover menu
 - [x] Login (sample: token) / Logout / Remember me 
 - [ ] Vuex Store Helper
 - [ ] Common List component
@@ -30,27 +33,52 @@
 
 <br>
 
-### 0. VS Code 확장
-1. Prettier - Code formatter <필수>
-https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+# Component name or Props style rule
+- https://kr.vuejs.org/v2/guide/components-props.html <br> <br>
+
+1. Component name Rule
+- kebab-case를 사용하도록 한다.
+```
+<component-name></component-name> (O)
+
+<ComponentName></ComponentName>   (x)
+```
+<br>
+
+2. Props name Rule
+- 값을 넘겨줄때는 동일하게 kebab-case를 사용하도록 한다.
+- 컴포넌트 내부에서 Props를 선언할때는 camel-case로 받아서 처리한다.
+```
+(O)
+<component-name
+  :visible-form="form"
+  :example-id="id"
+/>
+
+(X)
+<component-name
+  :visibleForm="form"
+  :exampleId="id"
+/>>
+```
 
 <br>
+
+### 0. VS Code 확장
+<br>
+1. Prettier - Code formatter <필수>
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 
 2. EsLint <필수>
 https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 
-<br>
-
 3. Better Comments <필수는 아니지만 소스주석은 이걸로 사용됬음>
 https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
-
-<br>
 
 4. 기타 <필수!!>
 크롬 앱 스토어에서 vue-dev-tool 설치할 것.
 (Microsoft Edge에서도 사용가능)
 https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
-
 
 <br>
 
@@ -83,7 +111,7 @@ yarn preview
 ```
 <br>
 
-### 3. Start
+### 3. Dev start
 ```
 yarn dev
 ```
