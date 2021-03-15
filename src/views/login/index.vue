@@ -94,9 +94,9 @@
 
 <script>
 import {
-  SET_LOCAL_STORAGE,
-  GET_LOCAL_STORAGE,
-  REMOVE_LOCAL_STORAGE
+  SET_LOCAL_ITEM,
+  GET_LOCAL_ITEM,
+  REMOVE_LOCAL_ITEM
 } from '@/utils/local-storage'
 
 //! Helper는 Global Mixin으로 만들지 고민필요
@@ -121,8 +121,8 @@ export default {
     }
   },
   mounted() {
-    const rememberId = GET_LOCAL_STORAGE('user-id')
-    if (rememberId) {
+    const rememberId = GET_LOCAL_ITEM('user-id')
+    if (!this.$lodash.isEmpty(rememberId)) {
       this.checkedRemember = !this.checkedRemember
       this.model.username = rememberId
     }
@@ -134,16 +134,20 @@ export default {
 
       //* 아이디 저장체크 여부에 띠른 처리
       this.checkedRemember
-        ? SET_LOCAL_STORAGE('user-id', this.model.username)
-        : REMOVE_LOCAL_STORAGE('user-id')
+        ? SET_LOCAL_ITEM('user-id', this.model.username)
+        : REMOVE_LOCAL_ITEM('user-id')
 
+      //* action: action name
+      //* params: formData or get parameter
+      //* loaderName: 로딩 애니메이션을 사용할 경우 (사용하지 않을경우 제거)
       const actionData = {
         action: 'user/userLogin',
         params: this.model,
         loaderName: 'loader'
       }
 
-      this.dispatch(actionData)
+      //* action disaptch
+      this.mixin_dispatch(actionData)
         .then(() => {
           setTimeout(() => {
             this.$router.push({ path: this.redirect || '/' })

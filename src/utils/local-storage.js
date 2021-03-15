@@ -4,7 +4,7 @@
  * @param {*} keyName - 로컬 스토리지 KEY 명
  * @param {*} value - 저장할 값
  */
-export function SET_LOCAL_STORAGE(keyName, value) {
+export function SET_LOCAL_ITEM(keyName, value) {
   localStorage.setItem(keyName, value)
 }
 
@@ -14,7 +14,7 @@ export function SET_LOCAL_STORAGE(keyName, value) {
  * @param {*} keyName - 로컬 스토리지 KEY 명
  * @returns {*} 조회된 값
  */
-export function GET_LOCAL_STORAGE(keyName) {
+export function GET_LOCAL_ITEM(keyName) {
   return localStorage.getItem(keyName)
 }
 
@@ -23,6 +23,6 @@ export function GET_LOCAL_STORAGE(keyName) {
  *
  * @param {*} keyName - 로컬 스토리지 KEY 명
  */
-export function REMOVE_LOCAL_STORAGE(keyName) {
+export function REMOVE_LOCAL_ITEM(keyName) {
   localStorage.removeItem(keyName)
 }

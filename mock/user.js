@@ -12,14 +12,14 @@ const users = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'yeonho@in-soft.co.kr',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    avatar: '',
     name: 'YeonHo'
   },
   'editor-token': {
     roles: ['editor'],
-    introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
+    introduction: 'yeonho@in-soft.co.kr',
+    avatar: '',
+    name: 'Guest'
   }
 }
 
@@ -59,7 +59,7 @@ module.exports = [
       if (!info) {
         return {
           code: 50008,
-          message: 'Login failed, unable to get user details.'
+          message: 'Login failed'
         }
       }
 

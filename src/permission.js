@@ -3,7 +3,6 @@ import store from './store'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { getToken } from '@/utils/auth'
-import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false })
 
@@ -14,9 +13,6 @@ const whiteList = ['/login', '/500', '/404', '/401']
 // ? https://router.vuejs.org/kr/guide/advanced/navigation-guards.html (라우터 가드 문서)
 router.beforeEach(async(to, from, next) => {
   NProgress.start()
-
-  //* 페이지 제목 (브라우저 제목)
-  document.title = getPageTitle(to.meta.title)
 
   //* 토큰 가져오기
   const hasToken = getToken()
