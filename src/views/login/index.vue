@@ -41,7 +41,8 @@
                   <v-list-item-title>
                     <h2>Sign in</h2>
                   </v-list-item-title>
-                  <v-list-item-subtitle>Welcome insoft Vue framework (ID: admin)</v-list-item-subtitle>
+                  <v-list-item-subtitle>Welcome insoft Vue framework (ID:
+                    admin)</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-divider />
@@ -65,7 +66,11 @@
                   clearable
                   required
                 />
-                <v-checkbox v-model="checkedRemember">
+                <v-checkbox
+                  v-model="checkedRemember"
+                  :disabled="!model.username"
+                  @change="updateRemember"
+                >
                   <template v-slot:label>
                     <div>Remember me</div>
                   </template>
@@ -88,6 +93,11 @@
           </v-card>
         </v-col>
       </v-row>
+      <!-- //? Snackbar 컴포넌트 -->
+      <common-snackbars
+        :visible="snackbar"
+        @close="snackbar = false"
+      />
     </v-container>
   </v-app>
 </template>
@@ -101,13 +111,18 @@ import {
 
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
+import CommonSnackbars from '@/components/Snackbars'
 
 export default {
   name: 'Login',
+  components: {
+    CommonSnackbars
+  },
   mixins: [StoreHelper],
   data() {
     return {
       loader: false,
+      snackbar: false,
       checkedRemember: false,
       valid: true,
       model: {
@@ -128,7 +143,14 @@ export default {
     }
   },
   methods: {
+    //* 체크박스가 변경될 때마다 호출된다.
+    updateRemember(val) {
+      if (val) this.snackbar = val
+    },
+
     async login() {
+      //* 수동 유효성 체크
+      //* 유효성 체크가 통과되지 않으면 반환된다.
       const valid = await this.$refs.form.validate()
       if (!valid) return
 
