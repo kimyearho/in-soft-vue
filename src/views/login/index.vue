@@ -41,7 +41,7 @@
                   <v-list-item-title>
                     <h2>Sign in</h2>
                   </v-list-item-title>
-                  <v-list-item-subtitle>Welcome insoft Vue framework</v-list-item-subtitle>
+                  <v-list-item-subtitle>Welcome insoft Vue framework (ID: admin)</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
               <v-divider />
