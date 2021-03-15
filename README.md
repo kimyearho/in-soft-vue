@@ -1,11 +1,32 @@
 <div align="center">
   <img src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
 </div>
+<br>
 
-> vue.confing.js, main.js 참조
-> 패키지 구조 설명은 제외
+> Insoft Vue framework v0.1 (별도 명칭없음) <br><br>
+> 이 프로젝트는 현재 개발 진행중이며, 상시 소스가 변경될 수 있습니다. <br>
+> 이 프로젝트는 신규 프로젝트 개발시 개발비용을 최대한 감축시키고, 전사적으로 프로젝트 표준으로 지정하여 어느곳에가든 일관성있는 서비스를 구축하기 위한 목적 입니다. 따라서 문서 가이드를 참고하시고 코드 스타일 규격을 통일화 해주시길 바랍니다.
+<br><br>
+> 이 프로젝트는 사내 오픈 프로젝트로써 누구나 참여가능하오니 기여해주실분은 서비스 사업본부 김연호 과장에게 연락주세요. <br><br> <yeonho@in-soft.co.kr>
+<br>
 
-> 라우터 구성 / 스토어 구성 / 와이어 프레임 구성 / 로그인 / 로그아웃 / 메뉴 구성 / 브래드 크럼 / 검색필터 / 테이블 연동 등
+
+# Feature
+- [x] Mock Server
+- [x] Default Project
+- [x] Vuex
+- [x] Vue router
+- [x] Vuetify
+- [x] Vuetify wireframe
+- [x] Vertical menu (3depth nesting menu)
+- [ ] Horizon menu
+- [x] Login (sample: token) / Logout / Remember me 
+- [ ] Vuex Store Helper
+- [ ] Common List component
+- [ ] Common Detail component
+- [ ] Common Modal component
+- [ ] Common Search filter component
+- [ ] Etc component
 
 <br>
 
