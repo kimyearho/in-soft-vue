@@ -1,6 +1,8 @@
-<div align="center">
-  <img src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
-</div>
+<p align="center">       
+  <img width="500" src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
+  <img width="500" src="https://lh3.googleusercontent.com/proxy/3UgQkH9vlU7x4YkGbGgXKdVmthEKfmYd7nvVeuJTUpLfi06rgSldKaJ0jCfqwvcFfi-QJNk5OZPJ-1wKpTDNQ-S7hNCZDl2LVrjnU_YoO0tdJmPpB_CwzGhykgoWiw"/>
+</p>
+
 <br>
 
 > Insoft Vue framework v0.1 <br><br>
@@ -13,6 +15,18 @@
 
 ##### 이 프로젝트는 Vuetify UI Component를 사용합니다. 자세한 사항은 아래 링크를 참고 하십시오.
 https://vuetifyjs.com/en/
+
+<br>
+
+# License
+```
+ GNU GENERAL PUBLIC LICENSE V3.0
+ 이 프로젝트는 상기 라이선스를 가집니다.
+ 해당 라이선스의 자세한 사항은 아래 링크를 참조해 주십시오.
+ 라이선스에 대해 의무사항을 지키지 않았을때 발생할 수 있는 문제들은 법적으로 처벌될 수 있습니다.
+ https://olis.or.kr/license/Detailselect.do?lId=1072
+```
+<br>
 
 # Feature
 - [x] Mock Server
@@ -61,6 +75,42 @@ https://vuetifyjs.com/en/
   :exampleId="id"
 />>
 ```
+
+<br>
+
+3. Template Rule
+- Props or Interpolation(보간법)에서 'this' 키워드를 사용하지 않는다.
+```
+(O)
+<component-name
+  :visible-form="form"
+  :example-id="id"
+/>
+
+(X)
+<component-name
+  :visible-form="this.form"
+  :example-id="this.id"
+/>
+
+(O)
+{{ id }}
+
+(X)
+{{ this.id }}
+```
+
+<br>
+
+# Precautions
+- Eventbus 사용을 자제 하세요.
+- Eventbus는 상태를 추적할 수 없으므로 프로젝트 단위에서는 꼭 필요한 경우를 제외하고서는 사용을 자제하세요.
+<br>
+
+# Mock
+#### Mock api를 구성하려면 mock 패키지 하위에 api를 만들어주시면 됩니다.
+#### 그런다음 소스에서 만들어진 api를 사용하세요.
+#### 실제 API 연동시에는 프로젝트에서 Mock을 제거하세요. (vue.config.js & main.js 참조)
 
 <br>
 
@@ -117,10 +167,10 @@ yarn dev
 ```
 <br>
 
-### 4. Code Style (Prettier)
-> .prettierrc.json, .vscode -> setting.json 파일 참조
-> 코드 스타일은 팀원과 협의하여 지정하는게 좋음.
-> 코드 스타일을 정의하지 않으면 개발자별로 코드 스타일이 일관성이 없어짐
+### 4. Default Code Style (Prettier)
+> .prettierrc.json / .vscode -> setting.json 파일 참조 <br>
+> 코드 스타일은 프로젝트 인원과 협의하여 Rule를 정해서 사용하세요. <br>
+> 코드 스타일을 정의하지 않으면 개발자별로 코드 스타일에 일관성이 없어집니다.
 ``` 
 <prettierrc.json>
 {
