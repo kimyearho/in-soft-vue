@@ -48,13 +48,13 @@ const constantRoutes = [
     component: Layout,
     redirect: 'dashboard',
     model: true,
-    meta: { title: 'Main', icon: 'mdi-view-dashboard', breadcrumb: false },
+    meta: { title: '대시보드', icon: 'mdi-view-dashboard', breadcrumb: false },
     children: [
       {
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/main/dashboard1'),
-        meta: { title: 'Dashboard', icon: 'mdi-help-circle' }
+        meta: { title: '대시보드 1', icon: 'mdi-help-circle' }
       }
     ]
   }

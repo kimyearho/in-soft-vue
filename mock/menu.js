@@ -1,11 +1,11 @@
 const menuList = [
   {
-    menu_name: 'Example',
+    menu_name: '예제',
     menu_level: 1,
     role: 'admin'
   },
   {
-    menu_name: 'Table',
+    menu_name: 'DataGrid',
     menu_level: 2,
     role: 'admin'
   },
@@ -15,17 +15,17 @@ const menuList = [
     role: 'admin'
   },
   {
-    menu_name: 'Nest',
+    menu_name: '중첩 메뉴',
     menu_level: 2,
     role: 'admin'
   },
   {
-    menu_name: 'NestMenu1',
+    menu_name: '중첩 메뉴1',
     menu_level: 3,
     role: 'admin'
   },
   {
-    menu_name: 'NestMenu2',
+    menu_name: '중첩 메뉴2',
     menu_level: 3,
     role: 'admin'
   }

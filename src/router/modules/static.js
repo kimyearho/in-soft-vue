@@ -6,7 +6,7 @@ export default {
   component: Layout,
   redirect: '/example/table',
   meta: {
-    title: 'Example',
+    title: '예제',
     icon: 'mdi-calendar-heart',
     role: 'admin',
     breadcrumb: false
@@ -17,7 +17,7 @@ export default {
       path: 'table',
       name: 'Table',
       // component: () => import('@/views/table/index'),
-      meta: { title: 'Table', icon: 'mdi-message', role: 'admin' }
+      meta: { title: 'DataGrid', icon: 'mdi-message', role: 'admin' }
     },
     {
       path: 'form',
@@ -31,7 +31,7 @@ export default {
       name: 'Nest',
       component: EmptyLayout,
       meta: {
-        title: 'Nest',
+        title: '중첩 메뉴',
         icon: 'mdi-message',
         role: 'admin',
         breadcrumb: false
@@ -41,13 +41,13 @@ export default {
           path: 'nest1',
           name: 'NestMenu1',
           component: () => import('@/views/nest/NestMenu1'),
-          meta: { title: 'Nest-menu1' }
+          meta: { title: '중첩 메뉴1' }
         },
         {
           path: 'nest2',
           name: 'NestMenu2',
           component: () => import('@/views/nest/NestMenu2'),
-          meta: { title: 'Nest-menu2' }
+          meta: { title: '중첩 메뉴2' }
         }
       ]
     }
