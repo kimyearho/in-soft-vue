@@ -9,6 +9,8 @@ import vuetify from './plugins/vuetify'
 import VueLogger from 'vuejs-logger'
 import lodash from 'lodash'
 
+import './styles/index.css'
+
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme
 const isProduction = process.env.NODE_ENV === 'production'

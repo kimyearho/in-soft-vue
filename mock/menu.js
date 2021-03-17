@@ -1,11 +1,11 @@
 const menuList = [
   {
-    menu_name: 'Example',
+    menu_name: 'Components',
     menu_id: 'M1101',
     role: 'admin'
   },
   {
-    menu_name: 'DataGrid',
+    menu_name: 'Table List',
     menu_id: 'M1102',
     role: 'admin'
   },

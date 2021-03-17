@@ -7,6 +7,7 @@
         v-if="!item.hidden && item.children"
         :key="item.path"
         :prepend-icon="item.meta ? item.meta.icon : ''"
+        :active-class="item.path"
         no-action
         class="v-list-custom"
       >
@@ -27,9 +28,13 @@
             <v-list-item
               :style="{marginLeft: '56px'}"
               link
-              @click="routerLink('', item, child)"
+              @click="listItemLink('', item, child)"
             >
-              <v-list-item-title> {{ child.meta.title }}</v-list-item-title>
+              <router-link :to="routerLink('', item, child)">
+                <v-list-item-title>
+                  {{ child.meta.title }}
+                </v-list-item-title>
+              </router-link>
             </v-list-item>
           </div>
           <!-- //? 자식내에 또다른 자식 객체가 있을경우 그룹을 생성한다. -->
@@ -49,11 +54,13 @@
               v-for="(nestChild, i) in child.children"
               :key="i"
               :style="{marginLeft: '56px'}"
-              @click="routerLink(item, child, nestChild)"
+              @click="listItemLink(item, child, nestChild)"
             >
-              <v-list-item-title>
-                {{ nestChild.meta.title }}
-              </v-list-item-title>
+              <router-link :to="routerLink(item, child, nestChild)">
+                <v-list-item-title>
+                  {{ nestChild.meta.title }}
+                </v-list-item-title>
+              </router-link>
             </v-list-item>
           </v-list-group>
         </template>
@@ -74,10 +81,14 @@ export default {
       const to =
         item.path === '/' ? '/' + child.path : item.path + '/' + child.path
       if (root) {
-        this.$router.push(root.path + '/' + to)
+        return root.path + '/' + to
       } else {
-        this.$router.push(to)
+        return to
       }
+    },
+    listItemLink(root, item, child) {
+      const path = this.routerLink(root, item, child)
+      this.$router.push(path)
     }
   }
 }

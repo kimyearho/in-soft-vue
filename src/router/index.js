@@ -48,13 +48,21 @@ const constantRoutes = [
     component: Layout,
     redirect: 'dashboard',
     model: true,
-    meta: { title: 'Dashboard', icon: 'mdi-view-dashboard', breadcrumb: false, menu_id: 'M1100' },
+    meta: {
+      title: 'Dashboard',
+      icon: 'mdi-view-dashboard',
+      breadcrumb: false,
+      menu_id: 'M1100'
+    },
     children: [
       {
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/main/dashboard1'),
-        meta: { title: 'Dashboard 1', icon: 'mdi-help-circle' }
+        meta: {
+          title: 'Dashboard 1',
+          icon: 'mdi-help-circle'
+        }
       }
     ]
   }
@@ -87,7 +95,7 @@ const createRouter = () =>
     mode: 'history', // ? history 모드 사용시 브라우저 주소창에 해시태그가 남지 않는다.
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes, //! 기본 라우터는 정적 라우터만 등록한다.
-    linkActiveClass: 'active'
+    linkActiveClass: 'is-active'
   })
 
 const router = createRouter()

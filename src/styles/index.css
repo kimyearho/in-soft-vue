@@ -1,0 +1,8 @@
+.v-application a {
+  color: inherit !important;
+  text-decoration: inherit;
+}
+
+.v-application a.is-active {
+  color: #ff5252 !important
+}
