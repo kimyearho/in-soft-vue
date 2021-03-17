@@ -1,32 +1,32 @@
 const menuList = [
   {
-    menu_name: '예제',
-    menu_level: 1,
+    menu_name: 'Example',
+    menu_id: 'M1101',
     role: 'admin'
   },
   {
     menu_name: 'DataGrid',
-    menu_level: 2,
+    menu_id: 'M1102',
     role: 'admin'
   },
   {
     menu_name: 'Form',
-    menu_level: 2,
+    menu_id: 'M1103',
     role: 'admin'
   },
   {
     menu_name: '중첩 메뉴',
-    menu_level: 2,
+    menu_id: 'M1104',
     role: 'admin'
   },
   {
-    menu_name: '중첩 메뉴1',
-    menu_level: 3,
+    menu_name: 'Menu 1',
+    menu_id: 'M1105',
     role: 'admin'
   },
   {
-    menu_name: '중첩 메뉴2',
-    menu_level: 3,
+    menu_name: 'Menu 2',
+    menu_id: 'M1106',
     role: 'admin'
   }
 ]

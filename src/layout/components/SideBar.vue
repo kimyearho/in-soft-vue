@@ -2,9 +2,11 @@
   <v-navigation-drawer
     app
     clipped
-    :mini-variant="!isHide"
+    permanent
+    :expand-on-hover="!sidebar.opened"
+    :mini-variant="!sidebar.opened"
   >
-    <v-list v-if="isHide">
+    <v-list>
       <sidebar-item />
     </v-list>
   </v-navigation-drawer>
@@ -12,17 +14,18 @@
 
 <script>
 import SidebarItem from './sideItem/Item'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Sidebar',
   components: {
     SidebarItem
   },
-  props: {
-    isHide: Boolean
-  },
   data: () => ({
     drawer: null
-  })
+  }),
+  computed: {
+    ...mapGetters(['sidebar'])
+  }
 }
 </script>

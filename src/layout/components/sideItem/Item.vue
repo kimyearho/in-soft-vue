@@ -8,6 +8,7 @@
         :key="item.path"
         :prepend-icon="item.meta ? item.meta.icon : ''"
         no-action
+        class="v-list-custom"
       >
         <!-- //* 그룹 제목 -->
         <template v-slot:activator>
@@ -81,5 +82,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

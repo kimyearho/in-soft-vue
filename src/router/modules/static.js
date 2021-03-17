@@ -6,24 +6,24 @@ export default {
   component: Layout,
   redirect: '/example/table',
   meta: {
-    title: '예제',
+    title: 'Example',
     icon: 'mdi-calendar-heart',
     role: 'admin',
+    menu_id: 'M1101',
     breadcrumb: false
   },
-  alwaysShow: true,
   children: [
     {
       path: 'table',
       name: 'Table',
       // component: () => import('@/views/table/index'),
-      meta: { title: 'DataGrid', icon: 'mdi-message', role: 'admin' }
+      meta: { title: 'DataGrid', icon: 'mdi-message', role: 'admin', menu_id: 'M1102' }
     },
     {
       path: 'form',
       name: 'Form',
       // component: () => import('@/views/form/index'),
-      meta: { title: 'Form', icon: 'mdi-keyboard', role: 'admin' }
+      meta: { title: 'Form', icon: 'mdi-keyboard', role: 'admin', menu_id: 'M1103' }
     },
     {
       path: 'nest-menu',
@@ -31,9 +31,10 @@ export default {
       name: 'Nest',
       component: EmptyLayout,
       meta: {
-        title: '중첩 메뉴',
+        title: 'NestMenu',
         icon: 'mdi-message',
         role: 'admin',
+        menu_id: 'M1104',
         breadcrumb: false
       },
       children: [
@@ -41,13 +42,13 @@ export default {
           path: 'nest1',
           name: 'NestMenu1',
           component: () => import('@/views/nest/NestMenu1'),
-          meta: { title: '중첩 메뉴1' }
+          meta: { title: 'Menu 1', menu_id: 'M1105' }
         },
         {
           path: 'nest2',
           name: 'NestMenu2',
           component: () => import('@/views/nest/NestMenu2'),
-          meta: { title: '중첩 메뉴2' }
+          meta: { title: 'Menu 2', menu_id: 'M1106' }
         }
       ]
     }
