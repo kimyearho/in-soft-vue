@@ -13,7 +13,7 @@
       flat
       clipped-left
       dark
-      color="light-blue lighten-2"
+      color="light-blue lighten-1"
     >
       <v-app-bar-nav-icon @click="toggleSideBar" />
       <span class="title ml-3 mr-5">

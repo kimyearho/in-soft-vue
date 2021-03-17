@@ -8,7 +8,6 @@
         :key="item.path"
         :prepend-icon="item.meta ? item.meta.icon : ''"
         :active-class="item.path"
-        no-action
         class="v-list-custom"
       >
         <!-- //* 그룹 제목 -->
@@ -73,6 +72,9 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  data() {
+    return {}
+  },
   computed: {
     ...mapGetters(['permissionRouters'])
   },

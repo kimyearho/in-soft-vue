@@ -6,7 +6,9 @@
     :expand-on-hover="!sidebar.opened"
     :mini-variant="!sidebar.opened"
   >
-    <v-list>
+    <v-list
+      nav
+    >
       <sidebar-item />
     </v-list>
   </v-navigation-drawer>

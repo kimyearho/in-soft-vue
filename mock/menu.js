@@ -5,6 +5,11 @@ const menuList = [
     role: 'admin'
   },
   {
+    menu_name: 'Search Filter',
+    menu_id: 'M1108',
+    role: 'admin'
+  },
+  {
     menu_name: 'List Container',
     menu_id: 'M1102',
     role: 'admin'
@@ -12,6 +17,11 @@ const menuList = [
   {
     menu_name: 'Detail Container',
     menu_id: 'M1103',
+    role: 'admin'
+  },
+  {
+    menu_name: 'Modal',
+    menu_id: 'M1107',
     role: 'admin'
   },
   {

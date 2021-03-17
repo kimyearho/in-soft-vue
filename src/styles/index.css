@@ -1,3 +1,7 @@
+body {
+  font-family: 'Nanum Gothic';
+}
+
 .v-application a {
   color: inherit !important;
   text-decoration: inherit;
@@ -17,4 +21,21 @@
 
 .v-breadcrumbs li {
   font-size: 15px;
+}
+
+.v-subheader .filter-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.v-input {
+  font-size: 14px !important;
+}
+
+.mx-input {
+  height: 40px !important;
+}
+
+.v-btn .v-icon {
+  padding-right: 15px;
 }

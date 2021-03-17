@@ -1,16 +1,6 @@
 <template>
   <div class="dashboard-container">
     <v-container fluid>
-      <v-card :style="{marginTop: '25px'}">
-        <v-row>
-          <v-col
-            cols="12"
-            :style="{height: colHeight}"
-          >
-            <search-filter @dy-height="dynamicHeight" />
-          </v-col>
-        </v-row>
-      </v-card>
       <v-card :style="{marginTop: '50px'}">
         <v-data-table
           :headers="headers"
@@ -24,14 +14,10 @@
 </template>
 
 <script>
-import SearchFilter from '@/components/Filter'
 import { getList } from '@/api/table'
 
 export default {
   name: 'Dashboard',
-  components: {
-    SearchFilter
-  },
   data() {
     return {
       colHeight: '110px',

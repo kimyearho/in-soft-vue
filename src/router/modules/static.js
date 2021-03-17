@@ -2,9 +2,9 @@ import Layout from '@/layout'
 import EmptyLayout from '@/layout/EmptyLayout'
 
 export default {
-  path: '/example',
+  path: '/components',
   component: Layout,
-  redirect: '/example/table',
+  redirect: '/components/list-container',
   meta: {
     title: 'Components',
     icon: 'mdi-briefcase-plus',
@@ -13,25 +13,47 @@ export default {
   },
   children: [
     {
-      path: 'table',
-      name: 'Table',
+      path: 'search-filter',
+      name: 'SearchFilter',
+      component: () => import('@/views/example/searchFilter/index'),
+      meta: {
+        title: 'Search Filter',
+        icon: 'mdi-message',
+        role: 'admin',
+        menu_id: 'M1108'
+      }
+    },
+    {
+      path: 'list-container',
+      name: 'ListContainer',
       // component: () => import('@/views/table/index'),
       meta: {
-        title: 'DataGrid',
+        title: 'List Container',
         icon: 'mdi-message',
         role: 'admin',
         menu_id: 'M1102'
       }
     },
     {
-      path: 'form',
-      name: 'Form',
+      path: 'detail-container',
+      name: 'DetailContainer',
       // component: () => import('@/views/form/index'),
       meta: {
-        title: 'Form',
+        title: 'Detail Container',
         icon: 'mdi-keyboard',
         role: 'admin',
         menu_id: 'M1103'
+      }
+    },
+    {
+      path: 'modal',
+      name: 'Modal',
+      // component: () => import('@/views/form/index'),
+      meta: {
+        title: 'Modal',
+        icon: 'mdi-keyboard',
+        role: 'admin',
+        menu_id: 'M1107'
       }
     },
     {
