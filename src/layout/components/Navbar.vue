@@ -1,15 +1,12 @@
 <template>
   <div>
-    <!-- TODO 추후 브래드크럼으로 컴포넌트화 시킬것 -->
     <v-system-bar
       window
-      color="grey darken-4"
       dark
       lights-out
+      color="grey darken-4"
     >
-      <v-icon>mdi-message</v-icon>
-      <span>Dashboard / Link / Link</span>
-      <v-spacer />
+      <breadcrumbs />
     </v-system-bar>
     <v-app-bar
       app
@@ -21,7 +18,6 @@
       <v-app-bar-nav-icon @click="toggleSideBar" />
       <span class="title ml-3 mr-5">
         <h3>inSoft Vue-Framework</h3>
-        <!-- <v-img :src="require('@/assets/images/admin_portal_logo_default_no_tag.png')" /> -->
       </span>
 
       <v-spacer />
@@ -32,11 +28,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import Breadcrumbs from '@/components/Breadcrumb/index'
 import Profile from './Profile'
 
 export default {
   name: 'Navbar',
   components: {
+    Breadcrumbs,
     Profile
   },
   computed: {

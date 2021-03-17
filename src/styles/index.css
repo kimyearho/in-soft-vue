@@ -8,10 +8,13 @@
 }
 
 .v-breadcrumbs {
-  padding: 0 25px;
-  line-height: 60px;
+  padding-left: 10px !important;
+}
+
+.v-breadcrumbs .breadcrumbs-home {
+  cursor: pointer;
 }
 
 .v-breadcrumbs li {
-  font-size: 30px;
+  font-size: 15px;
 }

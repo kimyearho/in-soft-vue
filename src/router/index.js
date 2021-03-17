@@ -47,7 +47,6 @@ const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: 'dashboard',
-    model: true,
     meta: {
       title: 'Dashboard',
       icon: 'mdi-view-dashboard',

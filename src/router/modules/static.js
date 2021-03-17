@@ -6,11 +6,10 @@ export default {
   component: Layout,
   redirect: '/example/table',
   meta: {
-    title: 'Example',
+    title: 'Components',
     icon: 'mdi-briefcase-plus',
     role: 'admin',
-    menu_id: 'M1101',
-    breadcrumb: false
+    menu_id: 'M1101'
   },
   children: [
     {
