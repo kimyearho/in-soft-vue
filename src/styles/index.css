@@ -6,3 +6,12 @@
 .v-application a.is-active {
   color: #ff5252 !important
 }
+
+.v-breadcrumbs {
+  padding: 0 25px;
+  line-height: 60px;
+}
+
+.v-breadcrumbs li {
+  font-size: 30px;
+}

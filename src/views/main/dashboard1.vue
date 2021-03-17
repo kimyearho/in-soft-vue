@@ -1,8 +1,7 @@
 <template>
   <div class="dashboard-container">
-    <v-container>
-      <h1>Dashboard</h1>
-      <v-card :style="{marginTop: '50px'}">
+    <v-container fluid>
+      <v-card :style="{marginTop: '25px'}">
         <v-row>
           <v-col
             cols="12"

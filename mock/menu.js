@@ -5,12 +5,12 @@ const menuList = [
     role: 'admin'
   },
   {
-    menu_name: 'Table List',
+    menu_name: 'List Container',
     menu_id: 'M1102',
     role: 'admin'
   },
   {
-    menu_name: 'Form',
+    menu_name: 'Detail Container',
     menu_id: 'M1103',
     role: 'admin'
   },

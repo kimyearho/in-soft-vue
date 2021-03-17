@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Nest 2</h1>
-  </div>
+  <div />
 </template>
 
 <script>
