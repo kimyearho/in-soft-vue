@@ -23,8 +23,8 @@
           md="2"
         >
           <v-select
-            v-model="select"
-            :items="items"
+            v-model="userGroupSelect"
+            :items="userGroupOption"
             item-text="label"
             item-value="value"
             outlined
@@ -66,8 +66,8 @@
           md="2"
         >
           <v-select
-            v-model="select2"
-            :items="items2"
+            v-model="periodSelect"
+            :items="periodOption"
             item-text="label"
             item-value="value"
             outlined
@@ -98,6 +98,21 @@ export default {
   components: {
     DatePicker
   },
+  props: {
+    userGroupOption: {
+      required: true,
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
+    periodOption: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    }
+  },
   data() {
     return {
       visible: false,
@@ -108,45 +123,9 @@ export default {
         id: '',
         desc: ''
       },
-      select: 'user1',
-      select2: 'user1',
       dateRange: [],
-      items: [
-        {
-          label: '사용자 그룹 1',
-          value: 'user1'
-        },
-        {
-          label: '사용자 그룹 2',
-          value: 'user2'
-        },
-        {
-          label: '사용자 그룹 3',
-          value: 'user3'
-        },
-        {
-          label: '사용자 그룹 4',
-          value: 'user4'
-        }
-      ],
-      items2: [
-        {
-          label: '최근 1주일',
-          value: 'user1'
-        },
-        {
-          label: '최근 1개월',
-          value: 'user2'
-        },
-        {
-          label: '최근 3개월',
-          value: 'user3'
-        },
-        {
-          label: '최근 6개월',
-          value: 'user4'
-        }
-      ],
+      userGroupSelect: 'user1',
+      periodSelect: 'user1',
       styles: {
         expand: {
           position: 'relative',
@@ -160,6 +139,9 @@ export default {
       handler(val) {
         if (val) {
           // this.$vuetify.theme.dark = true
+          if (this.periodOption.length <= 0) {
+            this.$emit('call_periodOption')
+          }
         } else {
           // this.$vuetify.theme.dark = false
         }
