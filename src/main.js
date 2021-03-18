@@ -8,7 +8,7 @@ import '@/permission'
 import vuetify from './plugins/vuetify'
 import VueLogger from 'vuejs-logger'
 import lodash from 'lodash'
-
+import moment from 'moment'
 import './styles/index.css'
 
 //* VueLogger 옵션
@@ -30,6 +30,8 @@ Vue.use(VueLogger, options)
 Vue.prototype.$lodash = lodash
 //* Axios Global (component level ex) this.$axios.get() ...)
 Vue.prototype.$axios = request
+//* Moment Global
+Vue.prototype.$moment = moment
 
 //! <중요>
 //! 실제 API 연동이 시작되면 아래 if 스크립트는 모두 삭제 하세요.

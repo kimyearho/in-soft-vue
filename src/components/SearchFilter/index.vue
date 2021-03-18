@@ -23,7 +23,7 @@
           md="2"
         >
           <v-select
-            v-model="userGroupSelect"
+            v-model="form.selectedGroup"
             :items="userGroupOption"
             item-text="label"
             item-value="value"
@@ -36,7 +36,7 @@
           md="3"
         >
           <v-text-field
-            v-model="form.lastname"
+            v-model="form.groupName"
             outlined
             dense
             label="그룹명을 입력하세요."
@@ -48,6 +48,7 @@
         >
           <v-btn
             color="primary"
+            @click="filterSubmit"
           >
             <v-icon>mdi-selection-search</v-icon>
             SEARCH
@@ -66,12 +67,13 @@
           md="2"
         >
           <v-select
-            v-model="periodSelect"
+            v-model="form.selectedPeriod"
             :items="periodOption"
             item-text="label"
             item-value="value"
             outlined
             dense
+            @change="changePeriod"
           />
         </v-col>
         <v-col
@@ -79,10 +81,14 @@
           md="3"
         >
           <date-picker
-            v-model="dateRange"
+            v-model="form.periodRange"
             type="date"
             range
-            placeholder="Select date range"
+            :format="datePickerFormat"
+            :editable="datePickerOption.editable"
+            :clearable="datePickerOption.clearable"
+            value-type="format"
+            placeholder="날짜를 입력 해주세요."
           />
         </v-col>
       </v-row>
@@ -111,6 +117,19 @@ export default {
       default: () => {
         return []
       }
+    },
+    datePickerFormat: {
+      type: String,
+      default: 'YYYY-MM-DD'
+    },
+    datePickerOption: {
+      type: Object,
+      default() {
+        return {
+          editable: '',
+          clearable: ''
+        }
+      }
     }
   },
   data() {
@@ -118,14 +137,11 @@ export default {
       visible: false,
       isExpand: false,
       form: {
-        username: '',
-        lastname: '',
-        id: '',
-        desc: ''
+        selectedGroup: 'group1',
+        selectedPeriod: '1w',
+        groupName: '',
+        periodRange: []
       },
-      dateRange: [],
-      userGroupSelect: 'user1',
-      periodSelect: 'user1',
       styles: {
         expand: {
           position: 'relative',
@@ -138,12 +154,9 @@ export default {
     isExpand: {
       handler(val) {
         if (val) {
-          // this.$vuetify.theme.dark = true
           if (this.periodOption.length <= 0) {
             this.$emit('call_periodOption')
           }
-        } else {
-          // this.$vuetify.theme.dark = false
         }
       }
     }
@@ -153,6 +166,29 @@ export default {
       this.isExpand = !!this.isExpand
       this.visible = !!this.isExpand
       this.$emit('dy-height', this.visible)
+    },
+    changePeriod(val) {
+      this.form.periodRange = []
+      this.datePickerSetting(val)
+    },
+    datePickerSetting(opt) {
+      let to; let from = ''
+      if (opt === '1w') {
+        to = this.$moment().format('YYYY-MM-DD')
+        from = this.$moment()
+          .subtract(7, 'd')
+          .format('YYYY-MM-DD')
+      } else {
+        to = this.$moment().format('YYYY-MM-DD')
+        from = this.$moment()
+          .subtract(opt.replace('m', ''), 'M')
+          .format('YYYY-MM-DD')
+      }
+      this.form.periodRange.push(from)
+      this.form.periodRange.push(to)
+    },
+    filterSubmit() {
+      this.$emit('search', this.form)
     }
   }
 }

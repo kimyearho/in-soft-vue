@@ -32,6 +32,10 @@ body {
   font-size: 14px !important;
 }
 
+.mx-input-wrapper {
+  width: 286px;
+}
+
 .mx-input {
   height: 40px !important;
 }
