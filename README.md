@@ -1,6 +1,5 @@
 <p align="center">       
-  <img width="500" src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
-  <img width="500" src="https://lh3.googleusercontent.com/proxy/3UgQkH9vlU7x4YkGbGgXKdVmthEKfmYd7nvVeuJTUpLfi06rgSldKaJ0jCfqwvcFfi-QJNk5OZPJ-1wKpTDNQ-S7hNCZDl2LVrjnU_YoO0tdJmPpB_CwzGhykgoWiw"/>
+  <img width="700" src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
 </p>
 
 <br>
@@ -33,16 +32,14 @@ https://vuetifyjs.com/en/
 - [x] Vuex
 - [x] Vue router
 - [x] Vuetify & Wireframe
-- [ ] Element UI & Wireframe
 - [x] Vertical menu (3depth nesting menu)
 - [ ] Horizon menu
-- [ ] Hover menu
 - [x] Login (sample: token) / Logout / Remember me 
 - [ ] Vuex Store Helper
+- [X] Common Search filter component
 - [ ] Common List component
 - [ ] Common Detail component
 - [ ] Common Modal component
-- [ ] Common Search filter component
 - [ ] Etc component
 
 <br>
