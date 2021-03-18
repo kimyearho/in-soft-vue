@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
     <v-container fluid>
+      <search-filter />
       <v-card :style="{marginTop: '50px'}">
         <v-data-table
           :headers="headers"
@@ -16,8 +17,13 @@
 <script>
 import { getList } from '@/api/table'
 
+import SearchFilter from '@/views/example/searchFilter/index'
+
 export default {
   name: 'Dashboard',
+  components: {
+    SearchFilter
+  },
   data() {
     return {
       colHeight: '110px',
