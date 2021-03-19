@@ -1,14 +1,14 @@
 .v-main {
-  padding: 64px 0px 0px 256px !important;
+  /* padding: 64px 0px 0px 256px !important; */
   min-height: calc(100vh - 204px);
   overflow-y: auto;
 }
 
 .v-footer {
   position: relative;
-    min-height: 100%;
-    transition: padding-left .28s;
-    padding-left: 250px;
+  min-height: 100%;
+  transition: padding-left .28s;
+  padding-left: 250px;
 }
 
 .v-dialog > .v-card > .v-card__title {

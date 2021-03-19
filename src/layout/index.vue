@@ -3,8 +3,8 @@
     <!-- //? 상단 네비게이션 -->
     <nav-bar />
     <!-- //? 좌측 사이드 메뉴바 -->
+    <side-bar />
     <div class="main-container">
-      <side-bar />
       <!-- //? 메인 콘텐츠 -->
       <app-main>
         <template slot="breadcrumb">
