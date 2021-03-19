@@ -1,15 +1,5 @@
 <template>
-  <v-card>
-    <v-subheader>
-      <span class="filter-title">검색 필터</span>
-      <div :style="{marginLeft: '98px'}">
-        <v-switch
-          v-model="isExpand"
-          :label="isExpand ? 'Expand ON' : 'Expand OFF'"
-          @change="expandFilter"
-        />
-      </div>
-    </v-subheader>
+  <v-card :style="{paddingTop: '20px'}">
     <v-form :style="{margin: '10px'}">
       <v-row>
         <v-col
@@ -32,7 +22,7 @@
           />
         </v-col>
         <v-col
-          cols="12"
+          cols="4"
           md="3"
         >
           <v-text-field
@@ -43,8 +33,7 @@
           />
         </v-col>
         <v-col
-          cols="12"
-          md="3"
+          cols="2"
         >
           <v-btn
             color="primary"
@@ -53,6 +42,15 @@
             <v-icon>mdi-selection-search</v-icon>
             SEARCH
           </v-btn>
+        </v-col>
+        <v-col cols="3">
+          <v-subheader>
+            <v-switch
+              v-model="isExpand"
+              :label="isExpand ? '상세 검색 ON' : '상세 검색 OFF'"
+              @change="expandFilter"
+            />
+          </v-subheader>
         </v-col>
       </v-row>
       <v-row v-if="visible">
@@ -172,7 +170,8 @@ export default {
       this.datePickerSetting(val)
     },
     datePickerSetting(opt) {
-      let to; let from = ''
+      let to
+      let from = ''
       if (opt === '1w') {
         to = this.$moment().format('YYYY-MM-DD')
         from = this.$moment()
