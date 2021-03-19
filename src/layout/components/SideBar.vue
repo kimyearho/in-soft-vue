@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SidebarItem from './sideItem/Item'
+import SidebarItem from './SideItem/Item'
 import { mapGetters } from 'vuex'
 
 export default {

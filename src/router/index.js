@@ -7,14 +7,14 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /**
- //* hidden: true                   라우터를 감출지 여부
- //* alwaysShow: true               메뉴를 상시 표시할지 여부
+ //* hidden: true                라우터를 감출지 여부
  //! meta : {
     roles: ['admin','editor']    라우터 권한 구성
     title: 'title'               메뉴에 표시될 메뉴명 구성
-    icon: 'svg-name'/'el-icon-x' 메뉴에 표시될 아이콘 구성
+    icon: 'mdi-icon              메뉴에 표시될 아이콘 구성
     breadcrumb: false            이 옵션을 조절하면 브래드 크럼을 ON/OFF 할 수 있음.
-    activeMenu: '/example/list'  메뉴에 활성화될 메뉴를 조절할 수 있음. (메뉴 템플릿에서 구성필요)
+    activeClass: 'is-active'     메뉴에 활성화될 메뉴를 조절할 수 있음. (메뉴 템플릿에서 구성필요)
+    prefix: true                 그룹을 생성하지 않는다. (대시보드 사용)
   }
  */
 
@@ -47,6 +47,7 @@ const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: 'dashboard',
+    prefix: true,
     meta: {
       title: 'Dashboard',
       icon: 'mdi-view-dashboard',
@@ -93,8 +94,7 @@ const createRouter = () =>
   new Router({
     mode: 'history', // ? history 모드 사용시 브라우저 주소창에 해시태그가 남지 않는다.
     scrollBehavior: () => ({ y: 0 }),
-    routes: constantRoutes, //! 기본 라우터는 정적 라우터만 등록한다.
-    linkActiveClass: 'is-active'
+    routes: constantRoutes //! 기본 라우터는 정적 라우터만 등록한다.
   })
 
 const router = createRouter()

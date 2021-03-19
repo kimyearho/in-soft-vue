@@ -2,12 +2,31 @@
   <div>
     <!-- //* 권한 라우트 목록을 반복한다. -->
     <template v-for="item in permissionRouters">
+      <!-- //* 대시보드는 그룹으로 묶어 줄 필요없다. -->
+      <v-list-item
+        v-if="item.prefix"
+        :key="item.meta.title"
+      >
+        <v-list-item-icon :style="{marginLeft: '0px'}">
+          <v-icon
+            v-text="item.meta.icon"
+          />
+        </v-list-item-icon>
+        <router-link
+          to="/"
+          :class="{'is-active': currentName === 'Dashboard' }"
+        >
+          <v-list-item-title>
+            {{ item.meta.title }}
+          </v-list-item-title>
+        </router-link>
+      </v-list-item>
+
       <!-- //* 조건에 부합하는 리스트 그룹을 생성한다. (1 depts) -->
       <v-list-group
-        v-if="!item.hidden && item.children"
+        v-if="!item.hidden && item.children && !item.prefix"
         :key="item.path"
         :prepend-icon="item.meta ? item.meta.icon : ''"
-        :active-class="item.path"
         class="v-list-custom"
       >
         <!-- //* 그룹 제목 -->
@@ -29,7 +48,10 @@
               link
               @click="listItemLink('', item, child)"
             >
-              <router-link :to="routerLink('', item, child)">
+              <router-link
+                :to="routerLink('', item, child)"
+                :active-class="child.meta.activeClass"
+              >
                 <v-list-item-title>
                   {{ child.meta.title }}
                 </v-list-item-title>
@@ -73,10 +95,17 @@ import { mapGetters } from 'vuex'
 
 export default {
   data() {
-    return {}
+    return {
+      currentName: 'Dashboard'
+    }
   },
   computed: {
     ...mapGetters(['permissionRouters'])
+  },
+  watch: {
+    $route(val) {
+      this.currentName = val.name
+    }
   },
   methods: {
     routerLink(root, item, child) {

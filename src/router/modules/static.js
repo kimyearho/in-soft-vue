@@ -20,7 +20,8 @@ export default {
         title: 'Search Filter',
         icon: 'mdi-message',
         role: 'admin',
-        menu_id: 'M1108'
+        menu_id: 'M1108',
+        activeClass: 'is-active'
       }
     },
     {
@@ -31,7 +32,8 @@ export default {
         title: 'List Container',
         icon: 'mdi-message',
         role: 'admin',
-        menu_id: 'M1102'
+        menu_id: 'M1102',
+        activeClass: 'is-active'
       }
     },
     {
@@ -42,7 +44,8 @@ export default {
         title: 'Detail Container',
         icon: 'mdi-keyboard',
         role: 'admin',
-        menu_id: 'M1103'
+        menu_id: 'M1103',
+        activeClass: 'is-active'
       }
     },
     {
@@ -53,7 +56,8 @@ export default {
         title: 'Modal',
         icon: 'mdi-keyboard',
         role: 'admin',
-        menu_id: 'M1107'
+        menu_id: 'M1107',
+        activeClass: 'is-active'
       }
     },
     {
@@ -74,7 +78,8 @@ export default {
           component: () => import('@/views/nest/NestMenu1'),
           meta: {
             title: 'Menu 1',
-            menu_id: 'M1105'
+            menu_id: 'M1105',
+            activeClass: 'is-active'
           }
         },
         {
@@ -83,7 +88,8 @@ export default {
           component: () => import('@/views/nest/NestMenu2'),
           meta: {
             title: 'Menu 2',
-            menu_id: 'M1106'
+            menu_id: 'M1106',
+            activeClass: 'is-active'
           }
         }
       ]
