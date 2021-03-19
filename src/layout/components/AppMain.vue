@@ -1,13 +1,26 @@
 <template>
-  <v-container fluid>
-    <v-row align="center">
-      <v-col cols="12">
-        <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
-        <h1 :style="{marginBottom: '30px'}">{{ $route.meta.title }}</h1>
-        <router-view :key="key" />
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-main>
+    <v-system-bar
+      window
+      dark
+      lights-out
+      color="grey darken-2"
+    >
+      <slot name="breadcrumb" />
+    </v-system-bar>
+    <v-container fluid>
+      <v-row align="center">
+        <v-col cols="12">
+          <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
+          <h1 :style="{marginBottom: '30px'}">{{ $route.meta.title }}</h1>
+          <router-view :key="key" />
+        </v-col>
+      </v-row>
+      <div class="footer">
+        <slot name="footer" />
+      </div>
+    </v-container>
+  </v-main>
 </template>
 
 <script>

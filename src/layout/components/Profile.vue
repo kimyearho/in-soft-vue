@@ -14,7 +14,7 @@
             v-on="on"
           >
             <v-avatar
-              color="brown"
+              color="red"
               size="48"
             >
               <span class="white--text headline">{{ user.initials }}</span>
@@ -31,6 +31,15 @@
               <p class="caption mt-1">
                 {{ getUser.email }}
               </p>
+              <v-divider class="my-3" />
+              <v-btn
+                depressed
+                rounded
+                text
+                @click="darkMode"
+              >
+                테마 변경
+              </v-btn>
               <v-divider class="my-3" />
               <v-btn
                 depressed
@@ -53,7 +62,8 @@ export default {
   data: () => ({
     user: {
       initials: 'YH'
-    }
+    },
+    themeSwitch: false
   }),
   computed: {
     getUser() {
@@ -61,6 +71,9 @@ export default {
     }
   },
   methods: {
+    darkMode() {
+      this.$vuetify.theme.dark = true
+    },
     async logout() {
       const result = await this.$store.dispatch('user/logout')
       if (result) {

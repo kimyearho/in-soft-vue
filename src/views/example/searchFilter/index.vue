@@ -14,12 +14,18 @@
       class="result-wrapper"
       :style="{marginTop: '50px'}"
     >
-      <span v-html="source" />
+      <default-alert
+        v-if="visible.alert"
+        :visible="visible.alert"
+        :contents="source"
+        @dialogClose="visible.alert = false"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import DefaultAlert from '@/components/Dialog'
 import SearchFilter from '@/components/SearchFilter'
 import { getUserGroupList, getPeriodList } from '@/api/filter'
 
@@ -37,6 +43,7 @@ function objToString(obj) {
 export default {
   name: 'ViewSearchFilter',
   components: {
+    DefaultAlert,
     SearchFilter
   },
   data() {
@@ -50,6 +57,9 @@ export default {
           editable: false,
           clearable: false
         }
+      },
+      visible: {
+        alert: false
       }
     }
   },
@@ -74,6 +84,7 @@ export default {
     },
     call_search(data) {
       this.source = objToString(data)
+      this.visible.alert = true
     }
   }
 }

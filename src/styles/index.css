@@ -1,5 +1,18 @@
-body {
-  font-family: 'Nanum Gothic';
+.v-main {
+  padding: 64px 0px 0px 256px !important;
+  min-height: calc(100vh - 204px);
+  overflow-y: auto;
+}
+
+.v-footer {
+  position: relative;
+    min-height: 100%;
+    transition: padding-left .28s;
+    padding-left: 250px;
+}
+
+.v-dialog > .v-card > .v-card__title {
+  padding: 6px 14px 0px !important;
 }
 
 .v-application a {
@@ -42,4 +55,16 @@ body {
 
 .v-btn .v-icon {
   padding-right: 15px;
+}
+
+.alert-headline {
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.alert-contents {
+  margin-top: 15px;
+  font-weight: 700;
 }
