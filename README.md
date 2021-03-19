@@ -48,7 +48,7 @@ https://vuetifyjs.com/en/
 
 1. Component name Rule
 - kebab-case를 사용하도록 한다.
-```
+```html
 <component-name></component-name> (O)
 
 <ComponentName></ComponentName>   (x)
@@ -58,7 +58,7 @@ https://vuetifyjs.com/en/
 2. Props name Rule
 - 값을 넘겨줄때는 동일하게 kebab-case를 사용하도록 한다.
 - 컴포넌트 내부에서 Props를 선언할때는 camel-case로 받아서 처리한다.
-```
+```html
 (O)
 <component-name
   :visible-form="form"
@@ -76,7 +76,7 @@ https://vuetifyjs.com/en/
 
 3. Template Rule
 - Props or Interpolation(보간법)에서 'this' 키워드를 사용하지 않는다.
-```
+```html
 (O)
 <component-name
   :visible-form="form"
