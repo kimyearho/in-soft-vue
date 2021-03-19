@@ -3,8 +3,8 @@
     <v-app-bar
       app
       flat
-      clipped-left
       dark
+      :clipped-left="clipped"
       color="blue-grey darken-4"
     >
       <v-app-bar-nav-icon @click="toggleSideBar" />
@@ -29,7 +29,7 @@ export default {
     Profile
   },
   computed: {
-    ...mapGetters(['avatar'])
+    ...mapGetters(['avatar', 'clipped'])
   },
   methods: {
     toggleSideBar() {

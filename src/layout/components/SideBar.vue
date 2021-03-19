@@ -1,8 +1,8 @@
 <template>
   <v-navigation-drawer
     app
-    clipped
     permanent
+    :clipped="clipped"
     :expand-on-hover="!sidebar.opened"
     :mini-variant="!sidebar.opened"
   >
@@ -24,10 +24,9 @@ export default {
     SidebarItem
   },
   data: () => ({
-    drawer: null
   }),
   computed: {
-    ...mapGetters(['sidebar'])
+    ...mapGetters(['sidebar', 'clipped'])
   }
 }
 </script>
