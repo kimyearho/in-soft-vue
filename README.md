@@ -101,7 +101,7 @@ https://vuetifyjs.com/en/
 - https://vuejs.org/v2/style-guide/#Private-property-names-essential
 - 믹스인 함수명에 대한 룰을 정의 합니다.
 - 중첩 방지 및 믹스인 함수를 보다 정확하게 구분할 수 있도록 접두사로 mixin_를 사용하여 구분합니다.
-```
+```js
 export default {
   methods: {
      mixin_fetch() {}
@@ -109,7 +109,6 @@ export default {
   }
 }
 ```
-<
 
 # Precautions
 - Eventbus 사용을 자제 하세요.
