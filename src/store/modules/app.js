@@ -6,6 +6,7 @@ const state = {
     withoutAnimation: false
   },
   sidebarClipped: false,
+  horizontal: false,
   device: 'desktop'
 }
 
@@ -29,6 +30,9 @@ const mutations = {
   },
   TOOGLE_CLIPPED: (state, flag) => {
     state.sidebarClipped = flag
+  },
+  TOOGLE_HORIZONTAL: (state, flag) => {
+    state.horizontal = flag
   }
 }
 
@@ -44,6 +48,9 @@ const actions = {
   },
   toggleClipped({ commit }, flag) {
     commit('TOOGLE_CLIPPED', flag)
+  },
+  toogleHorizonMenu({ commit }, flag) {
+    commit('TOOGLE_HORIZONTAL', flag)
   }
 }
 

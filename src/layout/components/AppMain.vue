@@ -13,7 +13,12 @@
         <v-col cols="12">
           <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
           <h1 :style="{marginBottom: '30px'}">{{ $route.meta.title }}</h1>
-          <router-view :key="key" />
+          <transition
+            name="fade"
+            mode="out-in"
+          >
+            <router-view :key="key" />
+          </transition>
         </v-col>
       </v-row>
       <div class="footer">

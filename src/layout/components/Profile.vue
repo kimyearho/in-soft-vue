@@ -36,15 +36,6 @@
                 depressed
                 rounded
                 text
-                @click="darkMode"
-              >
-                테마 변경
-              </v-btn>
-              <v-divider class="my-3" />
-              <v-btn
-                depressed
-                rounded
-                text
                 @click="logout"
               >
                 Logout
@@ -71,9 +62,6 @@ export default {
     }
   },
   methods: {
-    darkMode() {
-      this.$vuetify.theme.dark = true
-    },
     async logout() {
       const result = await this.$store.dispatch('user/logout')
       if (result) {
