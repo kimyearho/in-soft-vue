@@ -42,7 +42,7 @@ https://vuetifyjs.com/en/
 <br>
 
 # Preview
-- [Live Preview](http://158.247.198.68/login)
+- [Live Preview](http://158.247.198.68/login) (Login ID: admin)
 <br>
 
 # Component name or Props style rule
