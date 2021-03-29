@@ -9,6 +9,8 @@
     "preview": "node build/index.js --preview"
   },
   "dependencies": {
+    "ag-grid-community": "^25.1.0",
+    "ag-grid-vue": "^25.1.0",
     "axios": "0.21.1",
     "core-js": "3.8.3",
     "js-cookie": "2.2.0",
@@ -17,6 +19,7 @@
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
     "vue": "2.6.12",
+    "vue-property-decorator": "^8.0.0",
     "vue-router": "3.0.2",
     "vue2-datepicker": "^3.9.0",
     "vuetify": "^2.4.0",
