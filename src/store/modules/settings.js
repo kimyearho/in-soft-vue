@@ -41,6 +41,9 @@ const mutations = {
   RESET_MENUS: (state) => {
     state.addRouters = []
     state.routers = []
+  },
+  SIDE_LOGO: (state, flag) => {
+    state.sidebarLogo = flag
   }
 }
 
@@ -50,6 +53,9 @@ const actions = {
   },
   resetMenus({ commit }) {
     commit('RESET_MENUS')
+  },
+  toggleSideLogo({ commit }, flag) {
+    commit('SIDE_LOGO', flag)
   },
   menuList({ commit }, params) {
     return new Promise((resolve, reject) => {

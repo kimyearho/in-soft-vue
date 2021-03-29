@@ -30,6 +30,17 @@
         <v-list-item>
           <v-list-item-content class="py-0">
             <v-checkbox
+              v-model="sideLogo"
+              label="Sidebar Logo"
+              color="success"
+              @click="toggleSideLogo"
+            />
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-content class="py-0">
+            <v-checkbox
               v-model="clipped"
               label="Vertical Clipped"
               color="success"
@@ -83,7 +94,15 @@ export default {
         return this.$store.getters.clipped
       },
       set(val) {
-        this.$store.commit('app/TOOGLE_CLIPPED', val)
+        this.$store.commit('app/TOGGLE_CLIPPED', val)
+      }
+    },
+    sideLogo: {
+      get() {
+        return this.$store.getters.sideLogo
+      },
+      set(val) {
+        this.$store.commit('settings/SIDE_LOGO', val)
       }
     }
   },
@@ -96,11 +115,14 @@ export default {
         this.$vuetify.theme.dark = false
       }
     },
+    toggleSideLogo() {
+      this.$store.dispatch('settings/toggleSideLogo', this.sideLogo)
+    },
     toggleClipped() {
       this.$store.dispatch('app/toggleClipped', this.clipped)
     },
     toggleHorizon() {
-      this.$store.dispatch('app/toogleHorizonMenu', this.custom.horizon)
+      this.$store.dispatch('app/toggleHorizonMenu', this.custom.horizon)
     },
     toggleCustomizer() {
       this.customizerIn = !this.customizerIn

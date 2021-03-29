@@ -4,20 +4,24 @@
       window
       dark
       lights-out
-      color="grey darken-2"
+      color="blue-grey lighten-1"
     >
       <slot name="breadcrumb" />
     </v-system-bar>
     <v-container fluid>
       <v-row align="center">
         <v-col cols="12">
-          <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
-          <h1 :style="{marginBottom: '30px'}">{{ $route.meta.title }}</h1>
+          <!-- //? 콘텐츠에 표시될 라우터 제목 -->
+          <h1 :style="appStyles.header">{{ $route.meta.title }}</h1>
+          <v-divider />
           <transition
             name="fade"
             mode="out-in"
           >
-            <router-view :key="key" />
+            <router-view
+              :key="key"
+              :style="appStyles.main"
+            />
           </transition>
         </v-col>
       </v-row>
@@ -31,6 +35,17 @@
 <script>
 export default {
   name: 'AppMain',
+  data: () => ({
+    appStyles: {
+      header: {
+        marginBottom: '10px',
+        marginLeft: '10px'
+      },
+      main: {
+        marginTop: '15px'
+      }
+    }
+  }),
   computed: {
     key() {
       return this.$route.path

@@ -3,6 +3,7 @@ const getters = {
   device: state => state.app.device,
   token: state => state.user.token,
   avatar: state => state.user.avatar,
+  sideLogo: state => state.settings.sidebarLogo,
   name: state => state.user.name,
   addRouters: state => state.settings.addRouters,
   clipped: state => state.app.sidebarClipped,

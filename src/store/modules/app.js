@@ -28,10 +28,10 @@ const mutations = {
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
   },
-  TOOGLE_CLIPPED: (state, flag) => {
+  TOGGLE_CLIPPED: (state, flag) => {
     state.sidebarClipped = flag
   },
-  TOOGLE_HORIZONTAL: (state, flag) => {
+  TOGGLE_HORIZONTAL: (state, flag) => {
     state.horizontal = flag
   }
 }
@@ -47,10 +47,10 @@ const actions = {
     commit('TOGGLE_DEVICE', device)
   },
   toggleClipped({ commit }, flag) {
-    commit('TOOGLE_CLIPPED', flag)
+    commit('TOGGLE_CLIPPED', flag)
   },
-  toogleHorizonMenu({ commit }, flag) {
-    commit('TOOGLE_HORIZONTAL', flag)
+  toggleHorizonMenu({ commit }, flag) {
+    commit('TOGGLE_HORIZONTAL', flag)
   }
 }
 

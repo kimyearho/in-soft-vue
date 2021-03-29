@@ -11,6 +11,10 @@
   overflow-y: auto;
 }
 
+.v-main__wrap {
+  background-color: #FAFAFA;
+}
+
 .v-footer {
   position: relative;
   min-height: 100%;
