@@ -9,7 +9,7 @@ import vuetify from './plugins/vuetify'
 import VueLogger from 'vuejs-logger'
 import lodash from 'lodash'
 import moment from 'moment'
-import './styles/index.css'
+import './styles/index.scss'
 
 import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
