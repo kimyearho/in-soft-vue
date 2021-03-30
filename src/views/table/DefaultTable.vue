@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
-    <v-container fluid>
-      <v-card :style="{marginTop: '50px'}">
+    <v-container>
+      <v-card>
         <v-data-table
           :headers="headers"
           :items="rowItems"

@@ -3,12 +3,13 @@
     <v-container fluid>
       <search-filter />
       <v-card :style="{marginTop: '50px'}">
-        <v-data-table
+        <ag-grid-table />
+        <!-- <v-data-table
           :headers="headers"
           :items="rowItems"
           :items-per-page="15"
           class="elevation-1"
-        />
+        /> -->
       </v-card>
     </v-container>
   </div>
@@ -18,11 +19,13 @@
 import { getList } from '@/api/table'
 
 import SearchFilter from '@/views/example/searchFilter/index'
+import AgGridTable from '@/views/table/AgGrid'
 
 export default {
   name: 'Dashboard',
   components: {
-    SearchFilter
+    SearchFilter,
+    AgGridTable
   },
   data() {
     return {

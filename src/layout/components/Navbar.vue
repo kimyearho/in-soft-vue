@@ -9,7 +9,7 @@
     >
       <v-app-bar-nav-icon @click="toggleSideBar" />
       <span class="title ml-3 mr-5">
-        <h3>InSoft Vue-Framework</h3>
+        <h3>IN-SOFT Vue</h3>
       </span>
 
       <v-spacer />

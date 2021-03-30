@@ -47,6 +47,7 @@
           <v-subheader>
             <v-switch
               v-model="isExpand"
+              color="green"
               :label="isExpand ? '상세 검색 ON' : '상세 검색 OFF'"
               @change="expandFilter"
             />

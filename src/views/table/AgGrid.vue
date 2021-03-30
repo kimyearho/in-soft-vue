@@ -1,7 +1,7 @@
 <template>
   <div>
     <ag-grid-vue
-      style="width: 100%; height: 700px; margin-top: 50px;"
+      style="width: 100%; height: 700px;"
       class="ag-theme-alpine"
       :grid-options="gridOptions"
       :default-col-def="defaultColDef"

@@ -1,6 +1,6 @@
 export function listModalOptions_1() {
   return {
-    width: '900',
+    width: '800',
     titleName: '목록형 팝업',
     titleColor: 'deep-purple darken-1',
     closeBtnName: '닫기',

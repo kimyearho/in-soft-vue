@@ -85,7 +85,7 @@
               <v-btn
                 color="primary"
                 @click="showListModal"
-              >Common List Modal</v-btn>
+              >TEST OPEN MODAL - CLICK</v-btn>
             </v-card-text>
           </div>
         </v-col>
