@@ -36,7 +36,7 @@ export default {
     SidebarItem
   },
   data: () => ({
-    sidebarLogoImage: 'https://pbs.twimg.com/media/Ei5n6vBWoAEy5gp.png'
+    sidebarLogoImage: require('@/assets/logo2.png')
   }),
   computed: {
     ...mapGetters(['sidebar', 'clipped', 'sideLogo'])
