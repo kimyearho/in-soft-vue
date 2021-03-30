@@ -1,5 +1,7 @@
 <template>
-  <v-breadcrumbs :items="levelList">
+  <v-breadcrumbs
+    :items="levelList"
+  >
     <template v-slot:divider>
       <v-icon>mdi-chevron-right</v-icon>
     </template>

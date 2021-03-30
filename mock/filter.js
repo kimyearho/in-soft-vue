@@ -41,13 +41,14 @@ module.exports = [
     url: '/in-soft/group/userGroupList',
     type: 'get',
     response: config => {
-      const token = config.headers['x-token']
-      if (!token) {
-        return {
-          code: 50000,
-          message: 'Token fail'
-        }
-      }
+      // const { token } = config.query
+      // const token = config.headers['x-token'] || 'admin-token'
+      // if (!token) {
+      //   return {
+      //     code: 50000,
+      //     message: 'Token fail'
+      //   }
+      // }
       return {
         code: 20000,
         data: groupData
@@ -59,13 +60,13 @@ module.exports = [
     url: '/in-soft/group/periodList',
     type: 'get',
     response: config => {
-      const token = config.headers['x-token']
-      if (!token) {
-        return {
-          code: 50000,
-          message: 'Token fail'
-        }
-      }
+      // const token = config.headers['x-token'] || 'admin-token'
+      // if (!token) {
+      //   return {
+      //     code: 50000,
+      //     message: 'Token fail'
+      //   }
+      // }
       return {
         code: 20000,
         data: periodData

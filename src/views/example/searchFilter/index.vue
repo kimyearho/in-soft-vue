@@ -83,7 +83,13 @@ export default {
       })
     },
     call_search(data) {
-      this.source = objToString(data)
+      const callbackData = this.$lodash.cloneDeep(data)
+      if (!callbackData.isExpand) {
+        delete callbackData.selectedPeriod
+        delete callbackData.periodRange
+      }
+      delete callbackData.isExpand
+      this.source = objToString(callbackData)
       this.visible.alert = true
     }
   }

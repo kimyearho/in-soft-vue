@@ -5,7 +5,7 @@
       flat
       dark
       :clipped-left="clipped"
-      color="blue-grey darken-4"
+      color="blue darken-1"
     >
       <v-app-bar-nav-icon @click="toggleSideBar" />
       <span class="title ml-3 mr-5">

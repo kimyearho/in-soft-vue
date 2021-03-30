@@ -1,19 +1,20 @@
 <template>
   <div class="app-wrapper">
     <!-- //? 상단 네비게이션 -->
-    <nav-bar />
+    <app-nav-bar />
     <!-- //? 좌측 사이드 메뉴바 -->
-    <side-bar />
+    <app-side-bar v-if="!horizon" />
     <div class="main-container">
       <!-- //? 메인 콘텐츠 -->
       <app-main>
         <template slot="breadcrumb">
-          <bread-crumbs />
+          <app-bread-crumbs />
         </template>
       </app-main>
       <!-- //? 푸터 -->
-      <foo-ter />
+      <app-footer />
     </div>
+    <app-custormizer />
   </div>
 </template>
 
@@ -23,15 +24,22 @@ import SideBar from './components/SideBar'
 import AppMain from './components/AppMain'
 import FooTer from './components/Footer'
 import BreadCrumbs from '@/components/Breadcrumb/index'
+import Custormizer from '@/components/Customizer'
+
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Layout',
+  name: 'RootLayout',
   components: {
-    NavBar,
-    SideBar,
-    AppMain,
-    FooTer,
-    BreadCrumbs
+    appNavBar: NavBar,
+    appSideBar: SideBar,
+    appMain: AppMain,
+    appFooter: FooTer,
+    appBreadCrumbs: BreadCrumbs,
+    appCustormizer: Custormizer
+  },
+  computed: {
+    ...mapGetters(['horizon'])
   }
 }
 </script>

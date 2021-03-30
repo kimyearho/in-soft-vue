@@ -96,7 +96,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      currentName: 'Dashboard'
+      currentName: null
     }
   },
   computed: {

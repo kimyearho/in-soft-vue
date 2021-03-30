@@ -138,7 +138,8 @@ export default {
         selectedGroup: 'group1',
         selectedPeriod: '1w',
         groupName: '',
-        periodRange: []
+        periodRange: [],
+        isExpand: null
       },
       styles: {
         expand: {
@@ -187,6 +188,7 @@ export default {
       this.form.periodRange.push(to)
     },
     filterSubmit() {
+      this.form.isExpand = this.isExpand
       this.$emit('search', this.form)
     }
   }

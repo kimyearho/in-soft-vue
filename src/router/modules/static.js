@@ -24,34 +24,34 @@ export default {
         activeClass: 'is-active'
       }
     },
-    {
-      path: 'list-container',
-      name: 'ListContainer',
-      // component: () => import('@/views/table/index'),
-      meta: {
-        title: 'List Container',
-        icon: 'mdi-message',
-        role: 'admin',
-        menu_id: 'M1102',
-        activeClass: 'is-active'
-      }
-    },
-    {
-      path: 'detail-container',
-      name: 'DetailContainer',
-      // component: () => import('@/views/form/index'),
-      meta: {
-        title: 'Detail Container',
-        icon: 'mdi-keyboard',
-        role: 'admin',
-        menu_id: 'M1103',
-        activeClass: 'is-active'
-      }
-    },
+    // {
+    //   path: 'list-container',
+    //   name: 'ListContainer',
+    //   // component: () => import('@/views/table/index'),
+    //   meta: {
+    //     title: 'List Container',
+    //     icon: 'mdi-message',
+    //     role: 'admin',
+    //     menu_id: 'M1102',
+    //     activeClass: 'is-active'
+    //   }
+    // },
+    // {
+    //   path: 'detail-container',
+    //   name: 'DetailContainer',
+    //   // component: () => import('@/views/form/index'),
+    //   meta: {
+    //     title: 'Detail Container',
+    //     icon: 'mdi-keyboard',
+    //     role: 'admin',
+    //     menu_id: 'M1103',
+    //     activeClass: 'is-active'
+    //   }
+    // },
     {
       path: 'modal',
       name: 'Modal',
-      // component: () => import('@/views/form/index'),
+      component: () => import('@/views/example/modal/index'),
       meta: {
         title: 'Modal',
         icon: 'mdi-keyboard',

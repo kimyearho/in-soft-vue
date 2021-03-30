@@ -32,15 +32,18 @@ https://vuetifyjs.com/en/
 - [x] Vue router
 - [x] Vuetify & Wireframe
 - [x] Vertical menu (3depth nesting menu)
+- [X] App Setting Component
 - [ ] Horizon menu
 - [x] Login (sample: token) / Logout / Remember me 
 - [ ] Vuex Store Helper
 - [X] Common Search filter component
-- [ ] Common List component
-- [ ] Common Detail component
 - [ ] Common Modal component
-- [ ] Etc component
+- [X] Sample Table (vuetify, ag-grid)
+- [X] Sample Modal
+<br>
 
+# Preview
+- [Live Preview](http://158.247.198.68/login) (Login ID: admin)
 <br>
 
 # Component name or Props style rule

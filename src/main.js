@@ -11,6 +11,9 @@ import lodash from 'lodash'
 import moment from 'moment'
 import './styles/index.css'
 
+import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
+import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
+
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme
 const isProduction = process.env.NODE_ENV === 'production'

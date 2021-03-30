@@ -10,16 +10,6 @@ const menuList = [
     role: 'admin'
   },
   {
-    menu_name: 'List Container',
-    menu_id: 'M1102',
-    role: 'admin'
-  },
-  {
-    menu_name: 'Detail Container',
-    menu_id: 'M1103',
-    role: 'admin'
-  },
-  {
     menu_name: 'Modal',
     menu_id: 'M1107',
     role: 'admin'
@@ -37,6 +27,21 @@ const menuList = [
   {
     menu_name: 'Menu 2',
     menu_id: 'M1106',
+    role: 'admin'
+  },
+  {
+    menu_name: 'Table',
+    menu_id: 'M1109',
+    role: 'admin'
+  },
+  {
+    menu_name: 'Vuetify table',
+    menu_id: 'M1110',
+    role: 'admin'
+  },
+  {
+    menu_name: 'Ag-Grid',
+    menu_id: 'M1111',
     role: 'admin'
   }
 ]
