@@ -39,6 +39,7 @@ https://vuetifyjs.com/en/
 - [X] Common Search filter component
 - [ ] Common Modal component
 - [X] Sample Table (vuetify, ag-grid)
+- [X] Sample Modal
 <br>
 
 # Preview
