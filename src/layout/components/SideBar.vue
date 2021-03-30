@@ -13,7 +13,7 @@
       <v-img
         v-if="sideLogo"
         :src="sidebarLogoImage"
-        height="166"
+        height="200"
         max-height="400"
       />
     </div>
@@ -36,7 +36,7 @@ export default {
     SidebarItem
   },
   data: () => ({
-    sidebarLogoImage: require('@/assets/side-logo.png')
+    sidebarLogoImage: 'https://pbs.twimg.com/media/Ei5n6vBWoAEy5gp.png'
   }),
   computed: {
     ...mapGetters(['sidebar', 'clipped', 'sideLogo'])

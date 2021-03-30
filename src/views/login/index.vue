@@ -8,8 +8,8 @@
         <v-col
           cols="12"
           lg="5"
-          md="8"
-          sm="6"
+          md="4"
+          sm="4"
           offset-lg="2"
         >
           <v-card
@@ -19,7 +19,7 @@
           >
             <v-img
               src="@/assets/login_1.jpg"
-              height="520"
+              height="600"
             />
           </v-card>
         </v-col>
@@ -126,7 +126,7 @@ export default {
       checkedRemember: false,
       valid: true,
       model: {
-        username: '',
+        username: 'admin',
         password: 'admin'
       },
       nameRules: [
