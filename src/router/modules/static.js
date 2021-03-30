@@ -51,7 +51,7 @@ export default {
     {
       path: 'modal',
       name: 'Modal',
-      // component: () => import('@/views/form/index'),
+      component: () => import('@/views/example/modal/index'),
       meta: {
         title: 'Modal',
         icon: 'mdi-keyboard',
