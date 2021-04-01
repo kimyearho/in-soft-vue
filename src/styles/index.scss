@@ -1,9 +1,8 @@
 .boxed-layout {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  padding-right: 17rem;
-  padding-left: 17rem;
+  padding-right: 5rem;
+  padding-left: 5rem;
 }
 
 .boxed-header {
@@ -29,6 +28,10 @@
 
 .v-main__wrap {
   background-color: #FAFAFA;
+}
+
+.side-logo {
+  margin: 20px;
 }
 
 .v-footer {

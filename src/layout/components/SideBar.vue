@@ -5,6 +5,7 @@
     :clipped="clipped"
     :expand-on-hover="!sidebar.opened"
     :mini-variant="!sidebar.opened"
+    width="300"
   >
     <div
       v-show="sidebar.opened"
@@ -14,7 +15,6 @@
         v-if="sideLogo"
         :src="sidebarLogoImage"
         height="200"
-        max-height="400"
       />
     </div>
     <v-divider />

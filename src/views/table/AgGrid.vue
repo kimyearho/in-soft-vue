@@ -7,8 +7,10 @@
       :default-col-def="defaultColDef"
       :column-defs="columnDefs"
       :pagination="true"
-      :pagination-page-size="15"
+      :pagination-page-size="14"
       :row-data="rowData"
+      @grid-ready="onGridReady"
+      @first-data-rendered="sizeToFit"
     />
   </div>
 </template>
@@ -25,7 +27,8 @@ export default {
   data() {
     return {
       defaultColDef: {
-        resizable: true
+        resizable: true,
+        suppressHorizontalScroll: false
       },
       gridColumnApi: null,
       gridOptions: null,
@@ -37,18 +40,17 @@ export default {
   beforeMount() {
     this.gridOptions = {}
     this.columnDefs = [
-      { field: 'id', width: 100, sortable: true, filter: true },
+      { field: 'id', width: 80, sortable: true, filter: true },
       { field: 'title', width: 150, sortable: true, filter: true },
       { field: 'author', width: 80, sortable: true, filter: true },
       { field: 'display_time', width: 100, resizable: false },
-      { field: 'pageviews', width: 100, resizable: false }
+      { field: 'pageviews', width: 50, resizable: false }
     ]
-    this.getRowList()
   },
   mounted() {
     this.gridApi = this.gridOptions.api
     this.gridColumnApi = this.gridOptions.columnApi
-    this.sizeToFit()
+    // this.sizeToFit()
   },
   methods: {
     sizeToFit() {
@@ -61,6 +63,9 @@ export default {
       })
       this.gridColumnApi.autoSizeColumns(allColumnIds, skipHeader)
     },
+    onGridReady() {
+      this.getRowList()
+    },
     getRowList() {
       getList().then(({ data }) => {
         if (data.total > 0) {
@@ -72,4 +77,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ag-body-viewport {
+  overflow-x: hidden;
+}
+</style>
