@@ -54,6 +54,10 @@
   }
 }
 
+.is-svg-active {
+  fill: #1976d2 !important;
+}
+
 .v-breadcrumbs {
   padding-left: 10px !important;
 
@@ -73,6 +77,22 @@
     font-size: 24px;
     font-weight: 700;
   }
+}
+
+.v-list-custom {
+  height: auto;
+  line-height: 1.4;
+  color: #7f8084;
+  vertical-align: middle;
+}
+
+.v-group-style {
+  padding-left: 10px;
+  font-weight: 500;
+}
+
+.v-list .v-sheet .theme--light .v-list--nav {
+  padding: 0 !important;
 }
 
 .v-input {
@@ -101,4 +121,21 @@
 .alert-contents {
   margin-top: 15px;
   font-weight: 700;
+}
+
+.svg-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 100%;
+  padding: 15px;
+  fill: #aaa;
+  background-color: #f9f9f9;
+  vertical-align: top;
+}
+
+.v-list--nav .v-list-item:not(:last-child):not(:only-child), .v-list--rounded .v-list-item:not(:last-child):not(:only-child) {
+  margin-bottom: 0px;
 }

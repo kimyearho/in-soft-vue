@@ -7,7 +7,7 @@ export default {
   redirect: '/table/vuetify-table',
   meta: {
     title: 'Table',
-    icon: 'mdi-table-check',
+    icon: 'table2',
     role: 'admin',
     menu_id: 'M1109'
   },

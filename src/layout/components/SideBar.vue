@@ -20,6 +20,7 @@
     <v-divider />
     <v-list
       nav
+      :style="{padding: '0'}"
     >
       <sidebar-item />
     </v-list>
