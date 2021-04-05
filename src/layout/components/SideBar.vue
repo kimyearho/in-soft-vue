@@ -13,8 +13,10 @@
     >
       <v-img
         v-if="sideLogo"
-        :src="sidebarLogoImage"
         height="200"
+        :src="sidebarLogoImage"
+        :style="{cursor: 'pointer'}"
+        @click="toDashboard"
       />
     </div>
     <v-divider />
@@ -41,6 +43,11 @@ export default {
   }),
   computed: {
     ...mapGetters(['sidebar', 'clipped', 'sideLogo'])
+  },
+  methods: {
+    toDashboard() {
+      this.$router.push('/dashboard')
+    }
   }
 }
 </script>
