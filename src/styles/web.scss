@@ -22,7 +22,7 @@
 
 .v-main {
   /* padding: 64px 0px 0px 256px !important; */
-  min-height: calc(100vh - 204px);
+  min-height: calc(100vh - 4.02rem);
   overflow-y: auto;
 }
 
@@ -134,6 +134,12 @@
   fill: #aaa;
   background-color: #f9f9f9;
   vertical-align: top;
+}
+
+.child-svg-icon {
+  background-color: initial;
+  fill: #000;
+  width: 43px;
 }
 
 .v-list--nav .v-list-item:not(:last-child):not(:only-child), .v-list--rounded .v-list-item:not(:last-child):not(:only-child) {

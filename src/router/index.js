@@ -60,7 +60,7 @@ const constantRoutes = [
         name: 'Dashboard',
         component: () => import('@/views/main/dashboard1'),
         meta: {
-          title: 'Dashboard',
+          title: 'Dashboard_',
           icon: 'mdi-help-circle'
         }
       }

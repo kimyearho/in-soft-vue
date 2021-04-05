@@ -3,10 +3,13 @@ import store from './store'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { getToken } from '@/utils/auth'
+import { title } from '@/settings'
 
 NProgress.configure({ showSpinner: false })
 
 const whiteList = ['/login', '/500', '/404', '/401']
+
+document.title = title
 
 //! 라우터 가드는 페이지 이동전에 항상 먼저 요청된다.
 //! 따라서 토큰이나 권한체크등에서 유용하게 사용가능 함

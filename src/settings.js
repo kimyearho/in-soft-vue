@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'IN-SOFT Vue-Framework',
+  title: 'IN-SOFT _ Vue-Framework',
 
   /**
    * @type {boolean} true | false

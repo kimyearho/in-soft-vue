@@ -8,7 +8,7 @@
     >
       <v-app-bar-nav-icon @click="toggleSideBar" />
       <span class="title ml-3 mr-5">
-        <h3>IN-SOFT Vue</h3>
+        <h3>{{ navTitle }}</h3>
       </span>
 
       <v-spacer />
@@ -19,7 +19,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import { title } from '@/settings'
 import Profile from './Profile'
 
 export default {
@@ -27,6 +27,9 @@ export default {
   components: {
     Profile
   },
+  data: () => ({
+    navTitle: title
+  }),
   computed: {
     ...mapGetters(['avatar', 'clipped'])
   },

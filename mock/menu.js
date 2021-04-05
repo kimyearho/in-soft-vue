@@ -35,7 +35,7 @@ const menuList = [
     role: 'admin'
   },
   {
-    menu_name: 'Vuetify table',
+    menu_name: 'Simple DataTable',
     menu_id: 'M1110',
     role: 'admin'
   },

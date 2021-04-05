@@ -24,30 +24,6 @@ export default {
         activeClass: 'is-active'
       }
     },
-    // {
-    //   path: 'list-container',
-    //   name: 'ListContainer',
-    //   // component: () => import('@/views/table/index'),
-    //   meta: {
-    //     title: 'List Container',
-    //     icon: 'mdi-message',
-    //     role: 'admin',
-    //     menu_id: 'M1102',
-    //     activeClass: 'is-active'
-    //   }
-    // },
-    // {
-    //   path: 'detail-container',
-    //   name: 'DetailContainer',
-    //   // component: () => import('@/views/form/index'),
-    //   meta: {
-    //     title: 'Detail Container',
-    //     icon: 'mdi-keyboard',
-    //     role: 'admin',
-    //     menu_id: 'M1103',
-    //     activeClass: 'is-active'
-    //   }
-    // },
     {
       path: 'modal',
       name: 'Modal',
@@ -60,40 +36,6 @@ export default {
         activeClass: 'is-active'
       }
     },
-    // {
-    //   path: 'nest-menu',
-    //   redirect: '/example/nest-menu',
-    //   name: 'Nest',
-    //   component: EmptyLayout,
-    //   meta: {
-    //     title: 'NestMenu',
-    //     role: 'admin',
-    //     menu_id: 'M1104',
-    //     breadcrumb: false
-    //   },
-    //   children: [
-    //     {
-    //       path: 'nest1',
-    //       name: 'NestMenu1',
-    //       component: () => import('@/views/nest/NestMenu1'),
-    //       meta: {
-    //         title: 'Menu 1',
-    //         menu_id: 'M1105',
-    //         activeClass: 'is-active'
-    //       }
-    //     },
-    //     {
-    //       path: 'nest2',
-    //       name: 'NestMenu2',
-    //       component: () => import('@/views/nest/NestMenu2'),
-    //       meta: {
-    //         title: 'Menu 2',
-    //         menu_id: 'M1106',
-    //         activeClass: 'is-active'
-    //       }
-    //     }
-    //   ]
-    // },
     {
       path: 'table',
       component: EmptyLayout,
@@ -110,7 +52,7 @@ export default {
           name: 'SearchFilter',
           component: () => import('@/views/table/DefaultTable.vue'),
           meta: {
-            title: 'Vuetify Table',
+            title: 'Simple DataTable',
             icon: 'mdi-message',
             role: 'admin',
             menu_id: 'M1110',

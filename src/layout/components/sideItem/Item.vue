@@ -51,7 +51,14 @@
               <router-link
                 :to="routerLink('', item, child)"
                 :active-class="child.meta.activeClass"
+                :style="{display: 'contents'}"
               >
+                <v-list-item-icon>
+                  <svg-icon
+                    class="child-svg-icon"
+                    icon-class="oval"
+                  />
+                </v-list-item-icon>
                 <v-list-item-title>
                   {{ child.meta.title }}
                 </v-list-item-title>
@@ -62,6 +69,7 @@
           <v-list-group
             v-else
             :key="child.path"
+            :style="{paddingLeft: '0px'}"
             sub-group
           >
             <template v-slot:activator>
@@ -80,7 +88,14 @@
               <router-link
                 :to="routerLink(item, child, nestChild)"
                 :active-class="nestChild.meta.activeClass"
+                :style="{display: 'contents'}"
               >
+                <v-list-item-icon :style="{marginRight: '0'}">
+                  <svg-icon
+                    class="child-svg-icon"
+                    icon-class="oval"
+                  />
+                </v-list-item-icon>
                 <v-list-item-title>
                   {{ nestChild.meta.title }}
                 </v-list-item-title>
