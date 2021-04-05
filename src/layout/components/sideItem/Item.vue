@@ -8,15 +8,13 @@
         :key="item.meta.title"
       >
         <v-list-item-icon :style="{marginLeft: '0px'}">
-          <v-icon
-            v-text="item.meta.icon"
+          <svg-icon
+            class="is-active"
+            icon-class="dashboard"
           />
         </v-list-item-icon>
-        <router-link
-          to="/"
-          :class="{'is-active': currentName === 'Dashboard' }"
-        >
-          <v-list-item-title>
+        <router-link to="/">
+          <v-list-item-title class="v-group-style">
             {{ item.meta.title }}
           </v-list-item-title>
         </router-link>
@@ -26,12 +24,14 @@
       <v-list-group
         v-if="!item.hidden && item.children && !item.prefix"
         :key="item.path"
-        :prepend-icon="item.meta ? item.meta.icon : ''"
         class="v-list-custom"
       >
         <!-- //* 그룹 제목 -->
         <template v-slot:activator>
-          <v-list-item-title>
+          <v-list-item-icon>
+            <svg-icon :icon-class="item.meta ? item.meta.icon : ''" />
+          </v-list-item-icon>
+          <v-list-item-title class="v-group-style">
             {{ item.meta.title }}
           </v-list-item-title>
         </template>
@@ -44,7 +44,7 @@
             :key="child.path"
           >
             <v-list-item
-              :style="{marginLeft: '56px'}"
+              :style="{marginLeft: '66px'}"
               link
               @click="listItemLink('', item, child)"
             >
@@ -63,6 +63,7 @@
             v-else
             :key="child.path"
             sub-group
+            :style="{marginLeft: '50px'}"
           >
             <template v-slot:activator>
               <v-list-item-title>
@@ -74,7 +75,6 @@
             <v-list-item
               v-for="(nestChild, i) in child.children"
               :key="i"
-              :style="{marginLeft: '56px'}"
               @click="listItemLink(item, child, nestChild)"
             >
               <router-link :to="routerLink(item, child, nestChild)">

@@ -7,7 +7,7 @@ export default {
   redirect: '/components/list-container',
   meta: {
     title: 'Components',
-    icon: 'mdi-briefcase-plus',
+    icon: 'component',
     role: 'admin',
     menu_id: 'M1101'
   },

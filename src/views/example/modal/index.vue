@@ -24,7 +24,7 @@
                   <v-col cols="12">
                     <v-text-field
                       v-model="form.alert.text"
-                      label="안내 문구"
+                      label="안내 문구 (입력 가능)"
                       :disabled="!form.alert.isUse"
                     />
                   </v-col>
@@ -91,6 +91,33 @@
         </v-col>
       </v-row>
     </v-card>
+    <div
+      v-if="isDescriptionUse"
+      class="description"
+      :style="{marginTop: '30px'}"
+    >
+      <v-card>
+        <v-card-title>
+          Information
+        </v-card-title>
+        <v-card-subtitle>공통 팝업구성</v-card-subtitle>
+        <v-card-text class="description-text">
+          <p>Modal 컴포넌트는 공통으로 Modal을 어떻게 구성할 수 있는지 예시를 첨부 했습니다.</p>
+          <p>해당 컴포넌트는 위 옵션들을 이용하여 Modal의 내용을 동적으로 변경 및 적용할 수 있습니다.</p>
+          <p>각 환경에 맞게 Custormize하여 사용하세요.</p>
+          <p>
+            <strong>
+              <span>Source</span> <br>
+              <v-divider />
+              <div :style="{marginTop: '10px'}">
+                > src/components/Mdoal <br>
+                > src/views/example/modal/index.vue
+              </div>
+            </strong>
+          </p>
+        </v-card-text>
+      </v-card>
+    </div>
     <common-list-modal
       v-if="visible.modal"
       :visible="visible.modal"
@@ -109,6 +136,12 @@ export default {
   components: {
     CommonListModal: Modal
   },
+  props: {
+    isDescriptionUse: {
+      type: Boolean,
+      default: true
+    }
+  },
   data: () => ({
     visible: {
       modal: false
@@ -124,5 +157,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

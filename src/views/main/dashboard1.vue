@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <v-container fluid>
-      <search-filter />
+      <search-filter :is-description-use="false" />
       <v-card :style="{marginTop: '50px'}">
         <ag-grid-table />
         <!-- <v-data-table

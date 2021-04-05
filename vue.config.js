@@ -47,6 +47,17 @@ module.exports = {
       }
     ])
     config.plugins.delete('prefetch')
+
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+
+    svgRule
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+
     config.when(process.env.NODE_ENV !== 'development', (config) => {
       config
         .plugin('ScriptExtHtmlWebpackPlugin')
