@@ -60,35 +60,72 @@ export default {
         activeClass: 'is-active'
       }
     },
+    // {
+    //   path: 'nest-menu',
+    //   redirect: '/example/nest-menu',
+    //   name: 'Nest',
+    //   component: EmptyLayout,
+    //   meta: {
+    //     title: 'NestMenu',
+    //     role: 'admin',
+    //     menu_id: 'M1104',
+    //     breadcrumb: false
+    //   },
+    //   children: [
+    //     {
+    //       path: 'nest1',
+    //       name: 'NestMenu1',
+    //       component: () => import('@/views/nest/NestMenu1'),
+    //       meta: {
+    //         title: 'Menu 1',
+    //         menu_id: 'M1105',
+    //         activeClass: 'is-active'
+    //       }
+    //     },
+    //     {
+    //       path: 'nest2',
+    //       name: 'NestMenu2',
+    //       component: () => import('@/views/nest/NestMenu2'),
+    //       meta: {
+    //         title: 'Menu 2',
+    //         menu_id: 'M1106',
+    //         activeClass: 'is-active'
+    //       }
+    //     }
+    //   ]
+    // },
     {
-      path: 'nest-menu',
-      redirect: '/example/nest-menu',
-      name: 'Nest',
+      path: 'table',
       component: EmptyLayout,
+      redirect: '/table/vuetify-table',
       meta: {
-        title: 'NestMenu',
+        title: 'Table',
+        icon: 'table2',
         role: 'admin',
-        menu_id: 'M1104',
-        breadcrumb: false
+        menu_id: 'M1109'
       },
       children: [
         {
-          path: 'nest1',
-          name: 'NestMenu1',
-          component: () => import('@/views/nest/NestMenu1'),
+          path: 'vuetify-table',
+          name: 'SearchFilter',
+          component: () => import('@/views/table/DefaultTable.vue'),
           meta: {
-            title: 'Menu 1',
-            menu_id: 'M1105',
+            title: 'Vuetify Table',
+            icon: 'mdi-message',
+            role: 'admin',
+            menu_id: 'M1110',
             activeClass: 'is-active'
           }
         },
         {
-          path: 'nest2',
-          name: 'NestMenu2',
-          component: () => import('@/views/nest/NestMenu2'),
+          path: 'ag-grid-table',
+          name: 'SearchFilter',
+          component: () => import('@/views/table/AgGrid.vue'),
           meta: {
-            title: 'Menu 2',
-            menu_id: 'M1106',
+            title: 'Ag-Grid Table',
+            icon: 'mdi-message',
+            role: 'admin',
+            menu_id: 'M1111',
             activeClass: 'is-active'
           }
         }

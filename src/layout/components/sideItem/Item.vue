@@ -63,7 +63,6 @@
             v-else
             :key="child.path"
             sub-group
-            :style="{marginLeft: '50px'}"
           >
             <template v-slot:activator>
               <v-list-item-title>
@@ -75,9 +74,13 @@
             <v-list-item
               v-for="(nestChild, i) in child.children"
               :key="i"
+              :style="{marginLeft: '66px'}"
               @click="listItemLink(item, child, nestChild)"
             >
-              <router-link :to="routerLink(item, child, nestChild)">
+              <router-link
+                :to="routerLink(item, child, nestChild)"
+                :active-class="nestChild.meta.activeClass"
+              >
                 <v-list-item-title>
                   {{ nestChild.meta.title }}
                 </v-list-item-title>
