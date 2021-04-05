@@ -43,6 +43,16 @@ const menuList = [
     menu_name: 'Ag-Grid',
     menu_id: 'M1111',
     role: 'admin'
+  },
+  {
+    menu_name: 'Form Layout',
+    menu_id: 'M1112',
+    role: 'admin'
+  },
+  {
+    menu_name: 'CloudPc Form',
+    menu_id: 'M1113',
+    role: 'admin'
   }
 ]
 

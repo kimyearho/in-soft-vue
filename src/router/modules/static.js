@@ -72,6 +72,29 @@ export default {
           }
         }
       ]
+    },
+    {
+      path: 'form-layout',
+      component: EmptyLayout,
+      redirect: '/form-layout/cpx-form',
+      meta: {
+        title: 'Form-Layout',
+        role: 'admin',
+        menu_id: 'M1112'
+      },
+      children: [
+        {
+          path: 'cpx-form',
+          name: 'CloudPc_Form',
+          meta: {
+            title: 'CloudPc_Form',
+            role: 'admin',
+            menu_id: 'M1113',
+            activeClass: 'is-active'
+          }
+        }
+      ]
+
     }
   ]
 }
