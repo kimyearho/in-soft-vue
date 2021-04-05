@@ -1,14 +1,13 @@
 const getters = {
   sidebar: state => state.app.sidebar,
-  device: state => state.app.device,
   token: state => state.user.token,
   avatar: state => state.user.avatar,
-  sideLogo: state => state.settings.sidebarLogo,
   name: state => state.user.name,
-  addRouters: state => state.settings.addRouters,
-  clipped: state => state.app.sidebarClipped,
-  horizon: state => state.app.horizontal,
-  permissionRouters: (state) => state.settings.routers
-
+  addRouters: state => state.menu.addRouters,
+  permissionRouters: (state) => state.menu.routers,
+  sideLogo: state => state.settings.sidebarLogo,
+  clipped: state => state.settings.sidebarClipped,
+  horizon: state => state.settings.horizontal,
+  fixedBread: state => state.settings.fixedBreadCrumb
 }
 export default getters

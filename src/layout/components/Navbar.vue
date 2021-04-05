@@ -2,7 +2,6 @@
   <div>
     <v-app-bar
       app
-      flat
       dark
       :clipped-left="clipped"
       color="blue darken-1"

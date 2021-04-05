@@ -2,30 +2,53 @@
   <div>
     <v-navigation-drawer
       v-model="customizerIn"
+      :width="450"
       fixed
-      :width="300"
       right
       app
       temporary
       class="clearfix"
     >
       <v-toolbar
-        color="primary"
+        color="success"
         dark
       >
         <v-toolbar-title>App Custormizer</v-toolbar-title>
       </v-toolbar>
+      <v-alert
+        dense
+        :style="{borderRadius: '0'}"
+        type="info"
+      >
+        <span>아래 옵션을 조절해보세요.</span>
+      </v-alert>
       <v-list class="mb-5 theme-layouts">
+
+        <v-list-item-title>
+          <h2 :style="{marginBottom: '20px'}">
+            <span :style="{marginLeft: '10px'}">Theme</span>
+          </h2>
+        </v-list-item-title>
+        <v-divider />
         <v-list-item>
           <v-list-item-content class="py-0">
             <v-checkbox
               v-model="custom.dark_theme"
-              label="Dark Theme"
+              label="Dark Theme (일부 미적용)"
               color="primary"
               @click="toggleTheme"
             />
           </v-list-item-content>
         </v-list-item>
+
+        <v-spacer style="margin-bottom: 50px" />
+
+        <v-list-item-title>
+          <h2 :style="{marginBottom: '20px'}">
+            <span :style="{marginLeft: '10px'}">Layout</span>
+          </h2>
+        </v-list-item-title>
+        <v-divider />
 
         <v-list-item>
           <v-list-item-content class="py-0">
@@ -33,7 +56,6 @@
               v-model="sideLogo"
               label="Sidebar Logo"
               color="success"
-              @click="toggleSideLogo"
             />
           </v-list-item-content>
         </v-list-item>
@@ -43,8 +65,17 @@
             <v-checkbox
               v-model="clipped"
               label="Vertical Clipped"
-              color="success"
-              @click="toggleClipped"
+              color="info"
+            />
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-content class="py-0">
+            <v-checkbox
+              v-model="fixedBreadCrumb"
+              label="Fixed Breadcrumb"
+              color="error"
             />
           </v-list-item-content>
         </v-list-item>
@@ -53,7 +84,7 @@
           <v-list-item-content class="py-0">
             <v-checkbox
               v-model="custom.horizon"
-              label="Horizontal Menu"
+              label="Horizontal Menu (미완성)"
               color="error"
               @click="toggleHorizon"
             />
@@ -82,9 +113,7 @@ export default {
     return {
       customizerIn: false,
       custom: {
-        dark_theme: false,
-        clipped: false,
-        horizon: false
+        dark_theme: false
       }
     }
   },
@@ -94,7 +123,9 @@ export default {
         return this.$store.getters.clipped
       },
       set(val) {
-        this.$store.commit('app/TOGGLE_CLIPPED', val)
+        this.$store.commit('settings/CHANGE_SETTING',
+          { key: 'sidebarClipped', value: val }
+        )
       }
     },
     sideLogo: {
@@ -102,7 +133,19 @@ export default {
         return this.$store.getters.sideLogo
       },
       set(val) {
-        this.$store.commit('settings/SIDE_LOGO', val)
+        this.$store.commit('settings/CHANGE_SETTING',
+          { key: 'sidebarLogo', value: val }
+        )
+      }
+    },
+    fixedBreadCrumb: {
+      get() {
+        return this.$store.getters.fixedBread
+      },
+      set(val) {
+        this.$store.commit('settings/CHANGE_SETTING',
+          { key: 'fixedBreadCrumb', value: val }
+        )
       }
     }
   },
@@ -115,14 +158,10 @@ export default {
         this.$vuetify.theme.dark = false
       }
     },
-    toggleSideLogo() {
-      this.$store.dispatch('settings/toggleSideLogo', this.sideLogo)
-    },
-    toggleClipped() {
-      this.$store.dispatch('app/toggleClipped', this.clipped)
-    },
     toggleHorizon() {
-      this.$store.dispatch('app/toggleHorizonMenu', this.custom.horizon)
+      this.$store.dispatch('settings/changeSetting',
+        { key: 'horizontal', value: this.custom.horizon }
+      )
     },
     toggleCustomizer() {
       this.customizerIn = !this.customizerIn
@@ -130,50 +169,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.app-customizer {
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  transition: right 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99) 0s;
-  top: 72px;
-}
-.customizer-toggle {
-  border: medium none;
-  cursor: pointer;
-  height: 45px;
-  left: -45px;
-  line-height: 48px;
-  position: absolute;
-  text-align: center;
-  top: 25%;
-  width: 45px;
-  text-decoration: none;
-}
-.v-align {
-  padding-bottom: 5px;
-}
-.spin-icon {
-  -webkit-animation: spin-icon 2s infinite linear;
-  animation: spin-icon 2s infinite linear;
-}
-.input-group.input-group--selection-controls.switch {
-  .input-group--selection-controls__toggle {
-    left: 5px;
-  }
-  .input-group--selection-controls__ripple::after {
-    left: 60%;
-  }
-}
-@media (max-width: 1660px) {
-  .app-customizer {
-    z-index: 9999999999 !important;
-  }
-}
-@media (max-width: 768px) {
-  .app-customizer {
-    display: none !important;
-  }
-}
-</style>

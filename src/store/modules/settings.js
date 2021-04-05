@@ -1,30 +1,21 @@
 import defaultSettings from '@/settings'
-import { getMenuList } from '@/api/menu'
-import { defaultRoutes, asyncRoutes } from '@/router'
 
-const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
-
-function filterAsyncRouter(asyncRoutes, routes) {
-  const routerMap = []
-  asyncRoutes.forEach((route) => {
-    if (route.children && route.children.length) {
-      route.children = filterAsyncRouter(route.children, routes)
-    }
-    if (route.meta) {
-      const menu_id = route.meta.menu_id
-      route.meta.title = routes.find((item) => item.menu_id === menu_id).menu_name
-    }
-    routerMap.push(route)
-  })
-  return routerMap
-}
+const {
+  showSettings,
+  fixedHeader,
+  fixedBreadCrumb,
+  sidebarLogo,
+  sidebarClipped,
+  horizontalMenu
+} = defaultSettings
 
 const state = {
   showSettings: showSettings,
   fixedHeader: fixedHeader,
+  fixedBreadCrumb: fixedBreadCrumb,
   sidebarLogo: sidebarLogo,
-  addRouters: [],
-  routers: defaultRoutes
+  sidebarClipped: sidebarClipped,
+  horizontal: horizontalMenu
 }
 
 const mutations = {
@@ -33,43 +24,12 @@ const mutations = {
     if (state.hasOwnProperty(key)) {
       state[key] = value
     }
-  },
-  GET_MENU_LIST: (state, routers) => {
-    state.addRouters = routers
-    state.routers = defaultRoutes.concat(routers)
-  },
-  RESET_MENUS: (state) => {
-    state.addRouters = []
-    state.routers = []
-  },
-  SIDE_LOGO: (state, flag) => {
-    state.sidebarLogo = flag
   }
 }
 
 const actions = {
   changeSetting({ commit }, data) {
     commit('CHANGE_SETTING', data)
-  },
-  resetMenus({ commit }) {
-    commit('RESET_MENUS')
-  },
-  toggleSideLogo({ commit }, flag) {
-    commit('SIDE_LOGO', flag)
-  },
-  menuList({ commit }, params) {
-    return new Promise((resolve, reject) => {
-      getMenuList()
-        .then((response) => {
-          const { data } = response
-          const routers = filterAsyncRouter(asyncRoutes, data)
-          commit('GET_MENU_LIST', routers)
-          resolve(true)
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    })
   }
 }
 

@@ -4,10 +4,7 @@ const state = {
   sidebar: {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
-  },
-  sidebarClipped: true,
-  horizontal: false,
-  device: 'desktop'
+  }
 }
 
 const mutations = {
@@ -24,15 +21,6 @@ const mutations = {
     Cookies.set('sidebarStatus', 0)
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
-  },
-  TOGGLE_DEVICE: (state, device) => {
-    state.device = device
-  },
-  TOGGLE_CLIPPED: (state, flag) => {
-    state.sidebarClipped = flag
-  },
-  TOGGLE_HORIZONTAL: (state, flag) => {
-    state.horizontal = flag
   }
 }
 
@@ -42,15 +30,6 @@ const actions = {
   },
   closeSideBar({ commit }, { withoutAnimation }) {
     commit('CLOSE_SIDEBAR', withoutAnimation)
-  },
-  toggleDevice({ commit }, device) {
-    commit('TOGGLE_DEVICE', device)
-  },
-  toggleClipped({ commit }, flag) {
-    commit('TOGGLE_CLIPPED', flag)
-  },
-  toggleHorizonMenu({ commit }, flag) {
-    commit('TOGGLE_HORIZONTAL', flag)
   }
 }
 

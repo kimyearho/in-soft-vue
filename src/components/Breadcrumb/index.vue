@@ -5,7 +5,7 @@
     <template v-slot:divider>
       <v-icon>mdi-chevron-right</v-icon>
     </template>
-    <template v-slot:item="{ item }">
+    <template v-slot:item="{item}">
       <v-breadcrumbs-item
         v-if="item.meta.title === 'Dashboard'"
         class="breadcrumbs-home"
@@ -50,9 +50,9 @@ export default {
       )
       const first = matched[0]
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/dashboard', meta: { title: 'Dashboard', icon: 'mdi-home' }}].concat(
-          matched
-        )
+        matched = [
+          { path: '/dashboard', meta: { title: 'Dashboard', icon: 'mdi-home' }}
+        ].concat(matched)
       }
       this.levelList = matched.filter(
         (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
