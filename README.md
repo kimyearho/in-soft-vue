@@ -1,5 +1,9 @@
 <p align="center">       
-  <img width="700" src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
+  <img  src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
+</p>
+
+<p align="center">       
+  <img  src="https://i.imgur.com/y8Dtx9u.png" />
 </p>
 
 <br>
