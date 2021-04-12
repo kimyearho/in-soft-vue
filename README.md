@@ -6,6 +6,10 @@
   <img  src="https://i.imgur.com/YYl14ez.png" />
 </p>
 
+<p align="center">       
+  <img  src="https://i.imgur.com/B5GQA1L.png" />
+</p>
+
 <br>
 
 > Insoft Vue framework v0.1 <br><br>
