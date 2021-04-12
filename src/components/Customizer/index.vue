@@ -84,7 +84,7 @@
           <v-list-item-content class="py-0">
             <v-checkbox
               v-model="custom.horizon"
-              label="Horizontal Menu (미완성)"
+              label="Horizontal Menu"
               color="error"
               @click="toggleHorizon"
             />

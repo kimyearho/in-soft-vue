@@ -1,5 +1,6 @@
 module.exports = {
-  title: 'IN-SOFT _ Vue-Framework',
+  title: 'INV PROJECT',
+  version: '0.1',
 
   /**
    * @type {boolean} true | false

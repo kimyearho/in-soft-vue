@@ -4,7 +4,6 @@
     <app-nav-bar />
     <!-- //? 좌측 사이드 메뉴바 -->
     <app-side-bar v-if="!horizon" />
-    <app-horizon-bar v-if="horizon" />
     <div class="main-container">
       <!-- //? 메인 콘텐츠 -->
       <app-main>
@@ -26,7 +25,6 @@ import AppMain from './components/AppMain'
 import FooTer from './components/Footer'
 import BreadCrumbs from '@/components/Breadcrumb/index'
 import Custormizer from '@/components/Customizer'
-import Horizonbar from '@/layout/components/horizon/Horizonbar'
 
 import { mapGetters } from 'vuex'
 
@@ -38,8 +36,7 @@ export default {
     appMain: AppMain,
     appFooter: FooTer,
     appBreadCrumbs: BreadCrumbs,
-    appCustormizer: Custormizer,
-    appHorizonBar: Horizonbar
+    appCustormizer: Custormizer
   },
   computed: {
     ...mapGetters(['horizon'])

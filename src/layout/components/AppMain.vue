@@ -1,6 +1,7 @@
 <template>
   <v-main>
     <v-system-bar
+      v-if="!horizonMode"
       window
       dark
       lights-out
@@ -18,6 +19,7 @@
           <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
           <h1
             class="boxed-header"
+            :style="horizonMode ? 'marginTop: 20px' : ''"
           >{{ $route.meta.title }}</h1>
           <transition
             name="fade"
@@ -35,6 +37,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'AppMain',
   data: () => ({
@@ -50,11 +54,12 @@ export default {
     }
   }),
   computed: {
+    ...mapGetters({
+      fixedBreadCrumb: 'fixedBread',
+      horizonMode: 'horizon'
+    }),
     key() {
       return this.$route.path
-    },
-    fixedBreadCrumb() {
-      return this.$store.getters.fixedBread
     }
   }
 }

@@ -3,13 +3,20 @@
     <v-app-bar
       app
       dark
+      :flat="horizon ? true : false"
       :clipped-left="clipped"
-      color="blue darken-1"
+      class="app-bar"
+      color="indigo darken-2"
     >
-      <v-app-bar-nav-icon @click="toggleSideBar" />
-      <span class="title ml-3 mr-5">
-        <h3>{{ navTitle }}</h3>
-      </span>
+      <!-- <v-app-bar-nav-icon
+        v-if="!horizon"
+        @click="toggleSideBar"
+      /> -->
+      <div class="site-logo">
+        <span class="title ml-3 mr-5">
+          <h3>{{ appTitle }} {{ appVersion }}</h3>
+        </span>
+      </div>
 
       <v-spacer />
       <profile />
@@ -19,7 +26,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { title } from '@/settings'
+import { title, version } from '@/settings'
 import Profile from './Profile'
 
 export default {
@@ -28,10 +35,11 @@ export default {
     Profile
   },
   data: () => ({
-    navTitle: title
+    appTitle: title,
+    appVersion: version
   }),
   computed: {
-    ...mapGetters(['avatar', 'clipped'])
+    ...mapGetters(['avatar', 'clipped', 'horizon'])
   },
   methods: {
     toggleSideBar() {
@@ -40,3 +48,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.app-bar >>> .v-toolbar__content {
+  padding: 0 !important;
+}
+.site-logo {
+  background: #1a237e;
+  max-height: 64px;
+  padding-right: 60px;
+  padding-left: 52px;
+}
+.site-logo .title {
+  line-height: 15px;
+}
+</style>
