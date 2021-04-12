@@ -4,10 +4,14 @@
 
 <p align="center">       
   <img  src="https://i.imgur.com/YYl14ez.png" />
+  <span>Vertical Menu Layout</span>
 </p>
+
+<br>
 
 <p align="center">       
   <img  src="https://i.imgur.com/B5GQA1L.png" />
+  <span>Horizon Menu Layout</span>
 </p>
 
 <br>
