@@ -20,7 +20,7 @@
           <h1
             class="boxed-header"
             :style="horizonMode ? 'marginTop: 20px' : ''"
-          >{{ $route.meta.title }}</h1>
+          ><p class="font-weight-medium">{{ $route.meta.title }}</p></h1>
           <transition
             name="fade"
             mode="out-in"
