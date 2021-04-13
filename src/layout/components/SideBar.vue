@@ -42,7 +42,11 @@ export default {
     sidebarLogoImage: require('@/assets/logo2.png')
   }),
   computed: {
-    ...mapGetters(['sidebar', 'clipped', 'sideLogo'])
+    ...mapGetters([
+      'sidebar',
+      'clipped',
+      'sideLogo'
+    ])
   },
   methods: {
     toDashboard() {

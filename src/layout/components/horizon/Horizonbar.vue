@@ -45,7 +45,7 @@
                   <router-link
                     :to="routerLink('', item, child)"
                     class="nav-link"
-                    active-class="active"
+                    :active-class="child.meta.activeClass"
                   >
                     {{ child.meta.title }}
                   </router-link>
@@ -69,7 +69,7 @@
                       <router-link
                         :to="routerLink(item, child, nestChild)"
                         class="nav-link"
-                        active-class="active"
+                        :active-class="nestChild.meta.activeClass"
                       >
                         {{ nestChild.meta.title }}
                       </router-link>

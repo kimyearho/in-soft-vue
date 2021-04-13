@@ -10,12 +10,11 @@
         <template v-slot:activator="{on}">
           <v-btn
             icon
-            x-large
             v-on="on"
           >
             <v-avatar
               color="red"
-              size="48"
+              size="42"
             >
               <span class="white--text headline">{{ user.initials }}</span>
             </v-avatar>

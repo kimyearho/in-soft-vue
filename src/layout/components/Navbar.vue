@@ -1,25 +1,47 @@
 <template>
   <div>
     <v-app-bar
+      class="app-toolbar"
       app
-      dark
+      fixed
       :flat="horizon ? true : false"
       :clipped-left="clipped"
-      class="app-bar"
-      color="indigo darken-2"
+      color="indigo darken-4"
     >
-      <!-- <v-app-bar-nav-icon
-        v-if="!horizon"
-        @click="toggleSideBar"
-      /> -->
-      <div class="site-logo">
-        <span class="title ml-3 mr-5">
-          <h3>{{ appTitle }} {{ appVersion }}</h3>
-        </span>
+      <div class="d-custom-flex align-items-center navbar-left">
+        <div
+          class="site-logo-wrap d-custom-flex ml-0 align-items-center"
+          style="margin-top:80px"
+        >
+          <router-link
+            to="/"
+            class="grayish-blue site-logo-img"
+          >
+            <img
+              src="@/assets/site-logo.png"
+              alt="site logo"
+              width="100"
+              height="30"
+            >
+          </router-link>
+        </div>
+        <v-text-field
+          text
+          solo
+          prepend-icon="mdi-search"
+          class="search-bar"
+        />
       </div>
-
-      <v-spacer />
-      <profile />
+      <div class="navbar-right">
+        <v-btn
+          icon
+          large
+          class="full-screen ma-0"
+        >
+          <v-icon color="grey">mdi-fullscreen</v-icon>
+        </v-btn>
+        <app-profile />
+      </div>
     </v-app-bar>
   </div>
 </template>
@@ -32,14 +54,18 @@ import Profile from './Profile'
 export default {
   name: 'Navbar',
   components: {
-    Profile
+    appProfile: Profile
   },
   data: () => ({
     appTitle: title,
     appVersion: version
   }),
   computed: {
-    ...mapGetters(['avatar', 'clipped', 'horizon'])
+    ...mapGetters([
+      'avatar',
+      'clipped',
+      'horizon'
+    ])
   },
   methods: {
     toggleSideBar() {
@@ -50,16 +76,7 @@ export default {
 </script>
 
 <style scoped>
-.app-bar >>> .v-toolbar__content {
-  padding: 0 !important;
-}
-.site-logo {
-  background: #1a237e;
-  max-height: 64px;
-  padding-right: 60px;
-  padding-left: 52px;
-}
-.site-logo .title {
-  line-height: 15px;
+.navbar-right {
+  display: inline-flex;
 }
 </style>
