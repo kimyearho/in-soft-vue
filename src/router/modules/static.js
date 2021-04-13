@@ -86,6 +86,7 @@ export default {
         {
           path: 'cpx-form',
           name: 'CloudPc_Form',
+          component: () => import('@/views/form/cloudPcForm/index.vue'),
           meta: {
             title: 'CloudPc_Form',
             role: 'admin',
