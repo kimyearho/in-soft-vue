@@ -12,8 +12,11 @@
         <!-- //* END -->
         <v-col :cols="visible.previewForm ? 8 : 12">
           <v-card>
-            <v-card-title>Preview Form</v-card-title>
+            <v-card-title>Preview Form Example</v-card-title>
             <v-card-subtitle>CloudPc 상세 페이지 예제 입니다.</v-card-subtitle>
+            <v-card-text>
+              <p>CloudPc 가상 PC Pool 조회화면을 99% 동일하게 Vuetify로 재 구성했습니다. (팝업제외)</p>
+            </v-card-text>
             <div class="">
               <v-btn
                 color="primary"

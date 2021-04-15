@@ -21,7 +21,7 @@
         <li
           v-if="!item.hidden && item.children && !item.prefix"
           :key="item.path"
-          class="sub-menu"
+          class="sub-menu-parent"
         >
           <a
             class="nav-link"

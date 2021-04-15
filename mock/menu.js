@@ -45,7 +45,7 @@ const menuList = [
     role: 'admin'
   },
   {
-    menu_name: 'Form Layout',
+    menu_name: 'Form',
     menu_id: 'M1112',
     role: 'admin'
   },

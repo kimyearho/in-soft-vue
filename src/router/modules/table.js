@@ -1,5 +1,5 @@
+// import Layout from '@/layout'
 import Layout from '@/layout'
-// import EmptyLayout from '@/layout/EmptyLayout'
 
 export default {
   path: '/table',
@@ -17,7 +17,7 @@ export default {
       name: 'SearchFilter',
       component: () => import('@/views/table/DefaultTable.vue'),
       meta: {
-        title: 'Vuetify Table',
+        title: 'Simple DataTable',
         icon: 'mdi-message',
         role: 'admin',
         menu_id: 'M1110',

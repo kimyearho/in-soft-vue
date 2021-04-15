@@ -69,8 +69,9 @@ const constantRoutes = [
 ]
 
 // ? 동적 라우트 임포트
-import StaticRoutes from '@/router/modules/static'
-// import TableRoutes from '@/router/modules/table'
+import StaticRoutes from '@/router/modules/components'
+import TableRoutes from '@/router/modules/table'
+import FormRoutes from '@/router/modules/form'
 // import UiComponentsRoutes from '@/router/modules/component'
 
 //* 기본 정적 라우트
@@ -80,8 +81,8 @@ export const defaultRoutes = constantRoutes
 // ? 예시: src/permission.js 참고
 export const asyncRoutes = [
   StaticRoutes,
-  // TableRoutes,
-  // UiComponentsRoutes,
+  TableRoutes,
+  FormRoutes,
   { path: '*', redirect: '/404', hidden: true }
 ]
 
