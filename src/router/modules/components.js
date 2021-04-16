@@ -35,6 +35,18 @@ export default {
         menu_id: 'M1107',
         activeClass: 'is-active'
       }
+    },
+    {
+      path: 'clone-template',
+      name: 'Modal',
+      component: () => import('@/views/example/clone/index'),
+      meta: {
+        title: 'CloneTemplate',
+        icon: 'mdi-keyboard',
+        role: 'admin',
+        menu_id: 'M1114',
+        activeClass: 'is-active'
+      }
     }
     // {
     //   path: 'table',

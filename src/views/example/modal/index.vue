@@ -1,5 +1,32 @@
 <template>
   <v-container fluid>
+
+    <div
+      v-if="isDescriptionUse"
+      class="mb-10"
+    >
+      <v-card>
+        <v-card-title>
+          Information
+        </v-card-title>
+        <v-card-subtitle>공통 팝업구성</v-card-subtitle>
+        <v-card-text class="description-text">
+          <p>Modal 컴포넌트는 공통으로 Modal을 어떻게 구성할 수 있는지 예시를 첨부 했습니다.</p>
+          <p>해당 컴포넌트는 위 옵션들을 이용하여 Modal의 내용을 동적으로 변경 및 적용할 수 있습니다.</p>
+          <p>
+            <strong>
+              <span>Source</span> <br>
+              <v-divider />
+              <div :style="{marginTop: '10px'}">
+                > src/components/Mdoal <br>
+                > src/views/example/modal/index.vue
+              </div>
+            </strong>
+          </p>
+        </v-card-text>
+      </v-card>
+    </div>
+
     <v-card>
       <v-row>
         <v-col cols="6">
@@ -91,33 +118,45 @@
         </v-col>
       </v-row>
     </v-card>
-    <div
-      v-if="isDescriptionUse"
-      class="description"
-      :style="{marginTop: '30px'}"
-    >
-      <v-card>
-        <v-card-title>
-          Information
-        </v-card-title>
-        <v-card-subtitle>공통 팝업구성</v-card-subtitle>
-        <v-card-text class="description-text">
-          <p>Modal 컴포넌트는 공통으로 Modal을 어떻게 구성할 수 있는지 예시를 첨부 했습니다.</p>
-          <p>해당 컴포넌트는 위 옵션들을 이용하여 Modal의 내용을 동적으로 변경 및 적용할 수 있습니다.</p>
-          <p>각 환경에 맞게 Custormize하여 사용하세요.</p>
-          <p>
-            <strong>
-              <span>Source</span> <br>
-              <v-divider />
-              <div :style="{marginTop: '10px'}">
-                > src/components/Mdoal <br>
-                > src/views/example/modal/index.vue
-              </div>
-            </strong>
-          </p>
-        </v-card-text>
-      </v-card>
-    </div>
+
+    <v-card class="mt-10">
+      <v-card-title class="subtitle-1 text-h4">
+        Props
+      </v-card-title>
+      <v-card-text class="mt-2 mb-5">
+        <v-simple-table class="mt-3">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left subtitle-1">
+                  Name
+                </th>
+                <th class="text-left subtitle-1">
+                  Type
+                </th>
+                <th class="text-left subtitle-1">
+                  Default
+                </th>
+                <th class="text-left subtitle-1">
+                  Description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="item in propsList"
+                :key="item.name"
+              >
+                <td class="indigo--text darken-4 subtitle-2 text-left">{{ item.name }}</td>
+                <td class="light-green--text darken-2 subtitle-2 text-left">{{ item.type }}</td>
+                <td class="purple--text darken-4 subtitle-2">{{ item.default }}</td>
+                <td class="subtitle-2 text-left">{{ item.description }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-card-text>
+    </v-card>
     <common-list-modal
       v-if="visible.modal"
       :visible="visible.modal"
@@ -147,7 +186,21 @@ export default {
       modal: false
     },
     form: Object.assign({}, listModalOptions_1()),
-    modalOptions: {}
+    modalOptions: {},
+    propsList: [
+      {
+        name: 'visible',
+        type: 'boolean',
+        default: 'false',
+        description: '팝업 표시여부'
+      },
+      {
+        name: 'modalOptions',
+        type: 'object',
+        default: '@/util/modal 참고',
+        description: '팝업 기본 옵션'
+      }
+    ]
   }),
   methods: {
     showListModal() {

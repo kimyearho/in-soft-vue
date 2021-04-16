@@ -53,6 +53,11 @@ const menuList = [
     menu_name: 'CloudPc Form',
     menu_id: 'M1113',
     role: 'admin'
+  },
+  {
+    menu_name: 'Clone Template',
+    menu_id: 'M1114',
+    role: 'admin'
   }
 ]
 
