@@ -14,7 +14,7 @@
               class="is-active"
               icon-class="dashboard"
             />
-            <span class="prefix-dashboard">{{ item.meta.title }}</span>
+            <span class="prefix-dashboard black--text">{{ item.meta.title }}</span>
           </router-link>
         </li>
         <!-- //* 대메뉴 -->
@@ -24,11 +24,11 @@
           class="sub-menu-parent"
         >
           <a
-            class="nav-link"
+            class="nav-link black--text"
             active-class="active"
           >
             <svg-icon :icon-class="item.meta ? item.meta.icon : ''" />
-            <span class="menu-title">{{ item.meta.title }}</span>
+            <span class="menu-title black--text">{{ item.meta.title }}</span>
           </a>
           <!-- //* 대메뉴 하위 조건에 부합하는 리스트 그룹을 생성한다. (1 depts) -->
           <ul
@@ -44,7 +44,7 @@
                 <li class="nav-item">
                   <router-link
                     :to="routerLink('', item, child)"
-                    class="nav-link"
+                    class="nav-link black--text"
                     :active-class="child.meta.activeClass"
                   >
                     {{ child.meta.title }}
@@ -68,7 +68,7 @@
                     >
                       <router-link
                         :to="routerLink(item, child, nestChild)"
-                        class="nav-link"
+                        class="nav-link black--text"
                         :active-class="nestChild.meta.activeClass"
                       >
                         {{ nestChild.meta.title }}

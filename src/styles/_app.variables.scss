@@ -37,6 +37,9 @@ $theme-colors: map-merge((
   "blue":       $blue,
 ), $theme-colors);
 
+$default-dark-theme: #363636;
+$dark-table-theme: #00000061;
+
 // Settings for the `<body>` element.
 $body-bg:                       $base;
 $body-color:                    $gray-dark;

@@ -6,7 +6,8 @@ const {
   fixedBreadCrumb,
   sidebarLogo,
   sidebarClipped,
-  horizontalMenu
+  horizontalMenu,
+  themeDark
 } = defaultSettings
 
 const state = {
@@ -15,7 +16,8 @@ const state = {
   fixedBreadCrumb: fixedBreadCrumb,
   sidebarLogo: sidebarLogo,
   sidebarClipped: sidebarClipped,
-  horizontal: horizontalMenu
+  horizontal: horizontalMenu,
+  themeDark: themeDark
 }
 
 const mutations = {

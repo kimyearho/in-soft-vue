@@ -6,12 +6,13 @@
       fixed
       :flat="horizon ? true : false"
       :clipped-left="clipped"
-      color="indigo darken-4"
+      :color="!darkTheme ? 'indigo darken-4' : ''"
     >
+      <!-- color="indigo darken-4" -->
       <div class="d-custom-flex align-items-center navbar-left">
         <div
           class="site-logo-wrap d-custom-flex ml-0 align-items-center"
-          style="margin-top:80px"
+          style="margin-top:7px"
         >
           <router-link
             to="/"
@@ -25,12 +26,6 @@
             >
           </router-link>
         </div>
-        <v-text-field
-          text
-          solo
-          prepend-icon="mdi-search"
-          class="search-bar"
-        />
       </div>
       <div class="navbar-right">
         <v-btn
@@ -64,7 +59,8 @@ export default {
     ...mapGetters([
       'avatar',
       'clipped',
-      'horizon'
+      'horizon',
+      'darkTheme'
     ])
   },
   methods: {

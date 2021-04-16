@@ -8,6 +8,7 @@ const getters = {
   sideLogo: state => state.settings.sidebarLogo,
   clipped: state => state.settings.sidebarClipped,
   horizon: state => state.settings.horizontal,
-  fixedBread: state => state.settings.fixedBreadCrumb
+  fixedBread: state => state.settings.fixedBreadCrumb,
+  darkTheme: state => state.settings.themeDark
 }
 export default getters

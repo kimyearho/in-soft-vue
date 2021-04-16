@@ -147,6 +147,16 @@ export default {
           { key: 'fixedBreadCrumb', value: val }
         )
       }
+    },
+    darkenTheme: {
+      get() {
+        return this.$store.getters.darkTheme
+      },
+      set(val) {
+        this.$store.commit('settings/CHANGE_SETTING',
+          { key: 'themeDark', value: val }
+        )
+      }
     }
   },
   methods: {
@@ -157,6 +167,9 @@ export default {
       } else {
         this.$vuetify.theme.dark = false
       }
+      this.$store.dispatch('settings/changeSetting',
+        { key: 'themeDark', value: theme }
+      )
     },
     toggleHorizon() {
       this.$store.dispatch('settings/changeSetting',

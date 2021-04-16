@@ -1,0 +1,14 @@
+.theme--dark.v-card {
+  background-color: $default-dark-theme;
+  color: #fff !important;
+}
+
+.theme--dark.v-data-table {
+  background-color: $dark-table-theme !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgb(0 0 0 / 38%);
+}
+
+.theme--dark.v-navigation-drawer {
+  background-color: #272727;
+}

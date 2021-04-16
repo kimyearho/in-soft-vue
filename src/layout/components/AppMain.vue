@@ -4,7 +4,6 @@
       v-if="!horizonMode"
       window
       dark
-      lights-out
       color="grey darken-2"
       :style="fixedBreadCrumb ? styles.breadCrumbs : ''"
     >
@@ -20,7 +19,9 @@
           <h1
             class="boxed-header"
             :style="horizonMode ? 'marginTop: 20px' : ''"
-          ><p class="font-weight-medium">{{ $route.meta.title }}</p></h1>
+          >
+            <p class="font-weight-medium black--text">{{ $route.meta.title }}</p>
+          </h1>
           <transition
             name="fade"
             mode="out-in"
