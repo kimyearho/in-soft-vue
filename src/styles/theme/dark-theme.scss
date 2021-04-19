@@ -34,12 +34,19 @@
         }
         .menu-title {
            color: $base-light !important;
+           &::after {
+            content: url('https://api.iconify.design/bytesize:chevron-bottom.svg?height=12&color=%23fff');
+            padding-right: 5px;
+           }
         }
      }
      .sub-menu {
         background-color: $default-dark-theme;
         li.nav-item {
           >a {
+            &::after {
+              color: $base-light;
+            }
             &:hover {
               background-color: $gray-dark;
             }
