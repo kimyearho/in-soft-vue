@@ -17,15 +17,6 @@ https://vuetifyjs.com/en/
 
 <br>
 
-# License
-```
- GNU GENERAL PUBLIC LICENSE V3.0
- 이 프로젝트는 상기 라이선스를 가집니다.
- 해당 라이선스의 자세한 사항은 아래 링크를 참조해 주십시오.
- https://olis.or.kr/license/Detailselect.do?lId=1072
-```
-<br>
-
 # Preview
 - [Live Preview](http://158.247.198.68/login) (Login ID: admin)
 <br>
@@ -197,3 +188,13 @@ yarn dev
   ],
 }
 ```
+<br>
+
+# License
+```
+ GNU GENERAL PUBLIC LICENSE V3.0
+ 이 프로젝트는 상기 라이선스를 가집니다.
+ 해당 라이선스의 자세한 사항은 아래 링크를 참조해 주십시오.
+ https://olis.or.kr/license/Detailselect.do?lId=1072
+```
+<br>
