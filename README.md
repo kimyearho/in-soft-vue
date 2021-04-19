@@ -2,18 +2,6 @@
   <img  src="https://blog.kakaocdn.net/dn/nprmt/btqu0463kbN/Gso0UtWFz6UY0X1DLcOSnk/img.jpg" />
 </p>
 
-<p align="center">       
-  <img  src="https://i.imgur.com/YYl14ez.png" />
-  <span>Vertical Menu Layout</span>
-</p>
-
-<br>
-
-<p align="center">       
-  <img  src="https://i.imgur.com/B5GQA1L.png" />
-  <span>Horizon Menu Layout</span>
-</p>
-
 <br>
 
 > Insoft Vue framework v0.1 <br><br>
@@ -36,22 +24,6 @@ https://vuetifyjs.com/en/
  해당 라이선스의 자세한 사항은 아래 링크를 참조해 주십시오.
  https://olis.or.kr/license/Detailselect.do?lId=1072
 ```
-<br>
-
-# Feature
-- [x] Mock Server
-- [x] Vuex
-- [x] Vue router
-- [x] Vuetify & Wireframe
-- [x] Vertical menu (3depth nesting menu)
-- [X] App Setting Component
-- [ ] Horizon menu
-- [x] Login (sample: token) / Logout / Remember me 
-- [ ] Vuex Store Helper
-- [X] Common Search filter component
-- [ ] Common Modal component
-- [X] Sample Table (vuetify, ag-grid)
-- [X] Sample Modal
 <br>
 
 # Preview
