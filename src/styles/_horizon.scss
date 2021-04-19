@@ -95,6 +95,8 @@
            transform-origin: left 0 0;
            transition: all 0.3s ease-in-out 0s;
            box-shadow: $hoz-sub-menu-box-shadow;
+           padding-left: initial;
+           list-style: none;
            >
            .nest-child li.nav-item {
               >a {
@@ -109,6 +111,10 @@
                  }
               }
            }
+           .is-active {
+               color: #1976d2 !important;
+               // background-color: #EEEEEE;
+            }
            .deep-level {
               width: 615px !important;
               height: 380px;
@@ -119,9 +125,12 @@
            }
            li {
               position: relative;
+              padding: 5px 0px;
               a {
+               padding-left: 10px !important;
                color: $hoz-nav-link-color;
                padding: 6px 0px 6px 0px; //6px 12px;
+               font-weight: 500;
                font-size: $hoz-nav-font-size;
                display: block;
                  &:hover {

@@ -1,7 +1,10 @@
 <template>
-  <v-container :style="{width: '50px'}">
+  <v-container
+    :style="{width: '50px'}"
+  >
     <v-row justify="center">
       <v-menu
+        class="profile_container"
         bottom
         min-width="200px"
         rounded
@@ -71,3 +74,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-application {
+    .v-menu__content {
+    left: 1880px !important;
+  }
+}
+</style>

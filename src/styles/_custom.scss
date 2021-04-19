@@ -1,0 +1,24 @@
+.svg-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 100%;
+  padding: 15px;
+  fill: #aaa;
+  background-color: #f9f9f9;
+  vertical-align: top;
+}
+
+.child-svg-icon {
+  background-color: initial;
+  fill: #000;
+  width: 43px;
+}
+
+.horizontal-menu {
+  .svg-icon {
+    background-color: initial;
+  }
+}

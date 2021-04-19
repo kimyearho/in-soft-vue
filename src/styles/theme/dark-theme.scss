@@ -12,3 +12,52 @@
 .theme--dark.v-navigation-drawer {
   background-color: #272727;
 }
+
+//* Horizon Menu 다크테마 적용 시
+.horizontal-menu.dark-theme {
+  background-color: $default-dark-theme;
+  >ul {
+     >li.nav-item {
+       >a {
+        .prefix-dashboard {
+           color: $base-light !important;
+        }
+       }
+     }
+     >li {
+     >a {
+        &:hover {
+           background-color: $gray-dark;
+        }
+        .svg-icon {
+           color: $base-light;
+        }
+        .menu-title {
+           color: $base-light !important;
+        }
+     }
+     .sub-menu {
+        background-color: $default-dark-theme;
+        li.nav-item {
+          >a {
+            &:hover {
+              background-color: $gray-dark;
+            }
+          }
+        }
+        .nest-child li.nav-item {
+          >a {
+            &:hover {
+              background-color: $gray-dark;
+            }
+          }
+       }
+      .is-active {
+        color: $danger !important;
+      }
+      a {
+        color: $base-light !important;
+      }
+     }
+  }
+}}

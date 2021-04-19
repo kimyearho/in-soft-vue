@@ -8,7 +8,6 @@
       :clipped-left="clipped"
       :color="!darkTheme ? 'indigo darken-4' : ''"
     >
-      <!-- color="indigo darken-4" -->
       <div class="d-custom-flex align-items-center navbar-left">
         <div
           class="site-logo-wrap d-custom-flex ml-0 align-items-center"
@@ -32,6 +31,7 @@
           icon
           large
           class="full-screen ma-0"
+          @click="!fullscreenToggle ? openFullscreen() : closeFullscreen()"
         >
           <v-icon color="grey">mdi-fullscreen</v-icon>
         </v-btn>
@@ -46,6 +46,8 @@ import { mapGetters } from 'vuex'
 import { title, version } from '@/settings'
 import Profile from './Profile'
 
+let elem = document.documentElement
+
 export default {
   name: 'Navbar',
   components: {
@@ -53,7 +55,8 @@ export default {
   },
   data: () => ({
     appTitle: title,
-    appVersion: version
+    appVersion: version,
+    fullscreenToggle: false
   }),
   computed: {
     ...mapGetters([
@@ -66,6 +69,37 @@ export default {
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
+    },
+    openFullscreen() {
+      this.fullscreenToggle = true
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+      } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen()
+      } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen()
+      } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem = window.top.document.body
+        elem.msRequestFullscreen()
+      }
+    },
+    closeFullscreen() {
+      this.fullscreenToggle = false
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        /* Firefox */
+        document.mozCancelFullScreen()
+      } else if (document.webkitExitFullscreen) {
+        /* Chrome, Safari & Opera */
+        document.webkitExitFullscreen()
+      } else if (document.msExitFullscreen) {
+        /* IE/Edge */
+        window.top.document.msExitFullscreen()
+      }
     }
   }
 }

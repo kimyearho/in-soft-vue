@@ -1,5 +1,8 @@
 <template>
-  <div class="horizontal-menu">
+  <div
+    class="horizontal-menu"
+    :class="{'dark-theme': darkTheme ? true : false}"
+  >
     <ul class="list-unstyled nav pl-0">
       <!-- //* 권한별 라우트 목록 -->
       <template v-for="item in permissionRouters">
@@ -24,7 +27,7 @@
           class="sub-menu-parent"
         >
           <a
-            class="nav-link black--text"
+            class="black--text"
             active-class="active"
           >
             <svg-icon :icon-class="item.meta ? item.meta.icon : ''" />
@@ -41,10 +44,12 @@
                 v-if="!child.children"
                 :key="child.path"
               >
-                <li class="nav-item">
+                <li
+                  class="nav-item"
+                >
                   <router-link
                     :to="routerLink('', item, child)"
-                    class="nav-link black--text"
+                    class="black--text"
                     :active-class="child.meta.activeClass"
                   >
                     {{ child.meta.title }}
@@ -68,7 +73,7 @@
                     >
                       <router-link
                         :to="routerLink(item, child, nestChild)"
-                        class="nav-link black--text"
+                        class="black--text"
                         :active-class="nestChild.meta.activeClass"
                       >
                         {{ nestChild.meta.title }}
@@ -92,7 +97,10 @@ export default {
   name: 'Horizonbar',
   data: () => ({}),
   computed: {
-    ...mapGetters(['permissionRouters'])
+    ...mapGetters([
+      'permissionRouters',
+      'darkTheme'
+    ])
   },
   methods: {
     routerLink(root, item, child) {
