@@ -87,20 +87,21 @@ export default {
   }
 }
 ```
-
-# Precautions
-- Eventbus 사용을 자제 하세요.
-- Eventbus는 상태를 추적할 수 없으므로 프로젝트 단위에서는 꼭 필요한 경우를 제외하고서는 사용을 자제하세요.
 <br>
 
-# Mock
-#### Mock api를 구성하려면 mock 패키지 하위에 api를 만들어주시면 됩니다.
-#### 그런다음 소스에서 만들어진 api를 사용하세요.
-#### 실제 API 연동시에는 프로젝트에서 Mock을 제거하세요. (vue.config.js & main.js 참조)
+# Mock API
+1. New File
+- 신규 .js 파일 생성 시 mock/index.js 파일에서 import 하여 주입 해주세요.
+```
+const filter = require('./filter')
 
+const mocks = [
+  ...filter
+]
+```
 <br>
 
-### 0. VS Code 확장
+### VS Code 확장
 <br>
 1. Prettier - Code formatter <필수>
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
@@ -111,9 +112,8 @@ https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 3. Better Comments <필수는 아니지만 소스주석은 이걸로 사용됬음>
 https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
 
-4. 기타 <필수!!>
-크롬 앱 스토어에서 vue-dev-tool 설치할 것.
-(Microsoft Edge에서도 사용가능)
+4. 기타 <필수>
+크롬 앱 스토어에서 vue-dev-tool 설치할 것 (Microsoft Edge에서도 사용가능)
 https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
 
 <br>
