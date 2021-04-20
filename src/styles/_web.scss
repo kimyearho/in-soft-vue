@@ -35,7 +35,7 @@ body {
 }
 
 .v-main__wrap {
-  background-color: #FAFAFA;
+  background-color: $base-light;
 }
 
 .side-logo {
@@ -127,7 +127,7 @@ body {
   padding-bottom: 10px;
   font-size: 20px;
   font-weight: 500;
-  color: #fff;
+  color: $base-light;
 }
 
 .alert-contents {
