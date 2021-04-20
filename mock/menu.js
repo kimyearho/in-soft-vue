@@ -58,6 +58,11 @@ const menuList = [
     menu_name: 'Clone Template',
     menu_id: 'M1114',
     role: 'admin'
+  },
+  {
+    menu_name: 'Chart',
+    menu_id: 'M1115',
+    role: 'admin'
   }
 ]
 

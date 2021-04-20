@@ -74,11 +74,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.v-application {
-    .v-menu__content {
-    left: 1880px !important;
-  }
-}
-</style>

@@ -5,12 +5,14 @@ const user = require('./user')
 const table = require('./table')
 const menu = require('./menu')
 const filter = require('./filter')
+const lineChart = require('./chart')
 
 const mocks = [
   ...user,
   ...table,
   ...menu,
-  ...filter
+  ...filter,
+  ...lineChart
 ]
 
 // for front mock

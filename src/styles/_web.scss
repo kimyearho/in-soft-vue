@@ -1,8 +1,11 @@
-body {
+//* 툴바 기본 비율 90%
+.app-toolbar {
   zoom: 90%;
 }
 
+//* 네비게이션드로우 기본 비율 90%
 .v-navigation-drawer {
+  zoom: 90%;
   height: 100% !important;
 }
 
@@ -29,10 +32,15 @@ body {
 }
 
 .v-main {
-  /* padding: 64px 0px 0px 256px !important; */
+  padding: 58px 0px 0px 270px !important;
   min-height: calc(100vh - -3.0rem);
   overflow-y: auto;
 }
+
+.v-main.hoz {
+  // padding: $init !important;
+  padding: 64px 0px 0px !important;
+} 
 
 .v-main__wrap {
   background-color: $base-light;

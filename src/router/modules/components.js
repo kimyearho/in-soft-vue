@@ -47,6 +47,17 @@ export default {
         menu_id: 'M1114',
         activeClass: 'is-active'
       }
+    },
+    {
+      path: 'chart-ui',
+      name: 'Chart',
+      component: () => import('@/views/example/chart/index'),
+      meta: {
+        title: 'Chart',
+        role: 'admin',
+        menu_id: 'M1115',
+        activeClass: 'is-active'
+      }
     }
     // {
     //   path: 'table',

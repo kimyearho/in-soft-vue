@@ -7,7 +7,7 @@
     <app-horizon-bar v-if="horizon" />
     <div class="main-container">
       <!-- //? 메인 콘텐츠 -->
-      <app-main>
+      <app-main :class="{'hoz': horizon}">
         <template slot="breadcrumb">
           <app-bread-crumbs />
         </template>

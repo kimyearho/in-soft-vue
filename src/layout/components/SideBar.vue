@@ -9,10 +9,10 @@
   >
     <div
       v-show="sidebar.opened"
+      v-if="sideLogo"
       class="side-logo"
     >
       <v-img
-        v-if="sideLogo"
         height="200"
         :src="sidebarLogoImage"
         :style="{cursor: 'pointer'}"
