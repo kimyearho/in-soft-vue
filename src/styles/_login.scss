@@ -1,0 +1,20 @@
+.v-app {
+  color: #2c3e50;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('../assets/images/login/login_bg1.png') !important;
+  background-size: cover;
+  .v-remember-me {
+    padding: 10px;
+    float: right;
+    a {
+      font-style: oblique;
+      color: #9e9e9e;
+    }
+  }
+  .mt-40 {
+    margin-top: 40px;
+  }
+}

@@ -1,95 +1,83 @@
 <template>
   <v-app class="v-app">
     <v-container
-      class="v-container-center"
+      fluid
       fill-height
     >
-      <v-row no-gutters>
+      <v-row
+        no-gutters
+        align="center"
+        justify="center"
+      >
         <v-col
-          cols="12"
-          lg="5"
-          md="4"
-          sm="4"
-          offset-lg="2"
-        >
-          <v-card
-            class="v-content-card"
-            outlined
-            tile
-          >
-            <v-img
-              src="@/assets/login_1.jpg"
-              height="600"
-            />
-          </v-card>
-        </v-col>
-        <v-col
-          cols="6"
-          lg="3"
-          md="4"
-          sm="4"
+          cols="3"
         >
           <v-card
             class="pa-2 grey lighten-4"
-            outlined
-            tile
+            :elevation="24"
             :style="{height: '100%'}"
           >
-            <v-container>
-              <v-list-item two-line>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <h2>Sign in</h2>
-                  </v-list-item-title>
-                  <v-list-item-subtitle>Welcome insoft Vue framework (ID:
-                    admin)</v-list-item-subtitle>
-                </v-list-item-content>
-              </v-list-item>
-              <v-divider />
-              <v-form
-                ref="form"
-                v-model="valid"
-                class="mt-40"
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <h2>Sign in</h2> <br>
+                </v-list-item-title>
+                <v-list-item-subtitle>Welcome IN SOFT Vue framework (ID:
+                  admin)</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider />
+            <v-form
+              ref="form"
+              v-model="valid"
+              class="mt-40"
+            >
+              <v-text-field
+                v-model="model.username"
+                label="ID"
+                clearable
+                required
+                :counter="10"
+                :rules="nameRules"
+              />
+              <v-text-field
+                v-model="model.password"
+                label="Password"
+                type="password"
+                clearable
+                required
+              />
+              <v-checkbox
+                v-model="checkedRemember"
+                :disabled="!model.username"
+                @change="updateRemember"
               >
-                <v-text-field
-                  v-model="model.username"
-                  label="ID"
-                  clearable
-                  required
-                  :counter="10"
-                  :rules="nameRules"
-                />
-                <v-text-field
-                  v-model="model.password"
-                  label="Password"
-                  type="password"
-                  clearable
-                  required
-                />
-                <v-checkbox
-                  v-model="checkedRemember"
-                  :disabled="!model.username"
-                  @change="updateRemember"
-                >
-                  <template v-slot:label>
-                    <div>Remember me</div>
-                  </template>
-                </v-checkbox>
-                <v-btn
-                  color="info darken-3"
-                  class="mr-4"
-                  block
-                  :loading="loader"
-                  :disabled="loader"
-                  @click="login"
-                >
-                  Login
-                </v-btn>
-                <div class="v-remember-me">
-                  <a>Forgot your password?</a>
-                </div>
-              </v-form>
-            </v-container>
+                <template v-slot:label>
+                  <div>Remember me</div>
+                </template>
+              </v-checkbox>
+              <v-btn
+                block
+                class="mr-4"
+                color="info darken-1"
+                :loading="loader"
+                :disabled="loader"
+                @click="login"
+              >
+                Login
+              </v-btn>
+              <div class="v-remember-me">
+                <a>Forgot your password?</a>
+              </div>
+            </v-form>
+            <v-divider />
+            <v-card-actions>
+              <v-row class="text-center">
+                <v-col cols="12">
+                  <small>Copyright © INSOFT. All rights Reserved.</small>
+                </v-col>
+              </v-row>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -182,69 +170,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.v-container-center {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.v-content-card {
-  border: inherit;
-  border-color: inherit;
-}
-.v-app {
-  font-family: Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-image: url('../../assets/login_background.jpg');
-  background-size: cover;
-}
-.v-remember-me {
-  padding: 10px;
-  float: right;
-}
-.v-remember-me a {
-  font-style: oblique;
-  color: #9e9e9e;
-}
-.mt-40 {
-  margin-top: 40px;
-}
-@-moz-keyframes loader {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes loader {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes loader {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes loader {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-</style>

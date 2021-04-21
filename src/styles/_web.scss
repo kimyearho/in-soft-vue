@@ -1,3 +1,15 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.v-app {
+  .v-form {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 80px;
+  }
+}
+
 //* 툴바 기본 비율 90%
 .app-toolbar {
   zoom: 90%;
