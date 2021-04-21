@@ -5,7 +5,7 @@
         <v-col :cols="12">
           <v-card>
             <v-card-title>Preview Line Example</v-card-title>
-            <v-card-subtitle>Line CHart 예제</v-card-subtitle>
+            <v-card-subtitle>대표적으로 많이 사용되는 차트 예제입니다. (Chart.js)</v-card-subtitle>
             <v-card-text class="mt-2">
               <div class="mt-2">
                 <strong>
@@ -18,13 +18,49 @@
                 </strong>
               </div>
             </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
             <app-line-chart
               v-if="visible.chart"
-              ref="line-chart"
+              ref="line"
               :chart-data="chartData"
               :options="chartOptions"
             />
-          </v-card> </v-col></v-row>
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
+            <app-bar-chart
+              v-if="visible.chart"
+              ref="bar"
+              :chart-data="chartData"
+              :options="chartOptions"
+            />
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
+            <app-radar-chart
+              v-if="visible.chart"
+              ref="rader"
+              :chart-data="radarChartData"
+              :options="chartOptions"
+            />
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
+            <app-polar-chart
+              v-if="visible.chart"
+              ref="rader"
+              :chart-data="polarChartData"
+              :options="chartOptions"
+            />
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -32,13 +68,23 @@
 <script>
 import LineChart from '@/components/Chart/LineChart'
 import LineMixin from './mixins/line-mixin'
-import { mapGetters } from 'vuex'
-import { getLineChart } from '@/api/chart'
+import BarChart from '@/components/Chart/BarChart'
+import RadarChart from '@/components/Chart/RadarChart'
+import PolarChart from '@/components/Chart/PolarAreaChart'
+// import { mapGetters } from 'vuex'
+import {
+  getLineChart,
+  getRadarChart,
+  getPolarChart
+} from '@/api/chart'
 
 export default {
   name: 'Chart',
   components: {
-    appLineChart: LineChart
+    appLineChart: LineChart,
+    appBarChart: BarChart,
+    appRadarChart: RadarChart,
+    appPolarChart: PolarChart
   },
   //* LineChart Default Option
   mixins: [LineMixin],
@@ -46,30 +92,44 @@ export default {
     visible: {
       chart: false
     },
-    chartData: null
+    chartData: null,
+    radarChartData: null,
+    polarChartData: null
   }),
   computed: {
-    ...mapGetters(['darkTheme'])
+    // ...mapGetters(['darkTheme'])
   },
-  watch: {
-    darkTheme: {
-      handler(val) {
-        if (val) {
-          this.chartDarkThemeSetting()
-        } else {
-          this.chartDefaultThemeSetting()
-        }
-      }
-    }
-  },
+  // watch: {
+  //   darkTheme: {
+  //     handler(val) {
+  //       if (val) {
+  //         this.chartDarkThemeSetting()
+  //       } else {
+  //         this.chartDefaultThemeSetting()
+  //       }
+  //     }
+  //   }
+  // },
   mounted() {
     this.call_lineChart()
+    this.call_radarChart()
+    this.call_polarChart()
   },
   methods: {
     call_lineChart() {
       getLineChart().then(({ data }) => {
         this.chartData = data['data']
         this.chartOptionSetting()
+      })
+    },
+    call_radarChart() {
+      getRadarChart().then(({ data }) => {
+        this.radarChartData = data['data']
+      })
+    },
+    call_polarChart() {
+      getPolarChart().then(({ data }) => {
+        this.polarChartData = data['data']
       })
     },
     chartOptionSetting() {
@@ -88,25 +148,7 @@ export default {
           }
         }
       }
-      //* 다크 테마일때
-      if (this.darkTheme) {
-        this.chartDarkThemeSetting()
-      }
       this.visible.chart = true
-    },
-    chartDarkThemeSetting() {
-      this.chartData.datasets[0].borderColor = this.color.line.BLUE_RIGHT
-      this.chartData.datasets[0].pointBorderColor = this.color.line.WHITE
-      this.chartData.datasets[1].borderColor = this.color.line.RED_RIGHT
-      this.chartData.datasets[1].pointBorderColor = this.color.line.BLUE_RIGHT
-      this.$refs['line-chart'].chartUpdate()
-    },
-    chartDefaultThemeSetting() {
-      this.chartData.datasets[0].borderColor = this.color.line.DEFAULT
-      this.chartData.datasets[0].pointBorderColor = this.color.point.DEFAULT
-      this.chartData.datasets[1].borderColor = this.color.line.DEFAULT
-      this.chartData.datasets[1].pointBorderColor = this.color.point.DEFAULT
-      this.$refs['line-chart'].chartUpdate()
     }
   }
 }

@@ -7,3 +7,17 @@ export function getLineChart(params) {
     params
   })
 }
+export function getRadarChart(params) {
+  return request({
+    url: '/in-soft/chart/radarChart',
+    method: 'get',
+    params
+  })
+}
+export function getPolarChart(params) {
+  return request({
+    url: '/in-soft/chart/polarChart',
+    method: 'get',
+    params
+  })
+}

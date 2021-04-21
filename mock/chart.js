@@ -66,7 +66,14 @@ const chartData = {
           8.533,
           8.672,
           10.833
-        ]
+        ],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
       },
       {
         'label': 'Host Network Tx',
@@ -101,9 +108,73 @@ const chartData = {
           3.826,
           3.653,
           4.644
-        ]
+        ],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgb(54, 162, 235)',
+        pointBackgroundColor: 'rgb(54, 162, 235)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(54, 162, 235)'
       }
     ]
+  }
+}
+
+const radarChartData = {
+  'data': {
+    labels: [
+      'Eating',
+      'Drinking',
+      'Sleeping',
+      'Designing',
+      'Coding',
+      'Cycling',
+      'Running'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 90, 81, 56, 55, 40],
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }, {
+      label: 'My Second Dataset',
+      data: [28, 48, 40, 19, 96, 27, 100],
+      fill: true,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgb(54, 162, 235)',
+      pointBackgroundColor: 'rgb(54, 162, 235)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    }]
+  }
+}
+
+const polarChartData = {
+  'data': {
+    labels: [
+      'Red',
+      'Green',
+      'Yellow',
+      'Grey',
+      'Blue'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [11, 16, 7, 3, 14],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(75, 192, 192)',
+        'rgb(255, 205, 86)',
+        'rgb(201, 203, 207)',
+        'rgb(54, 162, 235)'
+      ]
+    }]
   }
 }
 
@@ -115,6 +186,26 @@ module.exports = [
       return {
         code: 20000,
         data: chartData
+      }
+    }
+  },
+  {
+    url: '/in-soft/chart/radarChart',
+    type: 'get',
+    response: config => {
+      return {
+        code: 20000,
+        data: radarChartData
+      }
+    }
+  },
+  {
+    url: '/in-soft/chart/polarChart',
+    type: 'get',
+    response: config => {
+      return {
+        code: 20000,
+        data: polarChartData
       }
     }
   }
