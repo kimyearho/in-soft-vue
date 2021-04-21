@@ -14,6 +14,7 @@ import '@/assets/icons'
 
 import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
+import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine-dark.css'
 
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme

@@ -3,6 +3,7 @@
     <ag-grid-vue
       style="width: 100%; height: 700px;"
       class="ag-theme-alpine"
+      :class="{'ag-theme-alpine-dark' : darkTheme ? true : false}"
       :grid-options="gridOptions"
       :default-col-def="defaultColDef"
       :column-defs="columnDefs"
@@ -18,6 +19,7 @@
 <script>
 import { AgGridVue } from 'ag-grid-vue'
 import { getList } from '@/api/table'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'AgGrid',
@@ -46,6 +48,9 @@ export default {
       { field: 'display_time', width: 100, resizable: false },
       { field: 'pageviews', width: 50, resizable: false }
     ]
+  },
+  computed: {
+    ...mapGetters(['darkTheme'])
   },
   mounted() {
     this.gridApi = this.gridOptions.api
