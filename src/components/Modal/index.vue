@@ -7,75 +7,72 @@
       persistent
       no-click-animation
     >
-      <v-card>
+      <v-card class="modal-card">
         <v-card-title :class="modalOptions.titleColor">
           <span class="alert-headline">{{ modalOptions.titleName }}</span>
         </v-card-title>
 
         <v-card-subtitle
           v-if="modalOptions.alert.isUse"
-          :style="{marginTop: '20px'}"
+          :style="{marginTop: '20px', paddingBottom: '10px'}"
         >
           <v-alert
             icon="mdi-shield-lock-outline"
             text
+            outlined
             type="info"
           >
             {{ modalOptions.alert.text }}
           </v-alert>
         </v-card-subtitle>
 
-        <v-card
-          v-if="modalOptions.search.isUse"
-          :style="{margin: '0px 24px 24px 24px'}"
-        >
-          <v-card-title>
-            <v-row>
-              <v-col
-                cols="4"
-                sm="2"
+        <v-card-text class="search-form">
+          <v-row
+            v-if="modalOptions.search.isUse"
+            align="center"
+            justify="center"
+            no-gutters
+          >
+            <v-col cols="3">
+              <v-select
+                v-model="modalOptions.search.itemKey"
+                :items="modalOptions.search.options"
+                item-text="label"
+                item-value="value"
+                outlined
+                dense
+              />
+            </v-col>
+            <v-col cols="8">
+              <v-text-field
+                class="dialog-input"
+                outlined
+                dense
+                :label="modalOptions.search.placeholder"
               >
-                <v-subheader v-text="'검색 옵션'" />
-              </v-col>
-              <v-col
-                cols="4"
-                md="2"
-              >
-                <v-select
-                  v-model="modalOptions.search.itemKey"
-                  :items="modalOptions.search.options"
-                  item-text="label"
-                  item-value="value"
-                  outlined
-                  dense
-                />
-              </v-col>
-              <v-col
-                cols="6"
-                md="4"
-              >
-                <v-text-field
-                  outlined
-                  dense
-                  :label="modalOptions.search.placeholder"
-                />
-              </v-col>
-              <v-col cols="2">
-                <v-btn color="primary">
-                  <v-icon>{{ modalOptions.search.searchBtnIcon }}</v-icon>
-                  {{ modalOptions.search.searchBtnName }}
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card-title>
-        </v-card>
+                <template v-slot:append-outer>
+                  <v-btn
+                    block
+                    color="primary"
+                  >
+                    <v-icon>{{ modalOptions.search.searchBtnIcon }}</v-icon>
+                    {{ modalOptions.search.searchBtnName }}
+                  </v-btn>
+                </template>
+              </v-text-field>
+            </v-col>
+          </v-row>
+        </v-card-text>
 
         <v-card-text class="alert-contents">
           <v-data-table
+            fixed-header
+            height="400"
+            dense
             :style="{fontWeight: '400'}"
             :headers="modalOptions.columns"
             :items="rowItems"
-            :items-per-page="10"
+            :items-per-page="15"
             :show-select="modalOptions.selection.isCheckbox"
             :single-select="modalOptions.selection.isSingleChecked"
             :item-key="modalOptions.selection.itemKey"
@@ -87,14 +84,14 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="success"
             text
+            color="success"
           >
             {{ modalOptions.complateBtnName }}
           </v-btn>
           <v-btn
-            color="primary"
             text
+            color="primary"
             @click="$emit('modalClose', false)"
           >
             {{ modalOptions.closeBtnName }}

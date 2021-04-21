@@ -22,3 +22,25 @@
     background-color: initial;
   }
 }
+
+.v-input.dialog-input {
+  .v-input__append-outer {
+    margin-top: 0px !important;
+  }
+}
+
+.modal-card {
+  .search-form {
+    padding-top: 10px !important;
+    padding-bottom: 0 !important;
+    overflow-y: hidden !important;
+  }
+  .v-select {
+    padding-right: 10px !important;
+  }
+  .dialog-input {
+    .v-btn {
+      height: 39px;
+    }
+  }
+}

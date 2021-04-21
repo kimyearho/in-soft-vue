@@ -2,7 +2,7 @@ export function listModalOptions_1() {
   return {
     width: '800',
     titleName: '목록형 팝업',
-    titleColor: 'deep-purple darken-1',
+    titleColor: 'indigo darken-1',
     closeBtnName: '닫기',
     complateBtnName: '저장',
     alert: {
@@ -45,10 +45,6 @@ export function listModalOptions_1() {
         text: 'Title',
         value: 'title',
         width: 300
-      },
-      {
-        text: 'Name',
-        value: 'author'
       },
       {
         text: 'Date',
