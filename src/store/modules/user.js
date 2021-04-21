@@ -79,7 +79,7 @@ const actions = {
   },
 
   // user logout
-  logout({ commit, state }) {
+  logout({ commit, state }, { vm }) {
     return new Promise((resolve, reject) => {
       logout(state.token)
         .then(() => {
@@ -87,6 +87,9 @@ const actions = {
           resetRouter()
           commit('SET_ROLES', [])
           commit('RESET_STATE')
+          commit('settings/CHANGE_SETTING', {
+            key: 'themeDark', value: false }, { root: true })
+          vm.$vuetify.theme.dark = false
           resolve(true)
         })
         .catch((error) => {

@@ -65,9 +65,9 @@ export default {
   },
   methods: {
     async logout() {
-      const result = await this.$store.dispatch('user/logout')
+      const result = await this.$store.dispatch('user/logout', { vm: this })
       if (result) {
-        await this.$store.commit('settings/RESET_MENUS')
+        await this.$store.commit('menu/RESET_MENUS')
       }
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }

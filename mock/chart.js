@@ -68,7 +68,7 @@ const chartData = {
           10.833
         ],
         fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
         borderColor: 'rgb(255, 99, 132)',
         pointBackgroundColor: 'rgb(255, 99, 132)',
         pointBorderColor: '#fff',
@@ -109,7 +109,8 @@ const chartData = {
           3.653,
           4.644
         ],
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        fill: true,
+        backgroundColor: 'rgba(54, 162, 235)',
         borderColor: 'rgb(54, 162, 235)',
         pointBackgroundColor: 'rgb(54, 162, 235)',
         pointBorderColor: '#fff',

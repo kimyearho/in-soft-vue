@@ -1,5 +1,7 @@
 <template>
-  <v-app class="v-app">
+  <v-app
+    class="v-app"
+  >
     <v-container
       fluid
       fill-height
