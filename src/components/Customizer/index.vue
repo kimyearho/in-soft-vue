@@ -2,11 +2,12 @@
   <div>
     <v-navigation-drawer
       v-model="customizerIn"
-      :width="450"
+      :width="400"
       fixed
       right
       app
       temporary
+      light
       class="clearfix"
     >
       <v-toolbar
@@ -23,25 +24,40 @@
         <span>아래 옵션을 조절해보세요.</span>
       </v-alert>
       <v-list class="mb-5 theme-layouts">
-
         <v-list-item-title>
           <h2 :style="{marginBottom: '20px'}">
             <span :style="{marginLeft: '10px'}">Theme</span>
           </h2>
         </v-list-item-title>
         <v-divider />
+
         <v-list-item>
           <v-list-item-content class="py-0">
-            <v-checkbox
-              v-model="custom.dark_theme"
-              label="Dark Theme (일부 미적용)"
-              color="primary"
-              @click="toggleTheme"
-            />
+            <v-radio-group
+              v-model="selectedTheme"
+              row
+              @change="toggleTheme"
+            >
+              <v-radio
+                label="Light"
+                color="orange"
+                value="default"
+              />
+              <v-radio
+                label="Dark"
+                color="red"
+                value="dark"
+              />
+              <v-radio
+                label="Semi Dark"
+                color="blue"
+                value="semidark"
+              />
+            </v-radio-group>
           </v-list-item-content>
         </v-list-item>
 
-        <v-spacer style="margin-bottom: 50px" />
+        <v-spacer style="margin-bottom: 20px" />
 
         <v-list-item-title>
           <h2 :style="{marginBottom: '20px'}">
@@ -112,8 +128,10 @@ export default {
   data: () => {
     return {
       customizerIn: false,
+      selectedTheme: 'default',
       custom: {
-        dark_theme: false
+        dark_theme: false,
+        semi_dark_theme: false
       }
     }
   },
@@ -123,9 +141,10 @@ export default {
         return this.$store.getters.clipped
       },
       set(val) {
-        this.$store.commit('settings/CHANGE_SETTING',
-          { key: 'sidebarClipped', value: val }
-        )
+        this.$store.commit('settings/CHANGE_SETTING', {
+          key: 'sidebarClipped',
+          value: val
+        })
       }
     },
     sideLogo: {
@@ -133,9 +152,10 @@ export default {
         return this.$store.getters.sideLogo
       },
       set(val) {
-        this.$store.commit('settings/CHANGE_SETTING',
-          { key: 'sidebarLogo', value: val }
-        )
+        this.$store.commit('settings/CHANGE_SETTING', {
+          key: 'sidebarLogo',
+          value: val
+        })
       }
     },
     fixedBreadCrumb: {
@@ -143,38 +163,39 @@ export default {
         return this.$store.getters.fixedBread
       },
       set(val) {
-        this.$store.commit('settings/CHANGE_SETTING',
-          { key: 'fixedBreadCrumb', value: val }
-        )
-      }
-    },
-    darkenTheme: {
-      get() {
-        return this.$store.getters.darkTheme
-      },
-      set(val) {
-        this.$store.commit('settings/CHANGE_SETTING',
-          { key: 'themeDark', value: val }
-        )
+        this.$store.commit('settings/CHANGE_SETTING', {
+          key: 'fixedBreadCrumb',
+          value: val
+        })
       }
     }
   },
   methods: {
     toggleTheme() {
-      const theme = this.custom.dark_theme
-      if (theme) {
-        this.$vuetify.theme.dark = true
+      console.log('1')
+      const themeName = this.selectedTheme
+      if (themeName === 'dark') {
+        this.dispatchTheme('themeDark', true, true)
+      } else if (themeName === 'semidark') {
+        this.dispatchTheme('themeDark', false, false)
+        this.dispatchTheme('themeSemiDark', true, null)
       } else {
-        this.$vuetify.theme.dark = false
+        this.dispatchTheme('themeDark', false, false)
+        this.dispatchTheme('themeSemiDark', false, false)
       }
-      this.$store.dispatch('settings/changeSetting',
-        { key: 'themeDark', value: theme }
-      )
+    },
+    dispatchTheme(stateName, stateValue, vuetifyValue) {
+      this.$vuetify.theme.dark = vuetifyValue || false
+      this.$store.dispatch('settings/changeSetting', {
+        key: stateName,
+        value: stateValue
+      })
     },
     toggleHorizon() {
-      this.$store.dispatch('settings/changeSetting',
-        { key: 'horizontal', value: this.custom.horizon }
-      )
+      this.$store.dispatch('settings/changeSetting', {
+        key: 'horizontal',
+        value: this.custom.horizon
+      })
     },
     toggleCustomizer() {
       this.customizerIn = !this.customizerIn

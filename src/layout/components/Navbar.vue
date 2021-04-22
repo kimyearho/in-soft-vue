@@ -6,7 +6,7 @@
       fixed
       :flat="horizon ? true : false"
       :clipped-left="clipped"
-      :color="!darkTheme ? 'indigo darken-4' : ''"
+      :color="!darkTheme ? 'indigo darken-1' : ''"
     >
       <div class="d-custom-flex align-items-center navbar-left">
         <div

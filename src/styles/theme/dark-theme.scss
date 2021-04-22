@@ -1,17 +1,6 @@
-
-.theme--dark.v-card {
-  background-color: $default-dark-theme;
-  color: $base-light !important;
-}
-
-.theme--dark.v-data-table {
-  background-color: $dark-table-theme !important;
-  color: $base-light !important;
-  border: 1px solid rgb(0 0 0 / 38%);
-}
-
+//* 기본 다크테마
 .theme--dark.v-navigation-drawer {
-  background-color: #272727;
+  background-color: $default-dark-theme;
   .child-svg-icon {
     fill: $base-light;
   }
@@ -21,8 +10,36 @@
   }
 }
 
+//* 세미 다크테마
+.vertical-menu.semi-dark-theme {
+  background-color: $default-dark-theme;
+  .primary--text {
+    color: #2196f3 !important;
+    caret-color: #2196f3 !important;
+  }
+  .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+    color: #ffffff !important;
+  }
+  .v-icon {
+    color: #fff;
+  }
+  .child-svg-icon {
+    fill: $base-light;
+  }
+  .svg-icon {
+    color: $base-light;
+    background-color: $init;
+  }
+  .side-logo {
+    background-color: $dark-logo;
+  }
+  .v-divider {
+    border-color: hsla(0,0%,100%,.12);
+  }
+}
+
 //* Horizon Menu 다크테마 적용 시
-.horizontal-menu.dark-theme {
+.horizontal-menu.dark-theme, .semi-dark-theme {
   background-color: $default-dark-theme;
   >ul {
      >li.nav-item {
@@ -76,3 +93,14 @@
      }
   }
 }}
+
+.theme--dark.v-card {
+  background-color: $default-dark-theme;
+  color: $base-light !important;
+}
+
+.theme--dark.v-data-table {
+  background-color: $dark-table-theme !important;
+  color: $base-light !important;
+  border: 1px solid rgb(0 0 0 / 38%);
+}

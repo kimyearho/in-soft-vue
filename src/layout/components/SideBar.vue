@@ -2,10 +2,12 @@
   <v-navigation-drawer
     app
     permanent
+    width="300"
+    class="vertical-menu"
+    :class="{'semi-dark-theme': semiDarkTheme ? true : false}"
     :clipped="clipped"
     :expand-on-hover="!sidebar.opened"
     :mini-variant="!sidebar.opened"
-    width="300"
   >
     <div
       v-show="sidebar.opened"
@@ -45,7 +47,8 @@ export default {
     ...mapGetters([
       'sidebar',
       'clipped',
-      'sideLogo'
+      'sideLogo',
+      'semiDarkTheme'
     ])
   },
   methods: {

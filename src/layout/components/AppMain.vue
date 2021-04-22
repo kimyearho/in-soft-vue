@@ -4,7 +4,7 @@
       v-if="!horizonMode"
       window
       dark
-      color="grey darken-2"
+      color="grey darken-1"
       :style="fixedBreadCrumb ? styles.breadCrumbs : ''"
     >
       <slot name="breadcrumb" />

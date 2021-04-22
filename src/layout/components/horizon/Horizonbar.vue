@@ -1,7 +1,7 @@
 <template>
   <div
     class="horizontal-menu"
-    :class="{'dark-theme': darkTheme ? true : false}"
+    :class="theme"
   >
     <ul class="list-unstyled nav pl-0">
       <!-- //* 권한별 라우트 목록 -->
@@ -99,8 +99,18 @@ export default {
   computed: {
     ...mapGetters([
       'permissionRouters',
-      'darkTheme'
-    ])
+      'darkTheme',
+      'semiDarkTheme'
+    ]),
+    theme() {
+      if (this.darkTheme) {
+        return 'dark-theme'
+      }
+      if (this.semiDarkTheme) {
+        return 'semi-dark-theme'
+      }
+      return ''
+    }
   },
   methods: {
     routerLink(root, item, child) {

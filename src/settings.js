@@ -36,5 +36,11 @@ module.exports = {
    * @type {boolean} true | false
    * @description 어두운 테마 사용여부
    */
-  themeDark: false
+  themeDark: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description 일부 어두운 테마 사용여부
+   */
+  themeSemiDark: false
 }
