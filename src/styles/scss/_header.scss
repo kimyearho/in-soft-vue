@@ -26,6 +26,14 @@
    }
 }
 
+.app-toolbar.v-toolbar.mode {
+   margin: 15px 34px !important;
+   border-radius: 10px !important;
+   transition: all .3s ease,background 0s;
+   -webkit-box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+   box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+}
+
 /*=========== Site Logo ============*/
 
 .site-logo {

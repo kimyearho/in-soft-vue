@@ -39,6 +39,9 @@ export default {
       rowData: null
     }
   },
+  computed: {
+    ...mapGetters(['darkTheme'])
+  },
   beforeMount() {
     this.gridOptions = {}
     this.columnDefs = [
@@ -48,9 +51,6 @@ export default {
       { field: 'display_time', width: 100, resizable: false },
       { field: 'pageviews', width: 50, resizable: false }
     ]
-  },
-  computed: {
-    ...mapGetters(['darkTheme'])
   },
   mounted() {
     this.gridApi = this.gridOptions.api

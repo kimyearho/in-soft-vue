@@ -4,7 +4,7 @@
       class="app-toolbar"
       app
       fixed
-      :flat="horizon ? true : false"
+      flat
       :clipped-left="clipped"
       :color="!darkTheme ? 'indigo darken-1' : ''"
     >

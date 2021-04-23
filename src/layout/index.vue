@@ -7,10 +7,10 @@
     <app-horizon-bar v-if="horizon" />
     <div class="main-container">
       <!-- //? 메인 콘텐츠 -->
-      <app-main :class="{'hoz': horizon}">
-        <template slot="breadcrumb">
+      <app-main :class="{hoz: horizon}">
+        <!-- <template slot="breadcrumb">
           <app-bread-crumbs />
-        </template>
+        </template> -->
       </app-main>
       <!-- //? 푸터 -->
       <app-footer />
@@ -24,7 +24,7 @@ import NavBar from './components/Navbar'
 import SideBar from './components/SideBar'
 import AppMain from './components/AppMain'
 import FooTer from './components/Footer'
-import BreadCrumbs from '@/components/Breadcrumb/index'
+// import BreadCrumbs from '@/components/Breadcrumb/index'
 import Custormizer from '@/components/Customizer'
 import Horizonbar from '@/layout/components/horizon/Horizonbar'
 
@@ -37,7 +37,7 @@ export default {
     appSideBar: SideBar,
     appMain: AppMain,
     appFooter: FooTer,
-    appBreadCrumbs: BreadCrumbs,
+    // appBreadCrumbs: BreadCrumbs,
     appCustormizer: Custormizer,
     appHorizonBar: Horizonbar
   },

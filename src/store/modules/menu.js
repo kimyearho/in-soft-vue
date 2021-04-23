@@ -11,6 +11,7 @@ function filterAsyncRouter(asyncRoutes, routes) {
       const menu_id = route.meta.menu_id
       route.meta.title = routes.find((item) => item.menu_id === menu_id).menu_name
     }
+    route.active = false
     routerMap.push(route)
   })
   return routerMap

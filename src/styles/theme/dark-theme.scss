@@ -12,7 +12,6 @@
 
 //* 세미 다크테마
 .vertical-menu.semi-dark-theme {
-  background-color: $default-dark-theme;
   .primary--text {
     color: #2196f3 !important;
     caret-color: #2196f3 !important;
@@ -40,7 +39,7 @@
 
 //* Horizon Menu 다크테마 적용 시
 .horizontal-menu.dark-theme, .semi-dark-theme {
-  background-color: $default-dark-theme;
+  background-color: $default-dark-theme !important;
   >ul {
      >li.nav-item {
        >a {

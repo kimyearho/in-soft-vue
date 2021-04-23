@@ -24,15 +24,13 @@
 .boxed-layout {
   margin-left: auto;
   margin-right: auto;
-  padding-right: 5rem;
-  padding-left: 5rem;
+  padding-right: 1.5rem; // default 5
+  padding-left: 1.5rem;
 }
 
 .boxed-header {
-  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 10px;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -82,6 +80,9 @@
   text-decoration: inherit;
 
   &.is-active {
+    color: #ff5252 !important;
+  }
+  .v-list-item__title.is-active {
     color: #ff5252 !important;
   }
 }

@@ -8,6 +8,7 @@ export default {
   meta: {
     title: 'Components',
     icon: 'component',
+    mdiIcon: 'mdi-view-grid-plus-outline',
     role: 'admin',
     menu_id: 'M1101'
   },

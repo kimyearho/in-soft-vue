@@ -8,6 +8,7 @@ export default {
   meta: {
     title: 'Table',
     icon: 'table2',
+    mdiIcon: 'mdi-grid',
     role: 'admin',
     menu_id: 'M1109'
   },

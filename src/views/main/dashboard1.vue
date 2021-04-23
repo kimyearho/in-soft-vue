@@ -2,14 +2,8 @@
   <div class="dashboard-container">
     <v-container fluid>
       <search-filter :is-description-use="false" />
-      <v-card :style="{marginTop: '50px'}">
+      <v-card>
         <ag-grid-table />
-        <!-- <v-data-table
-          :headers="headers"
-          :items="rowItems"
-          :items-per-page="15"
-          class="elevation-1"
-        /> -->
       </v-card>
     </v-container>
   </div>

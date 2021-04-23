@@ -13,10 +13,11 @@
           class="nav-item"
         >
           <router-link to="/">
-            <svg-icon
+            <!-- <svg-icon
               class="is-active"
               icon-class="dashboard"
-            />
+            /> -->
+            <v-icon>mdi-view-dashboard</v-icon>
             <span class="prefix-dashboard black--text">{{ item.meta.title }}</span>
           </router-link>
         </li>
@@ -30,7 +31,8 @@
             class="black--text"
             active-class="active"
           >
-            <svg-icon :icon-class="item.meta ? item.meta.icon : ''" />
+            <!-- <svg-icon :icon-class="item.meta ? item.meta.icon : ''" /> -->
+            <v-icon v-text="item.meta.mdiIcon" />
             <span class="menu-title black--text">{{ item.meta.title }}</span>
           </a>
           <!-- //* 대메뉴 하위 조건에 부합하는 리스트 그룹을 생성한다. (1 depts) -->

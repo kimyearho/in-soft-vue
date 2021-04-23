@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-system-bar
+    <!-- <v-system-bar
       v-if="!horizonMode"
       window
       dark
@@ -8,20 +8,19 @@
       :style="fixedBreadCrumb ? styles.breadCrumbs : ''"
     >
       <slot name="breadcrumb" />
-    </v-system-bar>
+    </v-system-bar> -->
     <v-container
       class="boxed-layout"
-      :style="fixedBreadCrumb ? styles.boxed : ''"
     >
       <v-row align="center">
         <v-col cols="12">
           <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
-          <h1
+          <!-- <h1
             class="boxed-header"
             :style="horizonMode ? 'marginTop: 20px' : ''"
           >
             <p class="font-weight-medium black--text">{{ $route.meta.title }}</p>
-          </h1>
+          </h1> -->
           <transition
             name="fade"
             mode="out-in"

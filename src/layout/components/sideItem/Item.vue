@@ -8,13 +8,16 @@
         :key="item.meta.title"
       >
         <v-list-item-icon :style="{marginLeft: '0px'}">
-          <svg-icon
-            class="is-active"
+          <v-icon>mdi-view-dashboard</v-icon>
+          <!-- <svg-icon
             icon-class="dashboard"
-          />
+          /> -->
         </v-list-item-icon>
         <router-link to="/">
-          <v-list-item-title class="v-group-style">
+          <v-list-item-title
+            class="v-group-style"
+            :class="{'is-active': $route.name === 'Dashboard'}"
+          >
             {{ item.meta.title }}
           </v-list-item-title>
         </router-link>
@@ -24,12 +27,14 @@
       <v-list-group
         v-if="!item.hidden && item.children && !item.prefix"
         :key="item.path"
+        v-model="item.active"
         class="v-list-custom"
       >
         <!-- //* 그룹 제목 -->
         <template v-slot:activator>
           <v-list-item-icon>
-            <svg-icon :icon-class="item.meta ? item.meta.icon : ''" />
+            <v-icon v-text="item.meta.mdiIcon" />
+            <!-- <svg-icon :icon-class="item.meta ? item.meta.icon : ''" /> -->
           </v-list-item-icon>
           <v-list-item-title class="v-group-style">
             {{ item.meta.title }}
@@ -54,10 +59,11 @@
                 :style="{display: 'contents'}"
               >
                 <v-list-item-icon>
-                  <svg-icon
+                  <v-icon class="mdi-sub-icon">mdi-checkbox-blank-circle-outline</v-icon>
+                  <!-- <svg-icon
                     class="child-svg-icon"
                     icon-class="oval"
-                  />
+                  /> -->
                 </v-list-item-icon>
                 <v-list-item-title>
                   {{ child.meta.title }}

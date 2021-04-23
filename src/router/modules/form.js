@@ -8,6 +8,7 @@ export default {
     title: 'Form-Layout',
     role: 'admin',
     icon: 'website',
+    mdiIcon: 'mdi-oci',
     menu_id: 'M1112'
   },
   children: [
