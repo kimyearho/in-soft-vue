@@ -1,19 +1,9 @@
-@import "./app.variables.scss";
+@import "./scss/_variables.scss";
+@import "./scss/_custormizer.scss";
+@import "./scss/_header.scss";
+@import "./scss/_horizon.scss";
+@import "./scss/_custom.scss";
+@import "./scss/_login.scss";
+@import "./scss/_web.scss";
+@import "./theme/dark-theme.scss";
 
-@import "./mixins/common-mixin.scss";
-
-@import "./_border.scss";
-
-@import "./_custormizer.scss";
-
-@import "./_header.scss";
-
-@import "./_horizon.scss";
-
-@import "./_custom.scss";
-
-@import "./_login.scss";
-
-@import "./_web.scss";
-
-@import "./theme/dark-theme.scss"
