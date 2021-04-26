@@ -1,9 +1,7 @@
 <template>
   <div>
     <search-filter :is-description-use="false" />
-    <page-container>
-      <ag-grid-table />
-    </page-container>
+    <ag-grid-table />
   </div>
 </template>
 

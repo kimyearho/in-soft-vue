@@ -3,7 +3,7 @@
     <v-row>
       <v-col :cols="12">
         <v-card>
-          <v-card-title>Preview Line Example</v-card-title>
+          <v-card-title>Preview Example</v-card-title>
           <v-card-subtitle>대표적으로 많이 사용되는 차트 예제입니다.
             (Chart.js)</v-card-subtitle>
           <v-card-text class="mt-2">

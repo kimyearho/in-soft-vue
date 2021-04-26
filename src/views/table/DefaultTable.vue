@@ -1,16 +1,14 @@
 <template>
-  <div class="dashboard-container">
-    <v-container>
-      <v-card>
-        <v-data-table
-          :headers="headers"
-          :items="rowItems"
-          :items-per-page="15"
-          class="elevation-1"
-        />
-      </v-card>
-    </v-container>
-  </div>
+  <page-container>
+    <v-card>
+      <v-data-table
+        :headers="headers"
+        :items="rowItems"
+        :items-per-page="15"
+        class="elevation-1"
+      />
+    </v-card>
+  </page-container>
 </template>
 
 <script>

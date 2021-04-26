@@ -6,7 +6,7 @@
     >
       <v-card>
         <v-card-title>
-          Information
+          Preview Example
         </v-card-title>
         <v-card-subtitle>게시판 검색형</v-card-subtitle>
         <v-card-text class="description-text">

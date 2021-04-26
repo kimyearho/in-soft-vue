@@ -6,7 +6,7 @@
     >
       <v-card>
         <v-card-title>
-          Information
+          Preview Example
         </v-card-title>
         <v-card-subtitle>공통 팝업구성</v-card-subtitle>
         <v-card-text class="description-text">

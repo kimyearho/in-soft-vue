@@ -1,8 +1,6 @@
 <template>
   <v-footer
-    dark
     padless
-    color="grey lighten-3"
     :style="horizon ? 'paddingLeft:0' : ''"
   >
     <v-col
@@ -33,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.v-application p {
+  margin-bottom: 0;
+}
 .footer {
   color: #000 !important;
 }

@@ -29,6 +29,8 @@
 .horizontal-menu {
   display: flex;
   background-color: $hoz-menu-bg;
+  box-shadow: $app-shadow-box;
+  border-top: 1px solid #e8e8e8;
   height: $hoz-menu-height;
   margin-top: 58px;
   position: fixed;
