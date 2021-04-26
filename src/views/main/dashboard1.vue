@@ -5,6 +5,10 @@
       <v-row>
         <v-col cols="6">
           <v-card>
+            <v-card-title>Line Chart</v-card-title>
+            <v-card-subtitle>
+              <small>Copyright © INSOFT. All rights Reserved.</small>
+            </v-card-subtitle>
             <app-line-chart
               ref="line"
               :chart-data="chartData"
@@ -14,6 +18,10 @@
         </v-col>
         <v-col cols="6">
           <v-card>
+            <v-card-title>Radar Chart</v-card-title>
+            <v-card-subtitle>
+              <small>Copyright © INSOFT. All rights Reserved.</small>
+            </v-card-subtitle>
             <app-radar-chart
               ref="rader"
               :chart-data="radarChartData"

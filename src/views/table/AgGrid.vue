@@ -1,5 +1,9 @@
 <template>
   <v-card>
+    <v-card-title>Ag-Grid Vue</v-card-title>
+    <v-card-subtitle>
+      <small>Copyright © INSOFT. All rights Reserved.</small>
+    </v-card-subtitle>
     <ag-grid-vue
       style="width: 100%; height: 700px; padding: 20px;"
       class="ag-theme-alpine"
