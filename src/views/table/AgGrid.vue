@@ -1,21 +1,19 @@
 <template>
-  <page-container>
-    <v-card>
-      <ag-grid-vue
-        style="width: 100%; height: 700px; padding: 20px;"
-        class="ag-theme-alpine"
-        :class="{'ag-theme-alpine-dark' : darkTheme ? true : false}"
-        :grid-options="gridOptions"
-        :default-col-def="defaultColDef"
-        :column-defs="columnDefs"
-        :pagination="true"
-        :pagination-page-size="14"
-        :row-data="rowData"
-        @grid-ready="onGridReady"
-        @first-data-rendered="sizeToFit"
-      />
-    </v-card>
-  </page-container>
+  <v-card>
+    <ag-grid-vue
+      style="width: 100%; height: 700px; padding: 20px;"
+      class="ag-theme-alpine"
+      :class="{'ag-theme-alpine-dark' : darkTheme ? true : false}"
+      :grid-options="gridOptions"
+      :default-col-def="defaultColDef"
+      :column-defs="columnDefs"
+      :pagination="true"
+      :pagination-page-size="14"
+      :row-data="rowData"
+      @grid-ready="onGridReady"
+      @first-data-rendered="sizeToFit"
+    />
+  </v-card>
 </template>
 
 <script>

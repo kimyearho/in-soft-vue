@@ -1,22 +1,52 @@
 <template>
   <div>
     <search-filter :is-description-use="false" />
-    <ag-grid-table />
+    <page-container>
+      <v-row>
+        <v-col cols="6">
+          <v-card>
+            <app-line-chart
+              ref="line"
+              :chart-data="chartData"
+              :options="chartOptions"
+            />
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card>
+            <app-radar-chart
+              ref="rader"
+              :chart-data="radarChartData"
+              :options="chartOptions"
+            />
+          </v-card>
+        </v-col>
+        <v-col>
+          <ag-grid-table />
+        </v-col>
+      </v-row>
+    </page-container>
   </div>
 </template>
 
 <script>
 import { getList } from '@/api/table'
-
+import LineChart from '@/components/Chart/LineChart'
+import RadarChart from '@/components/Chart/RadarChart'
 import SearchFilter from '@/views/example/searchFilter/index'
 import AgGridTable from '@/views/table/AgGrid'
+import { getLineChart, getRadarChart } from '@/api/chart'
+import LineMixin from '@/views/example/chart/mixins/line-mixin'
 
 export default {
   name: 'Dashboard',
   components: {
     SearchFilter,
-    AgGridTable
+    AgGridTable,
+    appLineChart: LineChart,
+    appRadarChart: RadarChart
   },
+  mixins: [LineMixin],
   data() {
     return {
       colHeight: '110px',
@@ -42,7 +72,9 @@ export default {
           value: 'pageviews'
         }
       ],
-      rowItems: []
+      rowItems: [],
+      chartData: null,
+      radarChartData: null
     }
   },
   mounted() {
@@ -51,6 +83,8 @@ export default {
         this.rowItems = data.items
       }
     })
+    this.call_lineChart()
+    this.call_radarChart()
   },
   methods: {
     dynamicHeight(is) {
@@ -59,6 +93,17 @@ export default {
       } else {
         this.colHeight = '110px'
       }
+    },
+    call_lineChart() {
+      getLineChart().then(({ data }) => {
+        this.chartData = data['data']
+        this.chartOptionSetting()
+      })
+    },
+    call_radarChart() {
+      getRadarChart().then(({ data }) => {
+        this.radarChartData = data['data']
+      })
     }
   }
 }
