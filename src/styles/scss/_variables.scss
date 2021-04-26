@@ -11,11 +11,13 @@ $warning: 					#FFB70F !default;
 $danger: 					#FF3739 !default;
 $pink:                  #FA0055 !default;
 $blue:                  #2E62FF !default;
+$body:                  #f8f8f8 !default;
 $purple:                #2B314A !default;
 $light:             		#FFFFFF !default;
 $dark:              		#000000 !default;
 $base:                  #F4F7FA !default;
 $base-light:            #FAFAFA !default;
+$white:                 #FFFFFF !default; 
 $init: initial;
 
 // App Text Scale
@@ -168,6 +170,7 @@ $sidebar-icon-color:           $primary;
 //Heder Variable
 
 $header-box-shadow:             0 4px 15px 0 rgba(0,0,0,0.09);
+$app-shadow-box:                0 4px 24px 0 rgb(34 41 47 / 10%);
 
 // Back To Top Variable
 $back-to-top-bg:               $primary;

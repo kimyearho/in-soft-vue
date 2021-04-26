@@ -1,6 +1,5 @@
 <template>
-  <div class="filter-wrapper">
-
+  <page-container>
     <div
       v-if="isDescriptionUse"
       class="description mb-8"
@@ -128,7 +127,7 @@
         </v-card-text>
       </v-card>
     </div>
-  </div>
+  </page-container>
 </template>
 
 <script>

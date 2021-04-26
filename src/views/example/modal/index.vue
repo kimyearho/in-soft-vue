@@ -1,6 +1,5 @@
 <template>
-  <v-container fluid>
-
+  <page-container>
     <div
       v-if="isDescriptionUse"
       class="mb-10"
@@ -163,7 +162,7 @@
       :modal-init="modalOptions"
       @modalClose="visible.modal = false"
     />
-  </v-container>
+  </page-container>
 </template>
 
 <script>

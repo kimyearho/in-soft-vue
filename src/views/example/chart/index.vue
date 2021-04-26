@@ -1,68 +1,67 @@
 <template>
-  <div class="form-wrapper">
-    <v-container fluid>
-      <v-row>
-        <v-col :cols="12">
-          <v-card>
-            <v-card-title>Preview Line Example</v-card-title>
-            <v-card-subtitle>대표적으로 많이 사용되는 차트 예제입니다. (Chart.js)</v-card-subtitle>
-            <v-card-text class="mt-2">
-              <div class="mt-2">
-                <strong>
-                  <span>Source</span> <br>
-                  <v-divider />
-                  <div :style="{marginTop: '10px'}">
-                    > src/components/Chart/index.vue <br>
-                    > src/views/example/chart/index.vue
-                  </div>
-                </strong>
-              </div>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card>
-            <app-line-chart
-              v-if="visible.chart"
-              ref="line"
-              :chart-data="chartData"
-              :options="chartOptions"
-            />
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card>
-            <app-bar-chart
-              v-if="visible.chart"
-              ref="bar"
-              :chart-data="chartData"
-              :options="chartOptions"
-            />
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card>
-            <app-radar-chart
-              v-if="visible.chart"
-              ref="rader"
-              :chart-data="radarChartData"
-              :options="chartOptions"
-            />
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card>
-            <app-polar-chart
-              v-if="visible.chart"
-              ref="rader"
-              :chart-data="polarChartData"
-              :options="chartOptions"
-            />
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+  <page-container>
+    <v-row>
+      <v-col :cols="12">
+        <v-card>
+          <v-card-title>Preview Line Example</v-card-title>
+          <v-card-subtitle>대표적으로 많이 사용되는 차트 예제입니다.
+            (Chart.js)</v-card-subtitle>
+          <v-card-text class="mt-2">
+            <div class="mt-2">
+              <strong>
+                <span>Source</span> <br>
+                <v-divider />
+                <div :style="{marginTop: '10px'}">
+                  > src/components/Chart/index.vue <br>
+                  > src/views/example/chart/index.vue
+                </div>
+              </strong>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card>
+          <app-line-chart
+            v-if="visible.chart"
+            ref="line"
+            :chart-data="chartData"
+            :options="chartOptions"
+          />
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card>
+          <app-bar-chart
+            v-if="visible.chart"
+            ref="bar"
+            :chart-data="chartData"
+            :options="chartOptions"
+          />
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card>
+          <app-radar-chart
+            v-if="visible.chart"
+            ref="rader"
+            :chart-data="radarChartData"
+            :options="chartOptions"
+          />
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card>
+          <app-polar-chart
+            v-if="visible.chart"
+            ref="rader"
+            :chart-data="polarChartData"
+            :options="chartOptions"
+          />
+        </v-card>
+      </v-col>
+    </v-row>
+  </page-container>
 </template>
 
 <script>
@@ -72,11 +71,7 @@ import BarChart from '@/components/Chart/BarChart'
 import RadarChart from '@/components/Chart/RadarChart'
 import PolarChart from '@/components/Chart/PolarAreaChart'
 // import { mapGetters } from 'vuex'
-import {
-  getLineChart,
-  getRadarChart,
-  getPolarChart
-} from '@/api/chart'
+import { getLineChart, getRadarChart, getPolarChart } from '@/api/chart'
 
 export default {
   name: 'Chart',

@@ -1,24 +1,9 @@
-// body {
-//   font-family: Roboto, sans-serif;
-// }
-
 .v-app {
   .v-form {
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 80px;
   }
-}
-
-//* 툴바 기본 비율 90%
-.app-toolbar {
-  zoom: 90%;
-}
-
-//* 네비게이션드로우 기본 비율 90%
-.v-navigation-drawer {
-  zoom: 90%;
-  height: 100% !important;
 }
 
 .boxed-layout {
@@ -33,16 +18,8 @@
   margin-right: auto;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
 .v-main {
-  padding: 58px 0px 0px 270px !important;
+  padding: 80px 0px 0px 270px !important;
   min-height: calc(100vh - -3.0rem);
   overflow-y: auto;
 }
@@ -51,6 +28,10 @@
   // padding: $init !important;
   padding: 64px 0px 0px !important;
 } 
+
+.main-container {
+  background: $base-light;
+}
 
 .v-main__wrap {
   background-color: $base-light;
@@ -162,4 +143,8 @@
 
 .description-text  p {
   font-weight: 700;
+}
+
+.pb-0 {
+  padding-bottom: 0;
 }

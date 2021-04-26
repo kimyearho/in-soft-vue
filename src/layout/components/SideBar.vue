@@ -5,7 +5,6 @@
     width="300"
     class="vertical-menu"
     :class="{'semi-dark-theme': semiDarkTheme ? true : false}"
-    :clipped="clipped"
     :expand-on-hover="!sidebar.opened"
     :mini-variant="!sidebar.opened"
   >
@@ -46,7 +45,6 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'clipped',
       'sideLogo',
       'semiDarkTheme'
     ])

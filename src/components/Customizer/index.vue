@@ -76,17 +76,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item>
-          <v-list-item-content class="py-0">
-            <v-checkbox
-              v-model="clipped"
-              label="Vertical Clipped"
-              color="info"
-            />
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item>
+        <!-- <v-list-item>
           <v-list-item-content class="py-0">
             <v-checkbox
               v-model="fixedBreadCrumb"
@@ -94,7 +84,7 @@
               color="error"
             />
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
 
         <v-list-item>
           <v-list-item-content class="py-0">

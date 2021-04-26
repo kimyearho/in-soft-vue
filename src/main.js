@@ -16,6 +16,8 @@ import '../node_modules/ag-grid-community/dist/styles/ag-grid.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine-dark.css'
 
+import PageContainer from '@/components/Form/PageContainer'
+
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme
 const isProduction = process.env.NODE_ENV === 'production'
@@ -37,6 +39,7 @@ Vue.prototype.$lodash = lodash
 Vue.prototype.$axios = request
 //* Moment Global
 Vue.prototype.$moment = moment
+Vue.component('page-container', PageContainer)
 
 //! <중요>
 //! 실제 API 연동이 시작되면 아래 if 스크립트는 모두 삭제 하세요.

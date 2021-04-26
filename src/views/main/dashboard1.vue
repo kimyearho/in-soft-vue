@@ -1,11 +1,9 @@
 <template>
-  <div class="dashboard-container">
-    <v-container fluid>
-      <search-filter :is-description-use="false" />
-      <v-card>
-        <ag-grid-table />
-      </v-card>
-    </v-container>
+  <div>
+    <search-filter :is-description-use="false" />
+    <page-container>
+      <ag-grid-table />
+    </page-container>
   </div>
 </template>
 

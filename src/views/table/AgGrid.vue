@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-card>
     <ag-grid-vue
-      style="width: 100%; height: 700px;"
+      style="width: 100%; height: 700px; padding: 20px;"
       class="ag-theme-alpine"
       :class="{'ag-theme-alpine-dark' : darkTheme ? true : false}"
       :grid-options="gridOptions"
@@ -13,7 +13,7 @@
       @grid-ready="onGridReady"
       @first-data-rendered="sizeToFit"
     />
-  </div>
+  </v-card>
 </template>
 
 <script>

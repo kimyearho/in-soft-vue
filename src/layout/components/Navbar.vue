@@ -1,32 +1,16 @@
 <template>
-  <div>
+  <div class="app-bar-wrapper">
+    <div
+      class="header-shadow"
+      :class="{ 'vertical': !horizon ? true : false }"
+    />
     <v-app-bar
-      class="app-toolbar"
       app
       fixed
-      flat
-      :clipped-left="clipped"
-      :color="!darkTheme ? 'indigo darken-1' : ''"
+      class="app-toolbar"
+      :class="{ 'vertical': !horizon ? true : false }"
     >
       <div class="d-custom-flex align-items-center navbar-left">
-        <div
-          class="site-logo-wrap d-custom-flex ml-0 align-items-center"
-          style="margin-top:7px"
-        >
-          <router-link
-            to="/"
-            class="grayish-blue site-logo-img"
-          >
-            <img
-              src="@/assets/site-logo.png"
-              alt="site logo"
-              width="100"
-              height="30"
-            >
-          </router-link>
-        </div>
-      </div>
-      <div class="navbar-right">
         <v-btn
           icon
           large
@@ -35,6 +19,22 @@
         >
           <v-icon color="grey">mdi-fullscreen</v-icon>
         </v-btn>
+        <v-btn
+          icon
+          large
+          class="full-screen ma-0"
+        >
+          <v-icon color="grey">mdi-star-outline</v-icon>
+        </v-btn>
+        <v-btn
+          icon
+          large
+          class="full-screen ma-0"
+        >
+          <v-icon color="grey">mdi-email-outline</v-icon>
+        </v-btn>
+      </div>
+      <div class="navbar-right">
         <app-profile />
       </div>
     </v-app-bar>
@@ -61,7 +61,6 @@ export default {
   computed: {
     ...mapGetters([
       'avatar',
-      'clipped',
       'horizon',
       'darkTheme'
     ])

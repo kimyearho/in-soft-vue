@@ -1,3 +1,24 @@
+body {
+  background-color: $body;
+}
+
+//* 툴바 기본 비율 90%
+.app-toolbar {
+  zoom: 90%;
+}
+
+//* 네비게이션 드로우 기본 비율 90%
+.v-navigation-drawer {
+  zoom: 90%;
+  height: 100% !important;
+  box-shadow: $app-shadow-box;
+}
+
+.theme--light.v-app-bar.v-toolbar.v-sheet {
+  background-color: $white;
+  color: $dark;
+}
+
 .svg-icon {
   position: absolute;
   top: 0;
@@ -47,8 +68,17 @@
 
 .v-card {
   border-radius: 10px !important;
+  box-shadow: $app-shadow-box !important;
 }
 
 .mdi-sub-icon {
   font-size: 18px !important;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
