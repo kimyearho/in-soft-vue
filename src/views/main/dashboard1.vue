@@ -10,6 +10,7 @@
               <small>Copyright © INSOFT. All rights Reserved.</small>
             </v-card-subtitle>
             <app-line-chart
+              v-if="visible.chart"
               ref="line"
               :chart-data="chartData"
               :options="chartOptions"
@@ -23,6 +24,7 @@
               <small>Copyright © INSOFT. All rights Reserved.</small>
             </v-card-subtitle>
             <app-radar-chart
+              v-if="visible.chart"
               ref="rader"
               :chart-data="radarChartData"
               :options="chartOptions"
@@ -80,6 +82,9 @@ export default {
           value: 'pageviews'
         }
       ],
+      visible: {
+        chart: false
+      },
       rowItems: [],
       chartData: null,
       radarChartData: null
@@ -112,6 +117,24 @@ export default {
       getRadarChart().then(({ data }) => {
         this.radarChartData = data['data']
       })
+    },
+    chartOptionSetting() {
+      this.chartOptions.tooltips = {
+        intersect: true,
+        external: function(tooltipModel) {
+          const datasets = this.chartData.datasets
+          if (undefined !== tooltipModel.body) {
+            const lastLabel = datasets[datasets.length - 1].label
+
+            if (lastLabel.indexOf('  |  ') !== -1) {
+              const rp = '  |  ' + lastLabel.split('  |  ')[1]
+              const tt = tooltipModel.body[0].lines[0]
+              tooltipModel.body[0].lines[0] = tt.replace(rp, '')
+            }
+          }
+        }
+      }
+      this.visible.chart = true
     }
   }
 }
