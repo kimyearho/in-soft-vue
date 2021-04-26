@@ -6,6 +6,7 @@
     "build:prod": "vue-cli-service build --mode production",
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "preview": "node build/index.js --preview"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "path-to-regexp": "2.4.0",
     "vue": "2.6.12",
     "vue-chartjs": "^3.5.1",
+    "vue-i18n": "^8.22.3",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "3.0.2",
     "vue2-datepicker": "^3.9.0",
@@ -52,6 +54,7 @@
     "serve-static": "1.13.2",
     "svg-sprite-loader": "4.1.3",
     "svgo": "^2.3.0",
+    "vue-cli-plugin-i18n": "~2.1.0",
     "vue-cli-plugin-vuetify": "~2.1.0",
     "vue-style-loader": "^4.1.3",
     "vue-template-compiler": "2.6.12",

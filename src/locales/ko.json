@@ -1,0 +1,16 @@
+{
+  "login": {
+      "title": "로그인",
+      "form": {
+          "label": {
+              "id": "아이디",
+              "password": "비밀번호",
+              "rememberMe": "아이디 저장",
+              "forgotPwd": "비밀번호를 잊으셨나요?"
+          },
+          "button": {
+              "login": "로그인"
+          }
+      }
+  }
+}

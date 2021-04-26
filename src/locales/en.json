@@ -1,0 +1,16 @@
+{
+    "login": {
+        "title": "Sign in",
+        "form": {
+            "label": {
+                "id": "ID",
+                "password": "Password",
+                "rememberMe": "Remember me",
+                "forgotPwd": "Forgot your password?"
+            },
+            "button": {
+                "login": "Login"
+            }
+        }
+    }
+}

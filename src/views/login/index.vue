@@ -22,7 +22,7 @@
             <v-list-item two-line>
               <v-list-item-content>
                 <v-list-item-title>
-                  <h2>Sign in</h2> <br>
+                  <h2>{{ $t('login.title') }}</h2> <br>
                 </v-list-item-title>
                 <v-list-item-subtitle>Welcome IN SOFT Vue framework (ID:
                   admin)</v-list-item-subtitle>
@@ -36,7 +36,7 @@
             >
               <v-text-field
                 v-model="model.username"
-                label="ID"
+                :label="$t('login.form.label.id')"
                 clearable
                 required
                 :counter="10"
@@ -44,7 +44,7 @@
               />
               <v-text-field
                 v-model="model.password"
-                label="Password"
+                :label="$t('login.form.label.password')"
                 type="password"
                 clearable
                 required
@@ -55,7 +55,7 @@
                 @change="updateRemember"
               >
                 <template v-slot:label>
-                  <div>Remember me</div>
+                  <div>{{ $t('login.form.label.rememberMe') }}</div>
                 </template>
               </v-checkbox>
               <v-btn
@@ -66,10 +66,10 @@
                 :disabled="loader"
                 @click="login"
               >
-                Login
+                {{ $t('login.form.button.login') }}
               </v-btn>
               <div class="v-remember-me">
-                <a>Forgot your password?</a>
+                <a>{{ $t('login.form.label.forgotPwd') }}</a>
               </div>
             </v-form>
             <v-divider />

@@ -17,6 +17,7 @@ import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css'
 import '../node_modules/ag-grid-community/dist/styles/ag-theme-alpine-dark.css'
 
 import PageContainer from '@/components/Form/PageContainer'
+import i18n from './utils/i18n'
 
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme
@@ -57,5 +58,6 @@ new Vue({
   router,
   store,
   vuetify,
+  i18n,
   render: (h) => h(App)
 })

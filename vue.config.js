@@ -14,7 +14,15 @@ module.exports = {
   pluginOptions: {
     'sass-loader': {
       preProcessor: 'scss',
-      patterns: ['@/src/styles/index.scss']
+      patterns: [
+        '@/src/styles/index.scss'
+      ]
+    },
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: false
     }
   },
   publicPath: '/',
