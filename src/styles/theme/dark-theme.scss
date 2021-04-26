@@ -103,3 +103,9 @@
   color: $base-light !important;
   border: 1px solid rgb(0 0 0 / 38%);
 }
+
+.theme--dark.v-app-bar.v-toolbar {
+  .profile p {
+     color: $base-light;
+  }
+}
