@@ -1,16 +1,24 @@
 {
-    "login": {
-        "title": "Sign in",
-        "form": {
-            "label": {
-                "id": "ID",
-                "password": "Password",
-                "rememberMe": "Remember me",
-                "forgotPwd": "Forgot your password?"
-            },
-            "button": {
-                "login": "Login"
-            }
-        }
+  "login": {
+    "title": "Sign in",
+    "form": {
+      "label": {
+        "id": "ID",
+        "password": "Password",
+        "rememberMe": "Remember me",
+        "forgotPwd": "Forgot your password?"
+      },
+      "button": {
+        "login": "Login"
+      }
     }
+  },
+  "searchFilter": {
+    "label": {
+      "groupName": "Group Choice",
+      "groupNamePlace": "Please choose Group",
+      "switch-detail": "Detail Search",
+      "period": "Period Choice"
+    }
+  }
 }

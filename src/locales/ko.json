@@ -1,16 +1,24 @@
 {
   "login": {
-      "title": "로그인",
-      "form": {
-          "label": {
-              "id": "아이디",
-              "password": "비밀번호",
-              "rememberMe": "아이디 저장",
-              "forgotPwd": "비밀번호를 잊으셨나요?"
-          },
-          "button": {
-              "login": "로그인"
-          }
+    "title": "로그인",
+    "form": {
+      "label": {
+        "id": "아이디",
+        "password": "비밀번호",
+        "rememberMe": "아이디 저장",
+        "forgotPwd": "비밀번호를 잊으셨나요?"
+      },
+      "button": {
+        "login": "로그인"
       }
+    }
+  },
+  "searchFilter": {
+    "label": {
+      "groupName": "그룹 선택",
+      "groupNamePlace": "그룹명을 입력하세요.",
+      "switch-detail": "상세 검색",
+      "period": "기간 선택"
+    }
   }
 }

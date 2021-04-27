@@ -6,7 +6,7 @@
           cols="4"
           sm="2"
         >
-          <v-subheader v-text="'그룹 선택'" />
+          <v-subheader>{{ $t('searchFilter.label.groupName') }}</v-subheader>
         </v-col>
         <v-col
           cols="4"
@@ -29,7 +29,7 @@
             v-model="form.groupName"
             outlined
             dense
-            label="그룹명을 입력하세요."
+            :label="$t('searchFilter.label.groupNamePlace')"
           />
         </v-col>
         <v-col
@@ -48,7 +48,7 @@
             <v-switch
               v-model="isExpand"
               color="green"
-              :label="isExpand ? '상세 검색 ON' : '상세 검색 OFF'"
+              :label="isExpand ? $t('searchFilter.label.switch-detail') + ' ON' : $t('searchFilter.label.switch-detail') + ' OFF'"
               @change="expandFilter"
             />
           </v-subheader>
@@ -59,7 +59,9 @@
           cols="4"
           sm="2"
         >
-          <v-subheader v-text="'기간'" />
+          <v-subheader>
+            {{ $t('searchFilter.label.period') }}
+          </v-subheader>
         </v-col>
         <v-col
           cols="4"
