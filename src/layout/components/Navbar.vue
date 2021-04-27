@@ -40,6 +40,7 @@
         </v-btn>
       </div>
       <div class="navbar-right">
+        <app-lang-choice />
         <app-profile />
       </div>
     </v-app-bar>
@@ -50,13 +51,15 @@
 import { mapGetters } from 'vuex'
 import { title, version } from '@/settings'
 import Profile from './Profile'
+import LangChoice from '@/components/LangChoice'
 
 let elem = document.documentElement
 
 export default {
   name: 'Navbar',
   components: {
-    appProfile: Profile
+    appProfile: Profile,
+    appLangChoice: LangChoice
   },
   data: () => ({
     appTitle: title,

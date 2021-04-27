@@ -1,11 +1,7 @@
 <template>
   <v-container>
     <v-row class="profile">
-      <v-col cols="6">
-        <p>Kim</p>
-        <p>Yeonho</p>
-      </v-col>
-      <v-col cols="6">
+      <v-col cols="12">
         <v-menu
           class="profile_container"
           bottom
@@ -18,21 +14,22 @@
               icon
               v-on="on"
             >
-              <v-avatar
-                color="red"
-                size="42"
-              >
-                <span class="white--text headline">{{ user.initials }}</span>
+              <v-avatar>
+                <img
+                  src="https://avatars.githubusercontent.com/u/17153380?v=4"
+                >
               </v-avatar>
             </v-btn>
           </template>
           <v-card>
             <v-list-item-content class="justify-center">
               <div class="mx-auto text-center">
-                <v-avatar color="brown">
-                  <span class="white--text headline">{{ user.initials }}</span>
+                <v-avatar>
+                  <img
+                    src="https://avatars.githubusercontent.com/u/17153380?v=4"
+                  >
                 </v-avatar>
-                <h3>{{ getUser.name }}</h3>
+                <h3 class="pt-3">{{ getUser.name }}</h3>
                 <p class="caption mt-1">
                   {{ getUser.email }}
                 </p>
@@ -78,3 +75,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.profile {
+  padding-top: 3px;
+}
+</style>
