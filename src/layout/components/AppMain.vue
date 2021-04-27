@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main :class="{'mt-50' : isDashboard ? true : false}">
     <v-container
       class="boxed-layout"
     >
@@ -48,6 +48,9 @@ export default {
       fixedBreadCrumb: 'fixedBread',
       horizonMode: 'horizon'
     }),
+    isDashboard() {
+      return this.$route.name === 'Dashboard' && this.horizonMode === true
+    },
     key() {
       return this.$route.path
     }
