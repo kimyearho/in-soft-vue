@@ -1,23 +1,37 @@
 <template>
-  <v-breadcrumbs
-    :items="levelList"
-  >
-    <template v-slot:divider>
-      <v-icon>mdi-chevron-right</v-icon>
-    </template>
-    <template v-slot:item="{item}">
-      <v-breadcrumbs-item
-        v-if="item.meta.title === 'Dashboard'"
-        class="breadcrumbs-home"
-        @click="link(item)"
-      >
-        <v-icon>{{ item.meta.icon }}</v-icon>
-      </v-breadcrumbs-item>
-      <v-breadcrumbs-item v-else>
-        {{ item.meta.title }}
-      </v-breadcrumbs-item>
-    </template>
-  </v-breadcrumbs>
+  <page-container class="page-header">
+    <v-row>
+      <v-col cols="12">
+        <span class="header-title d-inline-block">
+          {{ $route.meta.title }}
+        </span>
+        <span class="divider" />
+        <v-row class="d-inline-block">
+          <v-col>
+            <v-breadcrumbs
+              :items="levelList"
+            >
+              <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+              </template>
+              <template v-slot:item="{item}">
+                <v-breadcrumbs-item
+                  v-if="item.meta.title === 'Dashboard'"
+                  class="breadcrumbs-home"
+                  @click="link(item)"
+                >
+                  <v-icon>{{ item.meta.icon }}</v-icon>
+                </v-breadcrumbs-item>
+                <v-breadcrumbs-item v-else>
+                  {{ item.meta.title }}
+                </v-breadcrumbs-item>
+              </template>
+            </v-breadcrumbs>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </page-container>
 </template>
 
 <script>

@@ -1,0 +1,26 @@
+.page-wrapper.page-header {
+  .container {
+    padding: 0;
+  }
+  .divider {
+    border: 1px solid #d6dce1;
+    margin-left: 15px;
+  }
+  .v-breadcrumbs {
+    margin-left: 5px;
+    padding-top: 0;
+    .v-breadcrumbs__item {
+      .v-icon {
+        font-size: $h4-font-size;
+        color: $blue;
+      }
+    }
+  }
+}
+
+.header-title {
+  vertical-align: sub;
+  font-size: 2rem;
+  padding-left: 12px;
+  color: $gray-1;
+}

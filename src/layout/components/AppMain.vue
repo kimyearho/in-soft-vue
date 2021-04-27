@@ -1,26 +1,12 @@
 <template>
   <v-main>
-    <!-- <v-system-bar
-      v-if="!horizonMode"
-      window
-      dark
-      color="grey darken-1"
-      :style="fixedBreadCrumb ? styles.breadCrumbs : ''"
-    >
-      <slot name="breadcrumb" />
-    </v-system-bar> -->
     <v-container
       class="boxed-layout"
     >
       <v-row align="center">
         <v-col cols="12">
           <!-- //? 콘텐츠에 표시될 라우터 컴포넌트 -->
-          <!-- <h1
-            class="boxed-header"
-            :style="horizonMode ? 'marginTop: 20px' : ''"
-          >
-            <p class="font-weight-medium black--text">{{ $route.meta.title }}</p>
-          </h1> -->
+          <app-bread-crumb v-if="$route.name !== 'Dashboard'" />
           <transition
             name="fade"
             mode="out-in"
@@ -38,9 +24,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import BreadCrumb from '@/components/Breadcrumb'
 
 export default {
   name: 'AppMain',
+  components: {
+    appBreadCrumb: BreadCrumb
+  },
   data: () => ({
     styles: {
       boxed: {

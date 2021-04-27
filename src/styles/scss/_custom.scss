@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap');
+
 body {
   background-color: $body;
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.35;
+  height: 100%;
+  overflow-x: hidden;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 //* 툴바 기본 비율 90%
@@ -7,7 +16,7 @@ body {
   zoom: 90%;
 }
 
-.page-wrapper.horizon {
+.page-wrapper.page-header.horizon {
   margin-top: 50px;
 }
 
