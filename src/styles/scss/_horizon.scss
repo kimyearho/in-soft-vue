@@ -33,14 +33,14 @@
   background-color: $hoz-menu-bg;
   box-shadow: $app-shadow-box;
   border-top: 1px solid #e8e8e8;
-  height: $hoz-menu-height;
+  height: 3.3rem;
   margin-top: 58px;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 2;
   .sub-menu-parent {
-     margin-right: 20px;
+     margin-right: 10px;
   }
   .no-arrow::after {
      display: none;
@@ -70,7 +70,7 @@
            }
         }
         .prefix-dashboard {
-            padding-left: 35px;
+            padding-left: 10px;
         }
         .menu-title {
             &::after {
@@ -79,7 +79,7 @@
                position: absolute;
                right: 0ex;
             }
-            padding-left: 35px;
+            padding-left: 10px;
         }
         &:hover {
            .sub-menu {
@@ -100,6 +100,7 @@
            box-shadow: $hoz-sub-menu-box-shadow;
            padding-left: initial;
            list-style: none;
+           top: 48px;
            >
            .nest-child li.nav-item {
               >a {

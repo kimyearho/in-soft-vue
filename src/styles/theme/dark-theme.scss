@@ -17,10 +17,10 @@
     caret-color: #2196f3 !important;
   }
   .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
-    color: #ffffff !important;
+    color: $white !important;
   }
   .v-icon {
-    color: #fff;
+    color: $white;
   }
   .child-svg-icon {
     fill: $base-light;
@@ -38,6 +38,9 @@
 }
 
 //* Horizon Menu 다크테마 적용 시
+.horizontal-menu.dark-theme, .horizontal-menu.semi-dark-theme {
+  border-top: 1px solid #68686e;
+}
 .horizontal-menu.dark-theme, .semi-dark-theme {
   background-color: $default-dark-theme !important;
   >ul {
@@ -46,12 +49,23 @@
         .prefix-dashboard {
            color: $base-light !important;
         }
+        .v-icon {
+          color: $gray-light;
+        }
        }
+     }
+     li.sub-menu-parent {
+        a {
+          .v-icon {
+            color: $gray-light;
+          }
+        }
      }
      >li {
      >a {
         &:hover {
            background-color: $gray-dark;
+           height: 48px;
         }
         .svg-icon {
            color: $base-light;
@@ -66,6 +80,8 @@
      }
      .sub-menu {
         background-color: $default-dark-theme;
+        border-top: 1px solid #68686e;
+        top: 48px;
         li.nav-item {
           >a {
             &::after {

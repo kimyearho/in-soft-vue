@@ -2,13 +2,18 @@
   <div class="app-bar-wrapper">
     <div
       class="header-shadow"
-      :class="{ 'vertical': !horizon ? true : false }"
+      :class="{
+        'vertical': !horizon ? true : false
+      }"
     />
     <v-app-bar
       app
       fixed
       class="app-toolbar"
-      :class="{ 'vertical': !horizon ? true : false }"
+      :class="{
+        'vertical': !horizon ? true : false,
+        'semi-dark-theme': semiDarkTheme ? true : false
+      }"
     >
       <div class="d-custom-flex align-items-center navbar-left">
         <v-btn
@@ -62,7 +67,8 @@ export default {
     ...mapGetters([
       'avatar',
       'horizon',
-      'darkTheme'
+      'darkTheme',
+      'semiDarkTheme'
     ])
   },
   methods: {
