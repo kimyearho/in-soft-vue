@@ -19,7 +19,7 @@
               :src="require(`@/assets/images/${langIcon}.png`)"
             />
           </span>
-          {{ buttonText }}
+          <span class="lang-text">{{ buttonText }}</span>
         </v-btn>
       </template>
       <v-list>
