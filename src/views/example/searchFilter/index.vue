@@ -8,11 +8,11 @@
         <v-card-title>
           Preview Example
         </v-card-title>
-        <v-card-subtitle>게시판 검색형</v-card-subtitle>
+        <v-card-subtitle>{{ $t('searchFilter.guide.subTitle') }}</v-card-subtitle>
         <v-card-text class="description-text">
-          <p>SearchFilter 컴포넌트는 일반적으로 게시판형 페이지에서 사용될 수 있는 검색필터입니다.</p>
-          <p>해당 컴포넌트는 예제로 사용자 그룹 및 기간별 검색을 사용합니다.</p>
-          <p>또한 해당 컴포넌트는 검색시 결과값을 표시하며, 상세 검색을 ON/OFF에 따라 결과값이 달라집니다.</p>
+          <p>{{ $t('searchFilter.guide.description1') }}</p>
+          <p>{{ $t('searchFilter.guide.description2') }}</p>
+          <p>{{ $t('searchFilter.guide.description3') }}</p>
           <p class="mt-2">
             <strong>
               <span>Source</span> <br>
@@ -134,6 +134,7 @@
 import DefaultAlert from '@/components/Dialog'
 import SearchFilter from '@/components/SearchFilter'
 import { getUserGroupList, getPeriodList } from '@/api/filter'
+import { mapGetters } from 'vuex'
 
 function objToString(obj) {
   var str = ''
@@ -178,39 +179,50 @@ export default {
           name: 'userGroupOption',
           type: 'array',
           default: 'any:[]',
-          description: '사용자 그룹 옵션'
+          description: this.$t('searchFilter.props.userGroupOption')
         },
         {
           name: 'periodOption',
           type: 'array',
           default: 'any:[]',
-          description: '기간 검색 옵션'
+          description: this.$t('searchFilter.props.periodOption')
         },
         {
           name: 'datePickerFormat',
           type: 'string',
           default: 'YYYY-MM-DD',
-          description: '날짜 포맷을 입력합니다.'
+          description: this.$t('searchFilter.props.datePickerFormat')
         },
         {
           name: 'datePickerOption',
           type: 'object',
           default: '{ editable: boolean, clearable: boolean }',
-          description: '캘린더를 수정하거나, 초기화에 사용하는 옵션을 지정합니다.'
+          description: this.$t('searchFilter.props.datePickerOption')
         }
       ],
       eventList: [
         {
           name: 'call_periodOption',
           type: 'function',
-          description: '기간 검색을 조회 합니다.'
+          description: this.$t('searchFilter.event.call_periodOption')
         },
         {
           name: 'search',
           type: 'function',
-          description: '검색 기능을 실행 합니다.'
+          description: this.$t('searchFilter.event.search')
         }
       ]
+    }
+  },
+  computed: {
+    ...mapGetters(['locale'])
+  },
+  watch: {
+    locale(val) {
+      if (val) {
+        this.call_userGroupList()
+        this.call_periodList()
+      }
     }
   },
   created() {
@@ -220,13 +232,13 @@ export default {
   methods: {
     // ? 사용자 그룹 옵션 리스트를 조회
     call_userGroupList() {
-      getUserGroupList().then(({ data }) => {
+      getUserGroupList({ locale: this.locale }).then(({ data }) => {
         this.filterModel.userGroupOption = data
       })
     },
     // ? 기간 옵션 리스트를 조회 (최초 Expand ON일때 한번만 실행 됨)
     call_periodList() {
-      getPeriodList().then(({ data }) => {
+      getPeriodList({ locale: this.locale }).then(({ data }) => {
         this.$set(this.filterModel, 'periodOption', data)
         this.$refs['searchFilter'].datePickerSetting('1w')
       })

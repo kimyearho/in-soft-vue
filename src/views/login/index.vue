@@ -102,6 +102,7 @@ import {
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
 import CommonSnackbars from '@/components/Snackbars'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Login',
@@ -124,6 +125,12 @@ export default {
         (v) => (v && v.length <= 10) || 'Name must be less than 10 characters'
       ]
     }
+  },
+  computed: {
+    ...mapGetters(['locale'])
+  },
+  beforeMount() {
+    this.$i18n.locale = this.locale
   },
   mounted() {
     const rememberId = GET_LOCAL_ITEM('user-id')

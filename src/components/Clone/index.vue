@@ -5,7 +5,7 @@
       <v-row>
         <v-col cols="4">
           <v-text-field
-            label="Please Text enter"
+            :label="$t('templateCopy.guide.placeholder_enter')"
             value=""
           >
             <template v-slot:append-outer>
@@ -17,7 +17,7 @@
                 <v-icon right>
                   mdi-plus
                 </v-icon>
-                추가
+                {{ $t('templateCopy.guide.btnAddText') }}
               </v-btn>
             </template>
           </v-text-field>

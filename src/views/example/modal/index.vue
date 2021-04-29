@@ -8,10 +8,10 @@
         <v-card-title>
           Preview Example
         </v-card-title>
-        <v-card-subtitle>공통 팝업구성</v-card-subtitle>
+        <v-card-subtitle>{{ $t('modal.guide.subTitle') }}</v-card-subtitle>
         <v-card-text class="description-text">
-          <p>Modal 컴포넌트는 공통으로 Modal을 어떻게 구성할 수 있는지 예시를 첨부 했습니다.</p>
-          <p>해당 컴포넌트는 위 옵션들을 이용하여 Modal의 내용을 동적으로 변경 및 적용할 수 있습니다.</p>
+          <p>{{ $t('modal.guide.description1') }}</p>
+          <p>{{ $t('modal.guide.description2') }}</p>
           <p>
             <strong>
               <span>Source</span> <br>
@@ -33,8 +33,8 @@
             <v-card-title>Example</v-card-title>
             <v-card-subtitle
               :style="{paddingTop: '10px'}"
-            >아래 옵션을 입력 or 선택한 뒤 버튼을 클릭하세요.<br>옵션
-              선택없이 버튼을 클릭하면 기본값이 세팅 됩니다.</v-card-subtitle>
+            >{{ $t('modal.example.subTitle1') }}<br>
+              {{ $t('modal.example.subTitle2') }}</v-card-subtitle>
             <v-divider />
             <v-card-text>
               <v-form>
@@ -42,7 +42,7 @@
                   <v-col cols="12">
                     <v-checkbox
                       v-model="form.alert.isUse"
-                      label="팝업 안내문 사용여부"
+                      :label="$t('modal.example.isPopupGuide')"
                       color="red"
                       hide-details
                     />
@@ -50,7 +50,7 @@
                   <v-col cols="12">
                     <v-text-field
                       v-model="form.alert.text"
-                      label="안내 문구 (입력 가능)"
+                      :label="$t('modal.example.placeholder_guide')"
                       :disabled="!form.alert.isUse"
                     />
                   </v-col>
@@ -59,7 +59,7 @@
                   <v-col cols="12">
                     <v-checkbox
                       v-model="form.search.isUse"
-                      label="검색폼 사용여부"
+                      :label="$t('modal.example.isSearchForm')"
                       color="indigo"
                       hide-details
                     />
@@ -67,21 +67,21 @@
                   <v-col cols="4">
                     <v-text-field
                       v-model="form.search.placeholder"
-                      label="검색어 Placeholder"
+                      :label="$t('modal.example.placeholder_searchKeyword')"
                       :disabled="!form.search.isUse"
                     />
                   </v-col>
                   <v-col cols="4">
                     <v-text-field
                       v-model="form.search.searchBtnIcon"
-                      label="검색버튼 아이콘"
+                      :label="$t('modal.example.placeholder_searchIcon')"
                       :disabled="!form.search.isUse"
                     />
                   </v-col>
                   <v-col cols="4">
                     <v-text-field
                       v-model="form.search.searchBtnName"
-                      label="검색버튼 이름"
+                      :label="$t('modal.example.placeholder_searchBtnName')"
                       :disabled="!form.search.isUse"
                     />
                   </v-col>
@@ -90,7 +90,7 @@
                   <v-col cols="8">
                     <v-checkbox
                       v-model="form.selection.isCheckbox"
-                      label="목록 체크박스 사용여부"
+                      :label="$t('modal.example.isMultipleListCheckbox')"
                       color="green"
                       hide-details
                     />
@@ -98,7 +98,7 @@
                   <v-col cols="4">
                     <v-checkbox
                       v-model="form.selection.isSingleChecked"
-                      label="단일체크 사용여부"
+                      :label="$t('modal.example.isSingleListCheckbox')"
                       color="blue"
                       hide-details
                       :disabled="!form.selection.isCheckbox"
@@ -180,7 +180,7 @@ export default {
       default: true
     }
   },
-  data: () => ({
+  data: (vm) => ({
     visible: {
       modal: false
     },
@@ -191,13 +191,13 @@ export default {
         name: 'visible',
         type: 'boolean',
         default: 'false',
-        description: '팝업 표시여부'
+        description: vm.$t('modal.props.visible')
       },
       {
         name: 'modalOptions',
         type: 'object',
-        default: '@/util/modal 참고',
-        description: '팝업 기본 옵션'
+        default: '@/util/modal',
+        description: vm.$t('modal.props.modalOptions')
       }
     ]
   }),

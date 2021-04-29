@@ -1,4 +1,4 @@
-const groupData = [
+const koGroupData = [
   {
     label: '사용자 그룹 1',
     value: 'group1'
@@ -17,7 +17,26 @@ const groupData = [
   }
 ]
 
-const periodData = [
+const enGroupData = [
+  {
+    label: 'User Group 1',
+    value: 'group1'
+  },
+  {
+    label: 'User Group 2',
+    value: 'group2'
+  },
+  {
+    label: 'User Group 3',
+    value: 'group3'
+  },
+  {
+    label: 'User Group 4',
+    value: 'group4'
+  }
+]
+
+const koPeriodData = [
   {
     label: '최근 1주일',
     value: '1w'
@@ -36,22 +55,34 @@ const periodData = [
   }
 ]
 
+const enPeriodData = [
+  {
+    label: 'Last week',
+    value: '1w'
+  },
+  {
+    label: 'Last 1 month',
+    value: '1m'
+  },
+  {
+    label: 'Last 3 month',
+    value: '3m'
+  },
+  {
+    label: 'Last 6 month',
+    value: '6m'
+  }
+]
+
 module.exports = [
   {
     url: '/in-soft/group/userGroupList',
     type: 'get',
     response: config => {
-      // const { token } = config.query
-      // const token = config.headers['x-token'] || 'admin-token'
-      // if (!token) {
-      //   return {
-      //     code: 50000,
-      //     message: 'Token fail'
-      //   }
-      // }
+      const locale = config.query.locale || 'ko'
       return {
         code: 20000,
-        data: groupData
+        data: locale === 'ko' ? koGroupData : enGroupData
       }
     }
   },
@@ -60,16 +91,10 @@ module.exports = [
     url: '/in-soft/group/periodList',
     type: 'get',
     response: config => {
-      // const token = config.headers['x-token'] || 'admin-token'
-      // if (!token) {
-      //   return {
-      //     code: 50000,
-      //     message: 'Token fail'
-      //   }
-      // }
+      const locale = config.query.locale || 'ko'
       return {
         code: 20000,
-        data: periodData
+        data: locale === 'ko' ? koPeriodData : enPeriodData
       }
     }
   }

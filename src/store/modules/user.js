@@ -89,6 +89,8 @@ const actions = {
           commit('RESET_STATE')
           commit('settings/CHANGE_SETTING', {
             key: 'themeDark', value: false }, { root: true })
+          commit('settings/CHANGE_SETTING', {
+            key: 'locale', value: 'ko' }, { root: true })
           vm.$vuetify.theme.dark = false
           resolve(true)
         })

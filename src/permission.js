@@ -31,8 +31,8 @@ router.beforeEach(async(to, from, next) => {
       if (store.getters.addRouters.length <= 0) {
         try {
           //* 권한 가져오기
-          const { roles } = await store.dispatch('user/getInfo')
-          console.log(roles)
+          // const { roles } = await store.dispatch('user/getInfo')
+          // console.log(roles)
           //* 메뉴 가져오기
           //* API 연동을 통해 메뉴를 가져와 현재 등록해둔 라우터와 비교하여 권한 라우터를 구성한다.
           //* 실제 프로젝트에서 권한 별 메뉴구성과 구조가 다르므로 상황에 맞게 조정한다.
