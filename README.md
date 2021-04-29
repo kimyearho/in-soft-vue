@@ -3,20 +3,24 @@
 </p>
 
 <p align="center">       
-  <img  src="https://i.imgur.com/fLkuHSx.png" />
+  <img  src="https://i.imgur.com/Leb7GqW.png" />
 </p>
 
-<br>
-
-> Insoft Vue framework v0.1 <br><br>
-> 이 프로젝트는 현재 개발 진행중이며, 상시 소스가 변경될 수 있습니다. <br>
-> 이 프로젝트는 신규 프로젝트 개발시 개발비용을 최대한 줄이고, 전사적으로 프로젝트 표준으로 지정하여 어느곳에가든 일관성있는 서비스를 구축하기 위한 목적 입니다. 따라서 문서 가이드를 참고하시고 코드 스타일 규격을 통일화 해주시길 바랍니다.
-<br><br>
-> 이 프로젝트는 사내 오픈 프로젝트로써 누구나 참여가능하오니 기여해주실분은 서비스 사업본부 김연호 과장에게 연락주세요. <br><br> <yeonho@in-soft.co.kr>
+# Insoft Vue Template v0.2 <br>
 
 <br>
 
-##### 이 프로젝트는 Vuetify UI Component를 사용합니다. 자세한 사항은 아래 링크를 참고 하십시오.
+> * 이 프로젝트의 목적은 만들어진 개발환경 구성을 사용하여 비용(시간)을 절감(단축)하고 콘텐츠 개발에 집중할 수 있도록 지원하는데 목적을 두고 있음.
+<br/><br/>
+> * 이 프로젝트는 현재 개발 진행중이며, 상시 소스가 변경될 수 있음. <br>
+> * 이 프로젝트는 관리자형 포털을 개발할 때 사용가능한 템플릿 임<br>
+> * 타 프로젝트에서 사용 된 컴포넌트들을 현재 환경에 맞춰 등록하고 있고, 예시를 포함하고 있음. <br>
+> * 자세한 정보는 문서 항목을 참고하길 바람. <br>
+> * 이 프로젝트는 사내 오픈 프로젝트로써 누구나 참여가능하오니 기여해주실분은 서비스 사업본부 김연호 과장에게 연락주세요. <br> <yeonho@in-soft.co.kr>
+
+<br>
+
+##### 이 프로젝트는 Vuetify를 사용합니다. Vuetify 레퍼런스는 아래 링크를 참고 하십시오.
 https://vuetifyjs.com/en/
 
 <br>
@@ -96,7 +100,7 @@ export default {
 # Mock API
 1. New File
 - 신규 .js 파일 생성 시 mock/index.js 파일에서 import 하여 주입 해주세요.
-```
+```js
 const filter = require('./filter')
 
 const mocks = [
