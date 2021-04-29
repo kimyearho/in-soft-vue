@@ -1,5 +1,4 @@
 import Layout from '@/layout'
-// import EmptyLayout from '@/layout/EmptyLayout'
 
 export default {
   path: '/components',

@@ -8,7 +8,8 @@ const {
   sidebarClipped,
   horizontalMenu,
   themeDark,
-  themeSemiDark
+  themeSemiDark,
+  locale
 } = defaultSettings
 
 const state = {
@@ -19,7 +20,8 @@ const state = {
   sidebarClipped: sidebarClipped,
   horizontal: horizontalMenu,
   themeDark: themeDark,
-  themeSemiDark: themeSemiDark
+  themeSemiDark: themeSemiDark,
+  locale: locale
 }
 
 const mutations = {

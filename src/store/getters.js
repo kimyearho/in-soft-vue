@@ -10,6 +10,7 @@ const getters = {
   horizon: state => state.settings.horizontal,
   fixedBread: state => state.settings.fixedBreadCrumb,
   darkTheme: state => state.settings.themeDark,
-  semiDarkTheme: state => state.settings.themeSemiDark
+  semiDarkTheme: state => state.settings.themeSemiDark,
+  locale: state => state.settings.locale
 }
 export default getters

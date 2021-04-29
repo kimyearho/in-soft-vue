@@ -42,5 +42,11 @@ module.exports = {
    * @type {boolean} true | false
    * @description 일부 어두운 테마 사용여부
    */
-  themeSemiDark: false
+  themeSemiDark: false,
+
+  /**
+   * @type {string} ko | en
+   * @description 다국어 옵션 지정
+   */
+  locale: 'ko'
 }

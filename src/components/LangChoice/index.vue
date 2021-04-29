@@ -49,10 +49,13 @@ export default {
     langIcon: 'ko'
   }),
   methods: {
-    toggleItem(locale) {
+    async toggleItem(locale) {
       this.langIcon = locale
       this.buttonText = locale === 'ko' ? 'Korean' : 'English'
       this.$i18n.locale = locale
+      this.$store.commit('settings/CHANGE_SETTING', { key: 'locale', value: locale })
+      this.$router.push('/dashboard')
+      await this.$store.dispatch('menu/menuList')
     }
   }
 }
