@@ -6,9 +6,10 @@
   <img  src="https://i.imgur.com/fLkuHSx.png" />
 </p>
 
+# Insoft Vue Template v0.2 <br>
+
 <br>
 
-> Insoft Vue Template v0.2 <br>
 > 이 프로젝트는 현재 개발 진행중이며, 상시 소스가 변경될 수 있음. <br>
 > 이 프로젝트는 관리자형 포털을 개발할 때 사용가능한 템플릿 <br>
 > 타 프로젝트에서 사용 된 컴포넌트들을 현재 환경에 맞춰 등록하고 있고, 예시를 포함하고 있음.
