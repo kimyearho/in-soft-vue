@@ -37,9 +37,10 @@ const actions = {
   resetMenus({ commit }) {
     commit('RESET_MENUS')
   },
-  menuList({ commit }, params) {
+  menuList({ commit, rootGetters }, params) {
+    const locale = rootGetters.locale
     return new Promise((resolve, reject) => {
-      getMenuList()
+      getMenuList({ locale: locale })
         .then((response) => {
           const { data } = response
           const routers = filterAsyncRouter(asyncRoutes, data)

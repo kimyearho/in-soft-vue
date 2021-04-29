@@ -4,7 +4,7 @@
       <v-col :cols="12">
         <v-card>
           <v-card-title>Preview Clone Example</v-card-title>
-          <v-card-subtitle>TextField 템플릿을 복제하는 컴포넌트 입니다.</v-card-subtitle>
+          <v-card-subtitle>{{ $t('templateCopy.guide.subTitle') }}</v-card-subtitle>
           <v-card-text class="mt-2">
             <p class="mt-2">
               <strong>
@@ -17,7 +17,7 @@
               </strong>
             </p>
             <p class="mt-10">
-              ▶ 추가 버튼을 클릭하여 템플릿을 복사할 수 있습니다.
+              ▶ {{ $t('templateCopy.guide.action') }}
             </p>
             <app-clone-template :max-template-count="2" />
           </v-card-text>
@@ -80,13 +80,13 @@ export default {
   components: {
     appCloneTemplate: CloneTemplate
   },
-  data: () => ({
+  data: (vm) => ({
     propsList: [
       {
         name: 'maxTemplateCount',
         type: 'Number',
         default: '2',
-        description: '복제할 템플릿의 최대 개수 입니다. (기본 2개 / 최대 10개)'
+        description: vm.$t('templateCopy.props.maxTemplateCount')
       }
     ]
   }),

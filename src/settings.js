@@ -1,6 +1,15 @@
 module.exports = {
-  title: 'INV PROJECT',
-  version: '0.1',
+  /**
+   * @type {string} 제목
+   * @description 브라우저 탭에 표시되는 제목
+   */
+  title: '아이엔소프트 - Vue 템플릿',
+
+  /**
+   * @type {string} x.x
+   * @description 개발 버전
+   */
+  version: '0.2',
 
   /**
    * @type {boolean} true | false
@@ -42,5 +51,11 @@ module.exports = {
    * @type {boolean} true | false
    * @description 일부 어두운 테마 사용여부
    */
-  themeSemiDark: false
+  themeSemiDark: false,
+
+  /**
+   * @type {string} ko | en
+   * @description 다국어 옵션 지정
+   */
+  locale: 'ko'
 }
