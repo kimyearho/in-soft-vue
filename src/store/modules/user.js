@@ -1,4 +1,4 @@
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo, googleLogin } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
@@ -52,7 +52,29 @@ const actions = {
         })
     })
   },
+  googleUserLogin({ commit, state }, userInfo) {
+    return new Promise((resolve, reject) => {
+      console.log(userInfo)
 
+      googleLogin(userInfo).then((response) => {
+        const { data } = response
+        console.log('googleUserLogin data')
+        console.log(data)
+
+        if (!data) {
+          return reject('Verification failed, please Login again.')
+        }
+
+        const { name, avatar, roles, email } = data
+
+        commit('SET_NAME', name)
+        commit('SET_AVATAR', avatar)
+        commit('SET_ROLES', roles)
+        commit('SET_EMAIL', email)
+        resolve(data)
+      })
+    })
+  },
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {

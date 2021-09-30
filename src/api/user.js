@@ -8,6 +8,14 @@ export function login(data) {
   })
 }
 
+export function googleLogin(data) {
+  return request({
+    url: '/v1/login',
+    method: 'post',
+    data
+  })
+}
+
 export function getInfo(token) {
   return request({
     url: '/in-soft/user/info',

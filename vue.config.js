@@ -38,9 +38,9 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    historyApiFallback: true,
+    historyApiFallback: true
     //! 실제 API 연동시 Mock 서버는 제거하세요
-    before: require('./mock/mock-server.js')
+    // before: require('./mock/mock-server.js')
   },
 
   configureWebpack: {

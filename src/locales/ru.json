@@ -1,0 +1,79 @@
+{
+  "login": {
+    "title": "Sign in",
+    "form": {
+      "label": {
+        "id": "ID",
+        "password": "Password",
+        "rememberMe": "Remember me",
+        "forgotPwd": "Forgot your password?"
+      },
+      "button": {
+        "login": "Login"
+      }
+    }
+  },
+  "searchFilter": {
+    "label": {
+      "groupName": "Group Choice",
+      "groupNamePlace": "Please choose Group",
+      "switch-detail": "Detail Search",
+      "period": "Period Choice"
+    },
+    "guide": {
+      "subTitle": "bulletin board search type",
+      "description1": "SearchFilter Components are search filters that can usually be used on bulletin-type pages.",
+      "description2": "This component uses search by user group and by period as an example.",
+      "description3": "In addition, the component displays the result value when searching, and the result value depends on whether the detailed search is ON/OFF."
+    },
+    "props": {
+      "userGroupOption": "User Group Options",
+      "periodOption": "Period Search Options",
+      "datePickerFormat": "Enter the date format.",
+      "datePickerOption": "Modify the calendar, or specify the options to use for initialization."
+    },
+    "event": {
+      "call_periodOption": "Look up a period search.",
+      "search": "Run the search function."
+    }
+  },
+  "modal": {
+    "guide": {
+      "subTitle": "Common Popup Configuration",
+      "description1": "Modal components have attached examples of how Modal can be configured in common.",
+      "description2": "These components can be dynamically changed using the options below."
+    },
+    "example": {
+      "subTitle1": "Enter or select the option below and click the button.",
+      "subTitle2": "Clicking the button without selecting an option sets the default value.",
+      "isPopupGuide": "Whether to use pop-up guide",
+      "placeholder_guide": "Notice (Enterable)",
+      "isSearchForm": "Whether to use the search form",
+      "placeholder_searchKeyword": "Enter search terms",
+      "placeholder_searchIcon": "Search Button Icon",
+      "placeholder_searchBtnName": "Search Button Label Name",
+      "isMultipleListCheckbox": "List check box enabled or disabled",
+      "isSingleListCheckbox": "Single check enabled"
+    },
+    "props": {
+      "visible": "Pop-up visible status",
+      "modalOptions": "Pop-up default Options"
+    }
+  },
+  "templateCopy": {
+    "guide": {
+      "subTitle": "TextField The component that copies the template. Components can be changed.",
+      "action": "You can copy the template by clicking the Add button.",
+      "placeholder_enter": "Please enter the text.",
+      "btnAddText": "Add"
+    },
+    "props": {
+      "maxTemplateCount": "Maximum number of templates to replicate. (Basic 2 / Max 10)"
+    }
+  },
+  "chart": {
+    "guide": {
+      "subTitle": "This is a typical example of a chart. (Chart.js)"
+    }
+  }
+}

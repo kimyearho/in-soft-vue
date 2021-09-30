@@ -15,33 +15,32 @@
               v-on="on"
             >
               <v-avatar>
-                <img
-                  src="https://avatars.githubusercontent.com/u/17153380?v=4"
-                >
+                <svg-icon
+                  class="child-svg-icon"
+                  icon-class="login2"
+                />
               </v-avatar>
             </v-btn>
           </template>
           <v-card>
             <v-list-item-content class="justify-center">
               <div class="mx-auto text-center">
-                <v-avatar>
-                  <img
-                    src="https://avatars.githubusercontent.com/u/17153380?v=4"
+                <template v-if="getUser.name">
+                  <h3 class="pt-3">{{ getUser.name }}</h3>
+                  <p class="caption mt-1">
+                    {{ getUser.email }}
+                  </p>
+                </template>
+                <template v-else>
+                  <v-btn
+                    depressed
+                    rounded
+                    text
+                    @click="googleLogin"
                   >
-                </v-avatar>
-                <h3 class="pt-3">{{ getUser.name }}</h3>
-                <p class="caption mt-1">
-                  {{ getUser.email }}
-                </p>
-                <v-divider class="my-3" />
-                <v-btn
-                  depressed
-                  rounded
-                  text
-                  @click="logout"
-                >
-                  Logout
-                </v-btn>
+                    Google Login
+                  </v-btn>
+                </template>
               </div>
             </v-list-item-content>
           </v-card>
@@ -59,6 +58,7 @@ export default {
     },
     themeSwitch: false
   }),
+
   computed: {
     getUser() {
       return this.$store.state.user
@@ -71,6 +71,22 @@ export default {
         await this.$store.commit('menu/RESET_MENUS')
       }
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    async googleLogin() {
+      await this.$gAuth.signIn()
+        .then(data => {
+          const userInfo = {
+            accessToken: data.$b.access_token,
+            userId: data.it.Re,
+            userEmail: data.it.Tt,
+            picture: data.it.lk
+          }
+          console.log(userInfo)
+          this.$store.dispatch('user/googleUserLogin', { userInfo })
+            .then(result => {
+              console.log(result)
+            })
+        })
     }
   }
 }
