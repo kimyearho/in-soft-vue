@@ -47,7 +47,8 @@ Vue.prototype.$axios = request
 Vue.prototype.$moment = moment
 Vue.component('page-container', PageContainer)
 
-Vue.use(GAuth, { clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID, scope: 'profile email https://www.googleapis.com/auth/plus.login' })
+Vue.use(GAuth, { clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+  scope: 'profile email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/youtube' })
 Vue.use(cors)
 
 //! <중요>
