@@ -51,6 +51,12 @@
 </template>
 
 <script>
+import {
+  SET_LOCAL_ITEM,
+  GET_LOCAL_ITEM,
+  REMOVE_LOCAL_ITEM
+} from '@/utils/local-storage'
+
 export default {
   data: () => ({
     user: {
@@ -64,27 +70,50 @@ export default {
       return this.$store.state.user
     }
   },
+  created() {
+    this.getUserInfo()
+  },
   methods: {
+    async getUserInfo() {
+      const user_id = GET_LOCAL_ITEM('user_id')
+      const user_email = GET_LOCAL_ITEM('user_email')
+      const user = { user_id, user_email }
+      this.$store.dispatch('user/getInfo', { user })
+        .then(result => {
+        })
+    },
     async logout() {
-      const result = await this.$store.dispatch('user/logout', { vm: this })
-      if (result) {
-        await this.$store.commit('menu/RESET_MENUS')
-      }
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+
     },
     async googleLogin() {
+      if (GET_LOCAL_ITEM('user_id')) {
+        const isLogin = this.getUserInfo()
+        if (isLogin) {
+          return 0
+        }
+      }
+
       await this.$gAuth.signIn()
         .then(data => {
           const userInfo = {
             accessToken: data.$b.access_token,
             userId: data.it.Re,
             userEmail: data.it.Tt,
-            picture: data.it.lk
+            picture: data.it.lK
           }
-          console.log(userInfo)
           this.$store.dispatch('user/googleUserLogin', { userInfo })
             .then(result => {
               console.log(result)
+
+              REMOVE_LOCAL_ITEM('user_id')
+              REMOVE_LOCAL_ITEM('user_email')
+              REMOVE_LOCAL_ITEM('picture')
+              REMOVE_LOCAL_ITEM('login_date')
+
+              SET_LOCAL_ITEM('user_id', userInfo.userId)
+              SET_LOCAL_ITEM('user_email', userInfo.userEmail)
+              SET_LOCAL_ITEM('picture', userInfo.picture)
+              SET_LOCAL_ITEM('login_date', new Date())
             })
         })
     }

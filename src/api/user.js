@@ -16,11 +16,11 @@ export function googleLogin(data) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo(data) {
   return request({
-    url: '/in-soft/user/info',
+    url: '/v1/users/' + data.user_id,
     method: 'get',
-    params: { token }
+    params: { user_email: data.user_email }
   })
 }
 

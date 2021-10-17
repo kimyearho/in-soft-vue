@@ -52,46 +52,48 @@ const actions = {
         })
     })
   },
-  googleUserLogin({ commit, state }, userInfo) {
+  googleUserLogin({ commit, state }, data) {
     return new Promise((resolve, reject) => {
-      console.log(userInfo)
+      const userInfo = data.userInfo
 
-      googleLogin(userInfo).then((response) => {
-        const { data } = response
+      googleLogin(data).then((response) => {
+        const { data, meta } = response
         console.log('googleUserLogin data')
         console.log(data)
+        console.log(meta)
 
-        if (!data) {
+        if (!data || !meta) {
           return reject('Verification failed, please Login again.')
         }
 
-        const { name, avatar, roles, email } = data
-
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
-        commit('SET_ROLES', roles)
-        commit('SET_EMAIL', email)
+        if (meta.code < 200 && meta.code >= 300) {
+          return reject(meta.message)
+        }
+        commit('SET_NAME', userInfo.userId)
+        commit('SET_AVATAR', userInfo.picture)
+        commit('SET_ROLES', 'user')
+        commit('SET_EMAIL', userInfo.userEmail)
+        commit('SET_TOKEN', userInfo.accessToken)
         resolve(data)
       })
     })
   },
   // get user info
-  getInfo({ commit, state }) {
+  getInfo({ commit, state }, data) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token)
+      getInfo(data.user)
         .then((response) => {
           const { data } = response
 
           if (!data) {
             return reject('Verification failed, please Login again.')
           }
+          const { username, avatar, email } = data
 
-          const { name, avatar, roles, introduction } = data
-
-          commit('SET_NAME', name)
+          commit('SET_NAME', username)
           commit('SET_AVATAR', avatar)
-          commit('SET_ROLES', roles)
-          commit('SET_EMAIL', introduction)
+          commit('SET_ROLES', 'user')
+          commit('SET_EMAIL', email)
           resolve(data)
         })
         .catch((error) => {
@@ -110,9 +112,11 @@ const actions = {
           commit('SET_ROLES', [])
           commit('RESET_STATE')
           commit('settings/CHANGE_SETTING', {
-            key: 'themeDark', value: false }, { root: true })
+            key: 'themeDark', value: false
+          }, { root: true })
           commit('settings/CHANGE_SETTING', {
-            key: 'locale', value: 'ko' }, { root: true })
+            key: 'locale', value: 'ko'
+          }, { root: true })
           vm.$vuetify.theme.dark = false
           resolve(true)
         })
