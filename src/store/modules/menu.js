@@ -9,7 +9,9 @@ function filterAsyncRouter(asyncRoutes, routes) {
     }
     if (route.meta) {
       const menu_id = route.meta.menu_id
+      // if (!route.meta.title) {
       route.meta.title = routes.find((item) => item.menu_id === menu_id).menu_name
+      // }
     }
     route.active = false
     routerMap.push(route)

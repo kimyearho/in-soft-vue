@@ -136,7 +136,7 @@ const koMenuList = [
 
 module.exports = [
   {
-    url: '/in-soft/menu/list',
+    url: '/c1/menu/list',
     type: 'get',
     response: config => {
       const locale = config.query.locale || 'ko'

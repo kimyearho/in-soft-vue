@@ -35,6 +35,24 @@
         >
           <v-list-item-title>English</v-list-item-title>
         </v-list-item>
+        <v-list-item
+          link
+          @click="toggleItem('jp')"
+        >
+          <v-list-item-title>Japan</v-list-item-title>
+        </v-list-item>
+        <v-list-item
+          link
+          @click="toggleItem('id')"
+        >
+          <v-list-item-title>Indonesia</v-list-item-title>
+        </v-list-item>
+        <v-list-item
+          link
+          @click="toggleItem('ru')"
+        >
+          <v-list-item-title>Russia</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
   </div>
@@ -51,7 +69,21 @@ export default {
   methods: {
     async toggleItem(locale) {
       this.langIcon = locale
-      this.buttonText = locale === 'ko' ? 'Korean' : 'English'
+
+      let buttonText = ''
+      if (locale === 'ko') {
+        buttonText = 'Korean'
+      } else if (locale === 'en') {
+        buttonText = 'English'
+      } else if (locale === 'jp') {
+        buttonText = 'Japanese'
+      } else if (locale === 'id') {
+        buttonText = 'Indonesian'
+      } else if (locale === 'ru') {
+        buttonText = 'Russian'
+      }
+
+      this.buttonText = buttonText
       this.$i18n.locale = locale
       this.$store.commit('settings/CHANGE_SETTING', { key: 'locale', value: locale })
       this.$router.push('/dashboard')

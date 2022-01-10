@@ -39,7 +39,7 @@ module.exports = {
    * @type {boolean} true | false
    * @description 수평 메뉴 사용여부
    */
-  horizontalMenu: false,
+  horizontalMenu: true,
 
   /**
    * @type {boolean} true | false

@@ -69,9 +69,8 @@ const constantRoutes = [
 ]
 
 // ? 동적 라우트 임포트
-import StaticRoutes from '@/router/modules/components'
-import TableRoutes from '@/router/modules/table'
-import FormRoutes from '@/router/modules/form'
+import Introduction from '@/router/modules/info'
+import Library from '@/router/modules/library'
 // import UiComponentsRoutes from '@/router/modules/component'
 
 //* 기본 정적 라우트
@@ -80,9 +79,8 @@ export const defaultRoutes = constantRoutes
 // ? 동적 라우터를 여기에 모두 추가해놓고, 권한 별 메뉴 API를 통해 받은 메뉴정보와 asyncRoutes 에 등록한 동적 라우터들의 정보와 매칭하여 메뉴를 구성할때 사용한다.
 // ? 예시: src/permission.js 참고
 export const asyncRoutes = [
-  StaticRoutes,
-  TableRoutes,
-  FormRoutes,
+  Introduction,
+  Library,
   { path: '*', redirect: '/404', hidden: true }
 ]
 

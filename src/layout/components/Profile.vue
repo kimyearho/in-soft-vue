@@ -95,11 +95,13 @@ export default {
 
       await this.$gAuth.signIn()
         .then(data => {
-          const userInfo = {
-            accessToken: data.$b.access_token,
-            userId: data.it.Re,
-            userEmail: data.it.Tt,
-            picture: data.it.lK
+          console.log(data)
+          const userInfo = { // if changed google auth scope, need check to data in nt and Zb
+            accessToken: data.Zb.access_token,
+            userName: data.nt.JU,
+            userId: data.nt.Re,
+            userEmail: data.nt.Yt,
+            picture: data.nt.oK
           }
           this.$store.dispatch('user/googleUserLogin', { userInfo })
             .then(result => {
