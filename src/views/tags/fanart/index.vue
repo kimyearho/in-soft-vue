@@ -36,16 +36,21 @@
             </v-toolbar-items>
             <v-toolbar-items>
               <template v-for="item in disaplyMember">
-                <v-avatar
+                <v-btn
                   :key="item.member_name_en"
+                  icon
+                  x-large
                   :value="item.index"
+                  @click="setMemberId(item.index)"
                 >
-                  <svg-icon
-                    class="child-svg-icon"
-                    icon-class="login2"
-                  />
-                  {{ item.member_name_kor }}
-                </v-avatar>
+                  <v-avatar>
+                    <svg-icon
+                      class="child-svg-icon"
+                      icon-class="login2"
+                    />
+                    <span class="white--text text-h7">{{ item.member_name_kor }}</span>
+                  </v-avatar>
+                </v-btn>
               </template>
             </v-toolbar-items>
           </v-toolbar>
@@ -158,7 +163,10 @@ export default {
     })
   },
   methods: {
-
+    setMemberId: function(value) {
+      this.selectOptions.member = value
+      this.getDraw = value
+    }
   }
 }
 </script>
