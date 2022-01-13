@@ -71,6 +71,7 @@ const constantRoutes = [
 // ? 동적 라우트 임포트
 import Introduction from '@/router/modules/info'
 import Library from '@/router/modules/library'
+import Tags from '@/router/modules/tags'
 // import UiComponentsRoutes from '@/router/modules/component'
 
 //* 기본 정적 라우트
@@ -81,6 +82,7 @@ export const defaultRoutes = constantRoutes
 export const asyncRoutes = [
   Introduction,
   Library,
+  Tags,
   { path: '*', redirect: '/404', hidden: true }
 ]
 
