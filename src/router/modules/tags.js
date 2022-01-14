@@ -47,22 +47,22 @@ export default {
       }
     },
     {
-      path: 'fan',
-      name: 'fan',
-      component: () => import('@/views/tags/fan/index.vue'),
+      path: 'event',
+      name: 'event',
+      component: () => import('@/views/tags/event/index.vue'),
       meta: {
-        title: 'fan',
+        title: 'event',
         role: 'user',
         menu_id: 'M20304',
         activeClass: 'is-active'
       }
     },
     {
-      path: 'etc',
-      name: 'etc',
-      component: () => import('@/views/tags/etc/index.vue'),
+      path: 'all',
+      name: 'all',
+      component: () => import('@/views/tags/all/index.vue'),
       meta: {
-        title: 'etc',
+        title: 'all',
         role: 'user',
         menu_id: 'M20305',
         activeClass: 'is-active'
