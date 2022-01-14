@@ -40,7 +40,7 @@ import MemberToolBar from '@/layout/components/unit/MemberToolBar.vue'
 import TagCarousel from '@/layout/components/unit/TagCarousel.vue'
 
 export default {
-  name: 'Channel',
+  name: 'Fanart',
   components: {
     MemberToolBar,
     TagCarousel
