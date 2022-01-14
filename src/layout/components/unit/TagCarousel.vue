@@ -11,6 +11,8 @@
       :src="item.url"
       reverse-transition="fade-transition"
       transition="fade-transition"
+      :href="item.url"
+      target="_blank"
     />
   </v-carousel>
 </template>
@@ -72,6 +74,8 @@ export default {
   },
   mounted() {
     this.getDraw = this.memberId
+  },
+  methods: {
   }
 }
 </script>
