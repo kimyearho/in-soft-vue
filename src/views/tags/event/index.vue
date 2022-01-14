@@ -15,10 +15,9 @@
           width="100%"
           height="100%"
         >
-          <member-tool-bar @selectedMemberId="val => selectMemberId(val)" />
-          <tag-carousel
-            :draw-type="drawType"
-            :member-id="selectedMember"
+          <tweet-tag-tool-bar @selectedTag="val => selectTag(val)" />
+          <custom-tag-carousel
+            :selected-tag="selectedTag"
           /></v-card>
       </v-row>
     </v-container>
@@ -36,20 +35,19 @@ import {
 import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
 // import { getMember, getMemeberTags } from '@/api/member'
-import MemberToolBar from '@/layout/components/unit/MemberToolBar.vue'
-import TagCarousel from '@/layout/components/unit/TagCarousel.vue'
+import TweetTagToolBar from '@/layout/components/unit/TweetTagToolBar.vue'
+import CustomTagCarousel from '@/layout/components/unit/CustomTagCarousel.vue'
 
 export default {
   name: 'Kirinuki',
   components: {
-    MemberToolBar,
-    TagCarousel
+    TweetTagToolBar,
+    CustomTagCarousel
   },
   mixins: [StoreHelper],
   data() {
     return {
-      drawType: 'stream,mmd,kirinuki,utau,short',
-      selectedMember: 1
+      selectedTag: ''
     }
   },
   computed: {
@@ -61,8 +59,8 @@ export default {
   mounted() {
   },
   methods: {
-    selectMemberId: function(value) {
-      this.selectedMember = value
+    selectTag: function(value) {
+      this.selectedTag = value
     }
   }
 }
