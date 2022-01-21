@@ -10,12 +10,16 @@
         no-gutters
         align="center"
         justify="center"
-      />
-      <!-- //? Snackbar 컴포넌트 -->
-      <common-snackbars
-        :visible="snackbar"
-        @close="snackbar = false"
-      />
+      >
+        <v-card
+          width="100%"
+          height="100%"
+        >
+          <member-tool-bar @selectedMemberId="val => selectMemberId(val)" />
+          <tweet-carousel
+            :member-id="selectedMember"
+          /></v-card>
+      </v-row>
     </v-container>
   </v-app>
 </template>
@@ -29,17 +33,21 @@ import {
 
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
-import CommonSnackbars from '@/components/Snackbars'
 import { mapGetters } from 'vuex'
+// import { getMember, getMemeberTags } from '@/api/member'
+import MemberToolBar from '@/layout/components/unit/MemberToolBar.vue'
+import TweetCarousel from '@/layout/components/unit/TweetCarousel.vue'
 
 export default {
-  name: 'Channel',
+  name: 'TweetLibrary',
   components: {
-    CommonSnackbars
+    MemberToolBar,
+    TweetCarousel
   },
   mixins: [StoreHelper],
   data() {
     return {
+      selectedMember: 1
     }
   },
   computed: {
@@ -51,7 +59,9 @@ export default {
   mounted() {
   },
   methods: {
-
+    selectMemberId: function(value) {
+      this.selectedMember = value
+    }
   }
 }
 </script>

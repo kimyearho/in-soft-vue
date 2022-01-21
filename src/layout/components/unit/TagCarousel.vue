@@ -1,13 +1,11 @@
 <template>
   <v-carousel
-    width="100%"
-    height="100%"
+    :width="getDrawWidth"
+    :height="getDrawHeight"
   >
     <v-carousel-item
       v-for="(item,i) in getDraw"
       :key="i"
-      width="100%"
-      height="100%"
       :src="item.url"
       reverse-transition="fade-transition"
       transition="fade-transition"
@@ -39,7 +37,16 @@ export default {
     memberId: {
       type: Number,
       default: 1
+    },
+    drawWidth: {
+      type: Number,
+      default: 1200
+    },
+    drawHeight: {
+      type: Number,
+      default: 960
     }
+
   },
   data() {
     return {
@@ -62,6 +69,16 @@ export default {
           })
         })
       }
+    },
+    getDrawWidth: {
+      get() {
+        return this.drawWidth
+      }
+    },
+    getDrawHeight: {
+      get() {
+        return this.drawHeight
+      }
     }
   },
   watch: {
@@ -73,6 +90,9 @@ export default {
     this.$i18n.locale = this.locale
   },
   mounted() {
+    this.drawWidth = document.body.clientWidth * 0.8
+    this.drawHeight = document.body.clientHeight * 0.8
+
     this.getDraw = this.memberId
   },
   methods: {
