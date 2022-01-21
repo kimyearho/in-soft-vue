@@ -21,6 +21,7 @@
     "moment": "^2.29.1",
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
+    "twitter-widgets": "^2.0.0",
     "vue": "2.6.12",
     "vue-chartjs": "^3.5.1",
     "vue-google-login": "^2.0.5",
@@ -28,6 +29,7 @@
     "vue-i18n": "^8.22.3",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "3.0.2",
+    "vue-tweet-embed": "^2.4.0",
     "vue2-datepicker": "^3.9.0",
     "vuetify": "^2.4.0",
     "vuex": "3.6.2"

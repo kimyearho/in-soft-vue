@@ -25,17 +25,6 @@ export default {
       }
     },
     {
-      path: 'twitter',
-      name: 'twitter',
-      component: () => import('@/views/library/twitter/index.vue'),
-      meta: {
-        title: 'twitter',
-        role: 'user',
-        menu_id: 'M20203',
-        activeClass: 'is-active'
-      }
-    },
-    {
       path: 'meme',
       name: 'meme',
       component: () => import('@/views/library/meme/index.vue'),

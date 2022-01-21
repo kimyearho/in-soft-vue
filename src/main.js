@@ -23,6 +23,8 @@ import i18n from './utils/i18n'
 import GAuth from 'vue-google-oauth2'
 import cors from 'cors'
 
+import { Tweet, Moment, Timeline } from 'vue-tweet-embed'
+
 //* VueLogger 옵션
 //* https://github.com/justinkames/vuejs-logger#readme
 const isProduction = process.env.NODE_ENV === 'production'
@@ -45,7 +47,11 @@ Vue.prototype.$axios = request
 
 //* Moment Global
 Vue.prototype.$moment = moment
+
 Vue.component('page-container', PageContainer)
+Vue.component('tweet-component-tweet', Tweet)
+Vue.component('tweet-component-moment', Moment)
+Vue.component('tweet-component-timeline', Timeline)
 
 Vue.use(GAuth, { clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID,
   scope: 'profile email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/youtube' })

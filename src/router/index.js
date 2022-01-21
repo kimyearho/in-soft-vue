@@ -72,6 +72,7 @@ const constantRoutes = [
 import Introduction from '@/router/modules/info'
 import Library from '@/router/modules/library'
 import Tags from '@/router/modules/tags'
+import Tweet from '@/router/modules/tweet'
 // import UiComponentsRoutes from '@/router/modules/component'
 
 //* 기본 정적 라우트
@@ -83,6 +84,7 @@ export const asyncRoutes = [
   Introduction,
   Library,
   Tags,
+  Tweet,
   { path: '*', redirect: '/404', hidden: true }
 ]
 

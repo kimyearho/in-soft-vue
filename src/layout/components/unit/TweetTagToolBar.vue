@@ -1,6 +1,6 @@
 <template>
   <v-toolbar dark>
-    <v-toolbar-items>
+    <v-toolbar-items :key="memberId">
       <template v-for="item in disaplyTags">
         <v-btn
           :key="item"
@@ -29,7 +29,7 @@ import {
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
-// import { getMember, getMemeberTags } from '@/api/member'
+import { getMemeberTags } from '@/api/member'
 import { getCustomTags } from '@/api/tweet'
 
 export default {
@@ -37,6 +37,16 @@ export default {
   components: {
   },
   mixins: [StoreHelper],
+  props: {
+    memberId: {
+      type: Number,
+      default: null
+    },
+    tagType: { // base, custom
+      type: String,
+      default: 'base'
+    }
+  },
   data() {
     return {
       tagData: [],
@@ -50,23 +60,47 @@ export default {
     disaplyTags: {
       get() {
         return this.tagData
+      },
+      set(value) {
+        const $that = this
+        const params = {}
+        let rest = null
+        if ($that.tagType === 'base') {
+          params.member_id = $that.memberId
+          rest = getMemeberTags(params)
+        } else if ($that.tagType === 'custom') {
+          rest = getCustomTags(params)
+        }
+
+        rest.then(({ data }) => {
+          // this.memberData = data.member_list
+          const tagSet = new Set()
+
+          if ($that.tagType === 'base') {
+            data.tag_list.forEach((item) => {
+              tagSet.add(item.hashtag)
+            })
+          } else if ($that.tagType === 'custom') {
+            data.custom_tags.forEach((item) => {
+              tagSet.add(item.hashtag)
+            })
+          }
+
+          $that.tagData = Array.from(tagSet)
+        })
       }
+    }
+  },
+  watch: {
+    memberId() {
+      this.disaplyTags = this.memberId
     }
   },
   beforeMount() {
     this.$i18n.locale = this.locale
   },
   mounted() {
-    const $that = this
-    const params = {}
-    getCustomTags(params).then(({ data }) => {
-      // this.memberData = data.member_list
-      const tagSet = new Set()
-      data.custom_tags.forEach((item) => {
-        tagSet.add(item.hashtag)
-      })
-      $that.tagData = Array.from(tagSet)
-    })
+    this.disaplyTags = this.memberId
   },
   methods: {
     setHashTag: function(value) {
