@@ -16,10 +16,20 @@
           height="100%"
         >
           <member-tool-bar @selectedMemberId="val => selectMemberId(val)" />
-          <tag-carousel
-            :draw-type="drawType"
-            :member-id="selectedMember"
-          /></v-card>
+          <tweet-tag-tool-bar
+            :key="getSelectedMember"
+            :member-id="getSelectedMember"
+            :tag-type="tagType"
+            @selectedTag="val => selectTag(val)"
+          />
+          <template v-for="item in getTweetList">
+            <tweet-component-tweet
+              :id="item"
+              :key="item"
+            />
+          </template>
+
+        </v-card>
       </v-row>
     </v-container>
   </v-app>
@@ -36,24 +46,54 @@ import {
 import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
 // import { getMember, getMemeberTags } from '@/api/member'
+import { getTwitterIdsByTags } from '@/api/tweet'
 import MemberToolBar from '@/layout/components/unit/MemberToolBar.vue'
-import TagCarousel from '@/layout/components/unit/TagCarousel.vue'
+import TweetTagToolBar from '@/layout/components/unit/TweetTagToolBar.vue'
 
 export default {
   name: 'Kirinuki',
   components: {
     MemberToolBar,
-    TagCarousel
+    TweetTagToolBar
   },
   mixins: [StoreHelper],
   data() {
     return {
-      drawType: 'stream,mmd,kirinuki,utau,short',
-      selectedMember: 1
+      selectedMember: 1,
+      tagType: 'custom',
+      hashtag: null,
+      tweetList: []
     }
   },
   computed: {
-    ...mapGetters(['locale'])
+    ...mapGetters(['locale']),
+    getSelectedMember: {
+      get() {
+        return this.selectedMember
+      },
+      set(value) {
+        this.selectedMember = value
+      }
+    },
+    getTweetList: {
+      get() {
+        return this.tweetList
+      },
+      set(value) {
+        const params = { 'hashtag': value, 'tagtype': this.tagType }
+        const $that = this
+        this.hashtag = value
+
+        getTwitterIdsByTags(params).then(({ data }) => {
+          const tweetSet = new Set()
+          $that.tweetList = []
+          data.tweet_list.forEach((item) => {
+            tweetSet.add(item.twitter_id)
+          })
+          $that.tweetList = Array.from(tweetSet)
+        })
+      }
+    }
   },
   beforeMount() {
     this.$i18n.locale = this.locale
@@ -62,7 +102,10 @@ export default {
   },
   methods: {
     selectMemberId: function(value) {
-      this.selectedMember = value
+      this.getSelectedMember = value
+    },
+    selectTag: function(value) {
+      this.getTweetList = value
     }
   }
 }

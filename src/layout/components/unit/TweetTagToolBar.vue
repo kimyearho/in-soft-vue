@@ -65,8 +65,8 @@ export default {
         const $that = this
         const params = {}
         let rest = null
+        params.member_id = $that.memberId
         if ($that.tagType === 'base') {
-          params.member_id = $that.memberId
           rest = getMemeberTags(params)
         } else if ($that.tagType === 'custom') {
           rest = getCustomTags(params)

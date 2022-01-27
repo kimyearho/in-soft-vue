@@ -12,7 +12,7 @@ export function getTwitterIdsByTags(data) {
   return request({
     url: '/v1/tweet/ids',
     method: 'get',
-    params: { 'hashtag': data.hashtag }
+    params: { 'hashtag': data.hashtag, 'tagtype': data.tagtype }
   })
 }
 
@@ -36,6 +36,6 @@ export function getCustomTags(data) {
   return request({
     url: '/v1/tweet/custom/tags',
     method: 'get',
-    params: {}
+    params: { member_id: data.member_id }
   })
 }
