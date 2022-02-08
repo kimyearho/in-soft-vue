@@ -1,45 +1,50 @@
 <template>
-  <v-toolbar dark>
-    <v-toolbar-items>
-      <v-select
-        v-model="selectOptions.company"
-        :items="companyData"
-        item-text="label"
-        item-value="value"
-        label="상태"
-      />
-    </v-toolbar-items>
-    <v-toolbar-items>
-      <v-select
-        v-model="selectOptions.classification"
-        :items="classData"
-        item-text="label"
-        item-value="value"
-        label="상태"
-      />
-    </v-toolbar-items>
-    <v-toolbar-items>
-      <template v-for="item in disaplyMember">
-        <v-btn
-          :key="item.member_name_en"
-          class="mx-2"
-          fab
-          dark
-          outlined
-          :value="item.index"
-          large
-          color="white"
-          min-width="80px"
-          @click="setMemberId(item.index)"
-        >
-          <v-avatar>
-            <div class="white--text">{{ item.member_name_kor }}</div>
-            <div class="red--text">33</div>
-          </v-avatar>
-        </v-btn>
-      </template>
-    </v-toolbar-items>
-  </v-toolbar>
+  <v-container>
+    <v-toolbar dark>
+      <v-toolbar-items>
+        <v-select
+          v-model="selectOptions.company"
+          :items="companyData"
+          item-text="label"
+          item-value="value"
+          label="상태"
+        />
+      </v-toolbar-items>
+      <v-toolbar-items>
+        <v-select
+          v-model="selectOptions.classification"
+          :items="classData"
+          item-text="label"
+          item-value="value"
+          label="상태"
+        />
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-toolbar dark>
+      <v-container>
+        <v-toolbar-items>
+          <template v-for="item in disaplyMember">
+            <v-btn
+              :key="item.member_name_en"
+              class="mx-2"
+              fab
+              dark
+              outlined
+              :value="item.index"
+              large
+              color="white"
+              min-width="18%"
+              @click="setMemberId(item.index)"
+            >
+              <v-card-text
+                class="white--text"
+              >{{ item.member_name_kor }}</v-card-text>
+            </v-btn>
+          </template>
+        </v-toolbar-items>
+      </v-container>
+    </v-toolbar>
+  </v-container>
 </template>
 <script>
 import {

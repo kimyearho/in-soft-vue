@@ -51,7 +51,7 @@ const constantRoutes = [
     meta: {
       title: 'Dashboard',
       icon: 'mdi-view-dashboard',
-      breadcrumb: false,
+      breadcrumb: true,
       menu_id: 'M1100'
     },
     children: [

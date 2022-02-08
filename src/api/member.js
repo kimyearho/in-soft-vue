@@ -30,3 +30,11 @@ export function getMemeberTweets(data) {
     params: { member_id: data.member_id, index: data.index }
   })
 }
+
+export function getMemeberLiveTweets(data) {
+  return request({
+    url: '/v1/member/tweet/live',
+    method: 'get',
+    params: { member_id: data.member_id, type: data.type }
+  })
+}

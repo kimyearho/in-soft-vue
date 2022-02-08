@@ -39,3 +39,11 @@ export function getCustomTags(data) {
     params: { member_id: data.member_id }
   })
 }
+
+export function getDrawsLives(data) {
+  return request({
+    url: '/v1/tweet/draws/live',
+    method: 'get',
+    params: { type: data.type }
+  })
+}

@@ -1,33 +1,45 @@
 <template>
-  <v-carousel
-    :width="getDrawWidth"
-    :height="getDrawHeight"
-  >
-    <v-carousel-item
-      v-for="(item,i) in getDraw"
-      :key="i"
-      :src="item.url"
-      reverse-transition="fade-transition"
-      transition="fade-transition"
-      :href="item.url"
-      target="_blank"
-    />
-  </v-carousel>
+  <v-container height="80%">
+    <v-container>
+      <v-card />
+    </v-container>
+    <v-container>
+      <v-row
+        v-for="i in rowNumber"
+        :key="i"
+      >
+        <template>
+          <v-col
+            v-for="(item) in colNumber"
+            :key="item"
+          >
+            <HoloArtCard
+              :draw="selectDraw([i,item])"
+            />
+          </v-col>
+        </template>
+      </v-row>
+    </v-container>
+    <v-container>
+      <v-pagination
+        v-model="drawPage"
+        :length="getMaxDrawPage"
+      />
+    </v-container>
+  </v-container>
 </template>
 <script>
-import {
-// SET_LOCAL_ITEM,
-// GET_LOCAL_ITEM,
-// REMOVE_LOCAL_ITEM
-} from '@/utils/local-storage'
-
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
 import { getDraws } from '@/api/tweet'
+import HoloArtCard from '@/layout/components/unit/subunit/HoloArtCard.vue'
 
 export default {
   name: 'TagCarousel',
+  components: {
+    HoloArtCard
+  },
   mixins: [StoreHelper],
   props: {
     drawType: {
@@ -38,19 +50,21 @@ export default {
       type: Number,
       default: 1
     },
-    drawWidth: {
+    colNumber: {
       type: Number,
-      default: 1200
+      default: 3
     },
-    drawHeight: {
+    rowNumber: { // observer 객체로 인식됨
       type: Number,
-      default: 960
+      default: 4
     }
 
   },
   data() {
     return {
-      drawsData: []
+      drawsData: [],
+      drawPage: 1,
+      maxDrawPage: 50
     }
   },
   computed: {
@@ -62,23 +76,18 @@ export default {
       set(value) {
         const drawParams = { 'type': this.drawType, 'member_id': this.memberId }
         const draws = this.drawsData
+        const $that = this
         getDraws(drawParams).then((draw_res) => {
           draws.splice(0, draws.length)
           draw_res.data.draw_list.forEach((item) => {
             draws.push(item)
           })
+          $that.maxDrawPage = draws.length / $that.rowNumber / $that.colNumber + 1
         })
       }
     },
-    getDrawWidth: {
-      get() {
-        return this.drawWidth
-      }
-    },
-    getDrawHeight: {
-      get() {
-        return this.drawHeight
-      }
+    getMaxDrawPage() {
+      return 50
     }
   },
   watch: {
@@ -90,12 +99,21 @@ export default {
     this.$i18n.locale = this.locale
   },
   mounted() {
-    this.drawWidth = document.body.clientWidth * 0.8
-    this.drawHeight = document.body.clientHeight * 0.8
-
     this.getDraw = this.memberId
   },
   methods: {
+    selectDraw(value) {
+      const draws = this.getDraw
+      const row = value[0]
+      const col = value[1]
+      if (draws.length < 1) {
+        return { 'type': 'temp' }
+      }
+
+      const index = (this.drawPage - 1) * (this.colNumber * this.rowNumber)
+      const draw = draws[index + (row * this.colNumber - 1) * col - 1]
+      return draw
+    }
   }
 }
 </script>

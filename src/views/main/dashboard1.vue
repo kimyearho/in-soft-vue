@@ -1,38 +1,96 @@
 <template>
   <div>
-    <search-filter :is-description-use="false" />
     <page-container>
+      <v-row>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>Live Streaming</v-card-title>
+            <v-card-subtitle>
+              <small>Copyright © INSOFT. All rights Reserved.</small>
+            </v-card-subtitle>
+            23232323
+          </v-card>
+        </v-col>
+      </v-row>
       <v-row>
         <v-col cols="6">
           <v-card>
-            <v-card-title>Line Chart</v-card-title>
-            <v-card-subtitle>
-              <small>Copyright © INSOFT. All rights Reserved.</small>
-            </v-card-subtitle>
-            <app-line-chart
-              v-if="visible.chart"
-              ref="line"
-              :chart-data="chartData"
-              :options="chartOptions"
+            <v-card>
+              <v-card-actions>
+                <v-card-title>Random Fanart</v-card-title>
+                <v-spacer />
+                <v-btn
+                  @click="leftRandomScroll()"
+                >
+                  Left
+                </v-btn>
+                <v-btn
+                  v-show="getRandomSpeedScroll"
+                  @click="stopRandomScroll()"
+                >
+                  stop
+                </v-btn>
+                <v-btn
+                  v-show="!getRandomSpeedScroll"
+                  @click="startRandomScroll()"
+                >
+                  start
+                </v-btn>
+                <v-btn
+                  @click="rightRandomScroll()"
+                >
+                  Right
+                </v-btn>
+                <v-spacer />
+              </v-card-actions></v-card>
+            <v-card
+              min-width="400px"
+              min-height="400px"
+              :style="getRandomFanart()"
             />
           </v-card>
         </v-col>
         <v-col cols="6">
           <v-card>
-            <v-card-title>Radar Chart</v-card-title>
-            <v-card-subtitle>
-              <small>Copyright © INSOFT. All rights Reserved.</small>
-            </v-card-subtitle>
-            <app-radar-chart
-              v-if="visible.chart"
-              ref="rader"
-              :chart-data="radarChartData"
-              :options="chartOptions"
+            <v-card-title>Recommended Fanart</v-card-title>
+            <v-card
+              min-width="400px"
+              min-height="400px"
+              :style="getRecommendFanart()"
             />
           </v-card>
         </v-col>
-        <v-col>
-          <ag-grid-table />
+      </v-row>
+      <v-row>
+        <v-col cols="6">
+          <v-card
+            min-width="400px"
+            min-height="1000px"
+          >
+            <v-card-title>Live News</v-card-title>
+            <v-card-subtitle>
+              <small>Copyright © INSOFT. All rights Reserved.</small>
+            </v-card-subtitle>
+            23232323
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card
+            min-width="400px"
+            min-height="1000px"
+          >
+            <v-card-title>Live Tweet</v-card-title>
+            <v-container>
+              <template
+                v-if="tweetId"
+              >
+                <tweet-component-tweet
+                  :id="getTweet"
+                  :key="getTweet"
+                />
+              </template>
+            </v-container>
+          </v-card>
         </v-col>
       </v-row>
     </page-container>
@@ -40,101 +98,147 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
-import LineChart from '@/components/Chart/LineChart'
-import RadarChart from '@/components/Chart/RadarChart'
-import SearchFilter from '@/views/example/searchFilter/index'
-import AgGridTable from '@/views/table/AgGrid'
-import { getLineChart, getRadarChart } from '@/api/chart'
-import LineMixin from '@/views/example/chart/mixins/line-mixin'
+import { getMemeberLiveTweets } from '@/api/member'
+import { getDrawsLives } from '@/api/tweet'
 
 export default {
   name: 'Dashboard',
   components: {
-    SearchFilter,
-    AgGridTable,
-    appLineChart: LineChart,
-    appRadarChart: RadarChart
   },
-  mixins: [LineMixin],
   data() {
     return {
-      colHeight: '110px',
-      headers: [
-        {
-          text: 'ID',
-          value: 'id'
-        },
-        {
-          text: 'Title',
-          value: 'title'
-        },
-        {
-          text: 'Name',
-          value: 'author'
-        },
-        {
-          text: 'Date',
-          value: 'display_time'
-        },
-        {
-          text: 'Nums',
-          value: 'pageviews'
-        }
-      ],
-      visible: {
-        chart: false
-      },
-      rowItems: [],
-      chartData: null,
-      radarChartData: null
+      tweetId: null,
+      randomFanartBase: [],
+      randomCount: 0,
+      randomMaxCount: 60 * 60,
+      randomSpeed: 5,
+      randomSpeedScroll: true,
+      baseUrl: 'https://pbs.twimg.com/media/FKU3L1TakAEl2gB',
+      randomTimer: null,
+      randomFanartItem: {}
     }
   },
-  mounted() {
-    getList().then(({ data }) => {
-      if (data.total > 0) {
-        this.rowItems = data.items
-      }
-    })
-    this.call_lineChart()
-    this.call_radarChart()
-  },
-  methods: {
-    dynamicHeight(is) {
-      if (is) {
-        this.colHeight = '220px'
-      } else {
-        this.colHeight = '110px'
+  computed: {
+    getTweet: {
+      get() {
+        return this.tweetId
+      },
+      set(value) {
+        this.tweetId = value
       }
     },
-    call_lineChart() {
-      getLineChart().then(({ data }) => {
-        this.chartData = data['data']
-        this.chartOptionSetting()
-      })
-    },
-    call_radarChart() {
-      getRadarChart().then(({ data }) => {
-        this.radarChartData = data['data']
-      })
-    },
-    chartOptionSetting() {
-      this.chartOptions.tooltips = {
-        intersect: true,
-        external: function(tooltipModel) {
-          const datasets = this.chartData.datasets
-          if (undefined !== tooltipModel.body) {
-            const lastLabel = datasets[datasets.length - 1].label
-
-            if (lastLabel.indexOf('  |  ') !== -1) {
-              const rp = '  |  ' + lastLabel.split('  |  ')[1]
-              const tt = tooltipModel.body[0].lines[0]
-              tooltipModel.body[0].lines[0] = tt.replace(rp, '')
-            }
-          }
+    getRandomSpeedScroll: {
+      get() {
+        return this.randomSpeedScroll
+      },
+      set(value) {
+        if (value) {
+          this.randomSpeedScroll = value
+          this.setRandomFanartTimer()
+        } else {
+          this.randomSpeedScroll = value
+          clearTimeout(this.randomTimer)
         }
       }
-      this.visible.chart = true
+    }
+  },
+  watch: {
+    randomCount() {
+      this.randomFanartItem = this.randomFanartBase[this.randomCount]
+    }
+  },
+  beforeMount() {
+    this.$i18n.locale = this.locale
+    this.refreshTweet()
+    this.connect()
+    this.refreshRandomFanart()
+  },
+  beforeDestroy() {
+    this.disconnect()
+    clearTimeout(this.randomTimer)
+  },
+  methods: {
+    setRandomFanartTimer() {
+      const $that = this
+      $that.randomTimer = setInterval(() => {
+        if ($that.randomMaxCount > $that.randomCount) {
+          $that.randomCount = $that.randomCount + 1
+        } else {
+          clearTimeout($that.randomTimer)
+          $that.randomCount = 0
+          $that.setRandomFanartTimer()
+        }
+      }, $that.randomSpeed * 1000)
+
+      console.log($that.randomSpeed * 1000)
+    },
+    refreshRandomFanart() {
+      const $that = this
+      const params = { 'type': 'random' }
+      getDrawsLives(params).then(({ data }) => {
+        $that.randomFanartBase = data.tweet_list
+        $that.setRandomFanartTimer()
+      })
+    },
+    refreshTweet() {
+      const $that = this
+      const params = { 'type': 'only' }
+      getMemeberLiveTweets(params).then(({ data }) => {
+        const temp = []
+        data.tweet_list.forEach((item) => {
+          temp.push({ 'id': item.tweet_id, 'memberId': item.member_id })
+        })
+
+        $that.getTweet = temp[0].id
+      })
+    },
+    connect() {
+      const webSocketUrl = 'ws://localhost:8000/v1/member/tweet/live'
+      const subprotocols = ['live_tweet']
+      const $that = this
+      $that.socket = new WebSocket(webSocketUrl, subprotocols)
+      $that.socket.onopen = () => {
+        $that.status = 'connected'
+        console.log('websocket connection success')
+        // this.socket.send("{ 'text': 'test' }")
+        $that.socket.onmessage = ({ data }) => {
+          data = JSON.parse(data)
+          console.log(data)
+          $that.getTweet = data.tweet_id
+        }
+      }
+    },
+    disconnect() {
+      this.socket.close()
+      this.status = 'disconnected'
+    },
+    getRandomFanart() {
+      if (this.randomFanartBase.length > this.randomCount && this.randomCount > 0) {
+        return { backgroundImage: 'url(' + this.randomFanartItem.url + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
+      } else {
+        return { backgroundImage: 'url(' + this.baseUrl + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
+      }
+    },
+    getRecommendFanart() {
+      return { backgroundImage: 'url(' + this.baseUrl + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
+    },
+    stopRandomScroll() {
+      this.getRandomSpeedScroll = false
+    },
+    startRandomScroll() {
+      this.getRandomSpeedScroll = true
+    },
+    rightRandomScroll() {
+      this.getRandomSpeedScroll = false
+      if (this.randomMaxCount > this.randomCount) {
+        this.randomCount += 1
+      }
+    },
+    leftRandomScroll() {
+      this.getRandomSpeedScroll = false
+      if (this.randomCount > 0) {
+        this.randomCount -= 1
+      }
     }
   }
 }
