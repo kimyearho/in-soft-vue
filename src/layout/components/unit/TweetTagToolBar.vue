@@ -1,23 +1,28 @@
 <template>
-  <v-toolbar dark>
-    <v-toolbar-items :key="memberId">
-      <template v-for="item in disaplyTags">
-        <v-btn
-          :key="item"
-          class="mx-2"
-          fab
-          dark
-          outlined
-          :value="item"
-          large
-          color="white"
-          min-width="80px"
-          @click="setHashTag(item)"
-          v-text="item"
-        />
-      </template>
-    </v-toolbar-items>
-  </v-toolbar>
+  <v-container padding-top="0px">
+    <v-toolbar dark>
+      <v-container>
+        <v-toolbar-items :key="memberId">
+          <v-container>
+            <template v-for="item in disaplyTags">
+              <v-btn
+                :key="item"
+                class="mx-2"
+                fab
+                outlined
+                :value="item"
+                large
+                color="white"
+                min-width="8%"
+                @click="setHashTag(item)"
+                v-text="item"
+              />
+            </template>
+          </v-container>
+        </v-toolbar-items>
+      </v-container>
+    </v-toolbar>
+  </v-container>
 </template>
 <script>
 import {

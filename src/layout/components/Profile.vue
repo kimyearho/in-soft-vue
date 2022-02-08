@@ -78,9 +78,11 @@ export default {
       const user_id = GET_LOCAL_ITEM('user_id')
       const user_email = GET_LOCAL_ITEM('user_email')
       const user = { user_id, user_email }
-      this.$store.dispatch('user/getInfo', { user })
-        .then(result => {
-        })
+      if (user_id) {
+        this.$store.dispatch('user/getInfo', { user })
+          .then(result => {
+          })
+      }
     },
     async logout() {
 

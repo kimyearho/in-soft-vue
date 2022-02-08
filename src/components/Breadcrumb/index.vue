@@ -16,7 +16,7 @@
               </template>
               <template v-slot:item="{item}">
                 <v-breadcrumbs-item
-                  v-if="item.meta.title === 'Dashboard'"
+                  v-if="item.meta.breadcrumb"
                   class="breadcrumbs-home"
                   @click="link(item)"
                 >
