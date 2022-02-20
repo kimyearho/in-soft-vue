@@ -92,6 +92,7 @@ export default {
           }
 
           $that.tagData = Array.from(tagSet)
+          this.$emit('selectedTag', $that.tagData[0])
         })
       }
     }

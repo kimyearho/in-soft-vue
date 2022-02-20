@@ -25,6 +25,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import BreadCrumb from '@/components/Breadcrumb'
+import {
+  SET_LOCAL_ITEM,
+  GET_LOCAL_ITEM
+} from '@/utils/local-storage'
+import {
+  CREATE_UUID
+} from '@/utils/auth'
 
 export default {
   name: 'AppMain',
@@ -53,6 +60,19 @@ export default {
     },
     key() {
       return this.$route.path
+    }
+  },
+  created() {
+    this.$store.dispatch('statistics/connectStart', { 'url': '/v1/statistics/count/image', 'protocol': 'statistics' })
+    this.setUserIndex()
+  },
+  methods: {
+    setUserIndex() {
+      const user_index = GET_LOCAL_ITEM('user_index')
+      if (!user_index) {
+        const index = CREATE_UUID('v4')
+        SET_LOCAL_ITEM('user_index', index)
+      }
     }
   }
 }

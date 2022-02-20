@@ -19,8 +19,10 @@
             :tag-type="tagType"
             @selectedTag="val => selectTag(val)"
           />
-          <custom-tag-carousel
-            :selected-tag="selectedTag"
+          <tag-carousel
+            :draw-type="drawType"
+            :hash-tag="getTag"
+            :is-custom="isCustom"
           /></v-card>
       </v-row>
     </v-container>
@@ -39,23 +41,34 @@ import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
 // import { getMember, getMemeberTags } from '@/api/member'
 import TweetTagToolBar from '@/layout/components/unit/TweetTagToolBar.vue'
-import CustomTagCarousel from '@/layout/components/unit/CustomTagCarousel.vue'
+import TagCarousel from '@/layout/components/unit/TagCarousel.vue'
 
 export default {
   name: 'Kirinuki',
   components: {
     TweetTagToolBar,
-    CustomTagCarousel
+    TagCarousel
   },
   mixins: [StoreHelper],
   data() {
     return {
       selectedTag: '',
-      tagType: 'custom'
+      tagType: 'custom',
+      drawType: 'all',
+      isCustom: true
     }
   },
   computed: {
-    ...mapGetters(['locale'])
+    ...mapGetters(['locale']),
+    getTag: {
+      get() {
+        return this.selectedTag
+      },
+      set(value) {
+        this.selectedTag = value
+      }
+    }
+
   },
   beforeMount() {
     this.$i18n.locale = this.locale
@@ -64,7 +77,7 @@ export default {
   },
   methods: {
     selectTag: function(value) {
-      this.selectedTag = value
+      this.getTag = value
     }
   }
 }

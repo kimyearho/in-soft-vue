@@ -7,6 +7,7 @@ import app from './modules/app'
 import settings from './modules/settings'
 import user from './modules/user'
 import menu from './modules/menu'
+import statistics from './modules/statistics'
 
 Vue.use(Vuex)
 
@@ -17,7 +18,8 @@ const store = new Vuex.Store({
     app,
     settings,
     user,
-    menu
+    menu,
+    statistics
   },
   getters
 })

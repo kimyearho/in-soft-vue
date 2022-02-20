@@ -44,6 +44,6 @@ export function getDrawsLives(data) {
   return request({
     url: '/v1/tweet/draws/live',
     method: 'get',
-    params: { type: data.type }
+    params: { type: data.type, tagType: data.tagType }
   })
 }

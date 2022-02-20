@@ -34,17 +34,17 @@ export default {
         menu_id: 'M20202',
         activeClass: 'is-active'
       }
-    },
-    {
-      path: 'kirinuki',
-      name: 'kirinuki',
-      component: () => import('@/views/library/kirinuki/index.vue'),
-      meta: {
-        title: 'kirinuki',
-        role: 'user',
-        menu_id: 'M20204',
-        activeClass: 'is-active'
-      }
     }
+    // {
+    //   path: 'kirinuki',
+    //   name: 'kirinuki',
+    //   component: () => import('@/views/library/kirinuki/index.vue'),
+    //   meta: {
+    //     title: 'kirinuki',
+    //     role: 'user',
+    //     menu_id: 'M20204',
+    //     activeClass: 'is-active'
+    //   }
+    // }
   ]
 }

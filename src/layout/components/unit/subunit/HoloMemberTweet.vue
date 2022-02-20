@@ -19,7 +19,7 @@
             </v-card-title>
 
             <v-card
-              :style="fanartStyle('70vmin')"
+              :style="fanartStyle('80vmin')"
               @contextmenu.prevent
             />
             <v-card-subtitle style="text-align:center">
@@ -47,6 +47,13 @@
               >
                 Download
               </v-btn>
+              <a
+                ref="download"
+                hidden
+                :href="draw.url"
+                download
+                target="_blank"
+              />
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -154,45 +161,8 @@ export default {
       return { backgroundImage: 'url(' + draw.url + '?format=jpg), url(' + this.lodingImg + ')', backgroundSize: 'contain', backgroundPosition: 'center', height: heightSize }
     },
     imageDownLoad() {
-      // this.$refs.download.click()
-      downloadImg(this.draw.url)
+      this.$refs.download.click()
       this.$store.dispatch('statistics/sendMessage', { 'message': 'download', 'user': GET_LOCAL_ITEM('user_index'), 'type': this.type, 'data': this.draw })
-
-      function dataURLtoBlob(dataurl) {
-        var arr = dataurl.split(',')
-        var mime = arr[0].match(/:(.*?);/)[1]
-        var bstr = atob(arr[1])
-        var n = bstr.length
-        var u8arr = new Uint8Array(n)
-        while (n--) {
-          u8arr[n] = bstr.charCodeAt(n)
-        }
-        return new Blob([u8arr], {
-          type: mime
-        })
-      }
-
-      function downloadImg(imgSrc) {
-        var image = new Image()
-        image.crossOrigin = 'anonymous'
-        image.src = imgSrc
-        var fileName = image.src.split('/').pop()
-        image.onload = function() {
-          var canvas = document.createElement('canvas')
-          canvas.width = this.width
-          canvas.height = this.height
-          canvas.getContext('2d').drawImage(this, 0, 0)
-          if (typeof window.navigator.msSaveBlob !== 'undefined') {
-            window.navigator.msSaveBlob(dataURLtoBlob(canvas.toDataURL()), fileName)
-          } else {
-            var link = document.createElement('a')
-            link.href = canvas.toDataURL()
-            link.download = fileName
-            link.click()
-            link = null
-          }
-        }
-      }
     }
   }
 }

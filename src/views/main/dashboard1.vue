@@ -5,60 +5,50 @@
         <v-col cols="12">
           <v-card>
             <v-card-title>Live Streaming</v-card-title>
-            <v-card-subtitle>
-              <small>Copyright © INSOFT. All rights Reserved.</small>
-            </v-card-subtitle>
-            23232323
+            <template v-for="item in getStream">
+              <v-container :key="item.url">
+                <v-card>
+                  <a
+                    :href="item.url"
+                    target="_blank"
+                  >
+                    <v-container>
+                      <p v-text="item.member" />
+                      <v-container center>
+                        <img
+                          :src="item.image_url"
+                          width="100%"
+                          height="100%"
+                        >
+                      </v-container>
+                      <v-container>
+                        <p v-text="item.date" />
+                        <p v-text="item.text" />
+                      </v-container>
+                    </v-container>
+                  </a>
+                </v-card>
+              </v-container>
+            </template>
           </v-card>
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="6">
-          <v-card>
-            <v-card>
-              <v-card-actions>
-                <v-card-title>Random Fanart</v-card-title>
-                <v-spacer />
-                <v-btn
-                  @click="leftRandomScroll()"
-                >
-                  Left
-                </v-btn>
-                <v-btn
-                  v-show="getRandomSpeedScroll"
-                  @click="stopRandomScroll()"
-                >
-                  stop
-                </v-btn>
-                <v-btn
-                  v-show="!getRandomSpeedScroll"
-                  @click="startRandomScroll()"
-                >
-                  start
-                </v-btn>
-                <v-btn
-                  @click="rightRandomScroll()"
-                >
-                  Right
-                </v-btn>
-                <v-spacer />
-              </v-card-actions></v-card>
-            <v-card
-              min-width="400px"
-              min-height="400px"
-              :style="getRandomFanart()"
-            />
-          </v-card>
+          <DrawCard
+            :maxcount="60*60"
+            :speed="8"
+            :art-type="randomArtType"
+            :tag-type="randomTagType"
+          />
         </v-col>
         <v-col cols="6">
-          <v-card>
-            <v-card-title>Recommended Fanart</v-card-title>
-            <v-card
-              min-width="400px"
-              min-height="400px"
-              :style="getRecommendFanart()"
-            />
-          </v-card>
+          <DrawCard
+            :maxcount="60*60"
+            :speed="8"
+            :art-type="recommendArtType"
+            :tag-type="recommendTagType"
+          />
         </v-col>
       </v-row>
       <v-row>
@@ -67,11 +57,31 @@
             min-width="400px"
             min-height="1000px"
           >
-            <v-card-title>Live News</v-card-title>
-            <v-card-subtitle>
-              <small>Copyright © INSOFT. All rights Reserved.</small>
-            </v-card-subtitle>
-            23232323
+            <v-card-title>Live Hololive News by hololive official site</v-card-title>
+            <template v-for="item in getNews">
+              <v-container :key="item.url">
+                <v-card>
+                  <a
+                    :href="item.url"
+                    target="_blank"
+                  >
+                    <v-container>
+                      <v-container center>
+                        <img
+                          :src="item.image_url"
+                          width="100%"
+                          height="100%"
+                        >
+                      </v-container>
+                      <v-container>
+                        <p v-text="item.date" />
+                        <p v-text="item.text" />
+                      </v-container>
+                    </v-container>
+                  </a>
+                </v-card>
+              </v-container>
+            </template>
           </v-card>
         </v-col>
         <v-col cols="6">
@@ -87,10 +97,10 @@
                 <tweet-component-tweet
                   :id="getTweet"
                   :key="getTweet"
+                  fill-height
                 />
               </template>
-            </v-container>
-          </v-card>
+            </v-container></v-card>
         </v-col>
       </v-row>
     </page-container>
@@ -99,23 +109,24 @@
 
 <script>
 import { getMemeberLiveTweets } from '@/api/member'
-import { getDrawsLives } from '@/api/tweet'
+import DrawCard from '@/layout/components/unit/DrawCard.vue'
+import axios from 'axios'
+import cheerio from 'cheerio'
 
 export default {
   name: 'Dashboard',
   components: {
+    DrawCard
   },
   data() {
     return {
       tweetId: null,
-      randomFanartBase: [],
-      randomCount: 0,
-      randomMaxCount: 60 * 60,
-      randomSpeed: 5,
-      randomSpeedScroll: true,
-      baseUrl: 'https://pbs.twimg.com/media/FKU3L1TakAEl2gB',
-      randomTimer: null,
-      randomFanartItem: {}
+      randomArtType: 'random',
+      randomTagType: 'fanart',
+      recommendArtType: 'recommend',
+      recommendTagType: 'fanart',
+      news: '',
+      stream: []
     }
   },
   computed: {
@@ -127,58 +138,58 @@ export default {
         this.tweetId = value
       }
     },
-    getRandomSpeedScroll: {
+    getNews: {
       get() {
-        return this.randomSpeedScroll
-      },
-      set(value) {
-        if (value) {
-          this.randomSpeedScroll = value
-          this.setRandomFanartTimer()
-        } else {
-          this.randomSpeedScroll = value
-          clearTimeout(this.randomTimer)
-        }
+        return this.news
       }
-    }
-  },
-  watch: {
-    randomCount() {
-      this.randomFanartItem = this.randomFanartBase[this.randomCount]
+    },
+    getStream: {
+      get() {
+        return this.stream
+      }
     }
   },
   beforeMount() {
     this.$i18n.locale = this.locale
     this.refreshTweet()
     this.connect()
-    this.refreshRandomFanart()
+    this.refreshNews()
+    this.refreshStreams()
   },
   beforeDestroy() {
     this.disconnect()
-    clearTimeout(this.randomTimer)
   },
   methods: {
-    setRandomFanartTimer() {
-      const $that = this
-      $that.randomTimer = setInterval(() => {
-        if ($that.randomMaxCount > $that.randomCount) {
-          $that.randomCount = $that.randomCount + 1
-        } else {
-          clearTimeout($that.randomTimer)
-          $that.randomCount = 0
-          $that.setRandomFanartTimer()
-        }
-      }, $that.randomSpeed * 1000)
-
-      console.log($that.randomSpeed * 1000)
+    refreshStreams() {
     },
-    refreshRandomFanart() {
-      const $that = this
-      const params = { 'type': 'random' }
-      getDrawsLives(params).then(({ data }) => {
-        $that.randomFanartBase = data.tweet_list
-        $that.setRandomFanartTimer()
-      })
+    refreshNews() {
+      const getHtml = async() => {
+        try {
+          return await axios.get('https://hololive.hololivepro.com/')
+        } catch (error) {
+          console.error(error)
+        }
+      }
+
+      getHtml()
+        .then(html => {
+          const ulList = []
+          const $HTML = cheerio.load(html.data)
+          const $bodyList = $HTML('div.news ul').children('li')
+
+          $bodyList.each(function(i, elem) {
+            if (i < 2) {
+              ulList[i] = {
+                url: $HTML(this).find('a').attr('href'),
+                date: $HTML(this).find('.txt_box').children('p').get(0).children[0].data,
+                text: $HTML(this).find('.txt_box').children('p').get(1).children[0].data,
+                image_url: $HTML(this).find('a figure img').attr('src')
+              }
+            }
+          })
+          this.news = ulList
+          return ulList
+        })
     },
     refreshTweet() {
       const $that = this
@@ -188,7 +199,6 @@ export default {
         data.tweet_list.forEach((item) => {
           temp.push({ 'id': item.tweet_id, 'memberId': item.member_id })
         })
-
         $that.getTweet = temp[0].id
       })
     },
@@ -211,34 +221,6 @@ export default {
     disconnect() {
       this.socket.close()
       this.status = 'disconnected'
-    },
-    getRandomFanart() {
-      if (this.randomFanartBase.length > this.randomCount && this.randomCount > 0) {
-        return { backgroundImage: 'url(' + this.randomFanartItem.url + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
-      } else {
-        return { backgroundImage: 'url(' + this.baseUrl + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
-      }
-    },
-    getRecommendFanart() {
-      return { backgroundImage: 'url(' + this.baseUrl + '?format=jpg)', backgroundSize: 'contain', backgroundPosition: 'center' }
-    },
-    stopRandomScroll() {
-      this.getRandomSpeedScroll = false
-    },
-    startRandomScroll() {
-      this.getRandomSpeedScroll = true
-    },
-    rightRandomScroll() {
-      this.getRandomSpeedScroll = false
-      if (this.randomMaxCount > this.randomCount) {
-        this.randomCount += 1
-      }
-    },
-    leftRandomScroll() {
-      this.getRandomSpeedScroll = false
-      if (this.randomCount > 0) {
-        this.randomCount -= 1
-      }
     }
   }
 }

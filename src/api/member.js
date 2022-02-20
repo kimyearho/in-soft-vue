@@ -7,6 +7,14 @@ export function getMember(data) {
   })
 }
 
+export function getMemberCustomes(data) {
+  return request({
+    url: '/v1/member/customes',
+    method: 'get',
+    params: { member_id: data.member_id }
+  })
+}
+
 export function getMemberChannel(data) {
   return request({
     url: '/v1/member/youtube/channel/list',
