@@ -78,9 +78,11 @@ export default {
       const user_id = GET_LOCAL_ITEM('user_id')
       const user_email = GET_LOCAL_ITEM('user_email')
       const user = { user_id, user_email }
-      this.$store.dispatch('user/getInfo', { user })
-        .then(result => {
-        })
+      if (user_id) {
+        this.$store.dispatch('user/getInfo', { user })
+          .then(result => {
+          })
+      }
     },
     async logout() {
 
@@ -95,11 +97,13 @@ export default {
 
       await this.$gAuth.signIn()
         .then(data => {
+          const infoObject = data[Object.keys(data)[2]]
           const userInfo = {
-            accessToken: data.$b.access_token,
-            userId: data.it.Re,
-            userEmail: data.it.Tt,
-            picture: data.it.lK
+            accessToken: data[Object.keys(data)[1]].access_token,
+            userId: infoObject[Object.keys(infoObject)[1]],
+            userName: infoObject[Object.keys(infoObject)[2]],
+            userEmail: infoObject[Object.keys(infoObject)[5]],
+            picture: infoObject[Object.keys(infoObject)[4]]
           }
           this.$store.dispatch('user/googleUserLogin', { userInfo })
             .then(result => {
