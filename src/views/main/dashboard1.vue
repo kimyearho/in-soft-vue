@@ -203,7 +203,7 @@ export default {
       })
     },
     connect() {
-      const webSocketUrl = 'ws://localhost:8000/v1/member/tweet/live'
+      const webSocketUrl = 'ws://' + process.env.VUE_APP_BASE_API + ':8000/v1/member/tweet/live'
       const subprotocols = ['live_tweet']
       const $that = this
       $that.socket = new WebSocket(webSocketUrl, subprotocols)
